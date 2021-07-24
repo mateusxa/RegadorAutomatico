@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=E:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Firmware.production.sym \
   --cmf=dist/default/production\Firmware.production.cmf -z -Q18F2620 \
-  -oC:\Users\Mateus\AppData\Local\Temp\xcAs4pc.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\Mateus\AppData\Local\Temp\xcAsers.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Firmware.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=080h-0F7Fh -pstack=STACK -ACODE=00h-0FFFFh \
   -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
@@ -25,7 +25,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Mateus\AppData\Local\Temp\xcAs4pc.o \
+  C:\Users\Mateus\AppData\Local\Temp\xcAsers.o \
   dist/default/production\Firmware.production.o 
 
 Object code version is 3.11
@@ -35,7 +35,7 @@ Machine type is 18F2620
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Mateus\AppData\Local\Temp\xcAs4pc.o
+C:\Users\Mateus\AppData\Local\Temp\xcAsers.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  E        E        4        4       0
@@ -45,42 +45,44 @@ dist/default/production\Firmware.production.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                 33       33        1        1       1
-                text30                             1168     1168        C        4       0
-                text29                             1184     1184        6        4       0
-                text28                             117E     117E        6        4       0
-                text27                             1092     1092       2C        4       0
-                text26                             1066     1066       2C        4       0
-                text25                              75E      75E      14A        4       0
-                text24                              D50      D50       9A        4       0
-                text23                              B06      B06      10A        4       0
-                text22                              C10      C10       A6        4       0
-                text21                              F1E      F1E       48        4       0
-                text20                              ED6      ED6       48        4       0
-                text19                              8A8      8A8      146        4       0
-                text18                              40E      40E      206        4       0
-                text17                              DEA      DEA       8E        4       0
-                text16                             10BE     10BE       22        4       0
-                text15                              F66      F66       42        4       0
-                intcode_body                        FE0      FE0       2E        4       0
-                text13                              E78      E78       5E        4       0
-                text12                             1100     1100       1E        4       0
-                text11                             1174     1174        A        4       0
-                text10                             1138     1138       16        4       0
-                text9                              10E0     10E0       20        4       0
-                text8                              114E     114E        E        4       0
-                text7                              111E     111E       1A        4       0
-                text6                               9EE      9EE      118        4       0
-                text5                              115C     115C        C        4       0
-                text4                              103A     103A       2C        4       0
-                text3                              100E     100E       2C        4       0
-                text2                               614      614      14A        4       0
-                text1                               CB6      CB6       9A        4       0
+                text32                             1134     1134        C        4       0
+                text31                             1150     1150        6        4       0
+                text30                             114A     114A        6        4       0
+                text29                             105E     105E       2C        4       0
+                text28                             1032     1032       2C        4       0
+                text27                              558      558      14A        4       0
+                text26                              C90      C90       9A        4       0
+                text25                              A46      A46      10A        4       0
+                text24                              B50      B50       A6        4       0
+                text23                              E5E      E5E       48        4       0
+                text22                              E16      E16       48        4       0
+                text21                              7E8      7E8      146        4       0
+                text20                              EEC      EEC       46        4       0
+                text19                              EA6      EA6       46        4       0
+                text18                              6A2      6A2      146        4       0
+                text17                              D2A      D2A       8E        4       0
+                text16                             108A     108A       22        4       0
+                text15                              F32      F32       42        4       0
+                intcode_body                        FAC      FAC       2E        4       0
+                text13                              DB8      DB8       5E        4       0
+                text12                             10CC     10CC       1E        4       0
+                text11                             1140     1140        A        4       0
+                text10                             1104     1104       16        4       0
+                text9                              10AC     10AC       20        4       0
+                text8                              111A     111A        E        4       0
+                text7                              10EA     10EA       1A        4       0
+                text6                               92E      92E      118        4       0
+                text5                              1128     1128        C        4       0
+                text4                              1006     1006       2C        4       0
+                text3                               FDA      FDA       2C        4       0
+                text2                               40E      40E      14A        4       0
+                text1                               BF6      BF6       9A        4       0
                 text0                                12       12      3FC        4       0
                 cstackCOMRAM                         1D       1D       13        1       1
                 dataCOMRAM                           30       30        3        1       1
                 bssCOMRAM                             1        1       1C        1       1
-                cinit                               FA8      FA8       38        4       0
-                idataCOMRAM                        118A     118A        3        4       0
+                cinit                               F74      F74       38        4       0
+                idataCOMRAM                        1156     1156        3        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -89,39 +91,41 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
                 reset_vec                             0        0        4         0
-                text30                             1168     1168        C         0
-                text29                             1184     1184        6         0
-                text28                             117E     117E        6         0
-                text27                             1092     1092       2C         0
-                text26                             1066     1066       2C         0
-                text25                              75E      75E      14A         0
-                text24                              D50      D50       9A         0
-                text23                              B06      B06      10A         0
-                text22                              C10      C10       A6         0
-                text21                              F1E      F1E       48         0
-                text20                              ED6      ED6       48         0
-                text19                              8A8      8A8      146         0
-                text18                              40E      40E      206         0
-                text17                              DEA      DEA       8E         0
-                text16                             10BE     10BE       22         0
-                text15                              F66      F66       42         0
-                intcode_body                        FE0      FE0       2E         0
-                text13                              E78      E78       5E         0
-                text12                             1100     1100       1E         0
-                text11                             1174     1174        A         0
-                text10                             1138     1138       16         0
-                text9                              10E0     10E0       20         0
-                text8                              114E     114E        E         0
-                text7                              111E     111E       1A         0
-                text6                               9EE      9EE      118         0
-                text5                              115C     115C        C         0
-                text4                              103A     103A       2C         0
-                text3                              100E     100E       2C         0
-                text2                               614      614      14A         0
-                text1                               CB6      CB6       9A         0
+                text32                             1134     1134        C         0
+                text31                             1150     1150        6         0
+                text30                             114A     114A        6         0
+                text29                             105E     105E       2C         0
+                text28                             1032     1032       2C         0
+                text27                              558      558      14A         0
+                text26                              C90      C90       9A         0
+                text25                              A46      A46      10A         0
+                text24                              B50      B50       A6         0
+                text23                              E5E      E5E       48         0
+                text22                              E16      E16       48         0
+                text21                              7E8      7E8      146         0
+                text20                              EEC      EEC       46         0
+                text19                              EA6      EA6       46         0
+                text18                              6A2      6A2      146         0
+                text17                              D2A      D2A       8E         0
+                text16                             108A     108A       22         0
+                text15                              F32      F32       42         0
+                intcode_body                        FAC      FAC       2E         0
+                text13                              DB8      DB8       5E         0
+                text12                             10CC     10CC       1E         0
+                text11                             1140     1140        A         0
+                text10                             1104     1104       16         0
+                text9                              10AC     10AC       20         0
+                text8                              111A     111A        E         0
+                text7                              10EA     10EA       1A         0
+                text6                               92E      92E      118         0
+                text5                              1128     1128        C         0
+                text4                              1006     1006       2C         0
+                text3                               FDA      FDA       2C         0
+                text2                               40E      40E      14A         0
+                text1                               BF6      BF6       9A         0
                 text0                                12       12      3FC         0
-                cinit                               FA8      FA8       38         0
-                idataCOMRAM                        118A     118A        3         0
+                cinit                               F74      F74       38         0
+                idataCOMRAM                        1156     1156        3         0
 
         CLASS   CONST          
 
@@ -191,7 +195,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  000033  000034         1       1  COMRAM  
-                intcode                        000008  001185  00118D         4       0  CODE    
+                intcode                        000008  001151  001159         4       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -215,15 +219,15 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF              100
         BIGRAM           000034-000F7F              F4C
         CODE             000004-000007                4
-                         00118D-00FFFF             EE73
+                         001159-00FFFF             EEA7
         COMRAM           000034-00007F               4C
         CONST            000004-000007                4
-                         00118D-00FFFF             EE73
+                         001159-00FFFF             EEA7
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      00118D-00FFFF             EE73
+        MEDIUMCONST      001159-00FFFF             EEA7
         RAM              000080-000F7F              100
         SFR              000F80-000FFF               80
-        SMALLCONST       00118D-00FFFF              100
+        SMALLCONST       001159-00FFFF              100
         STACK            000080-000F7F              F00
 
                                   Symbol Table
@@ -234,6 +238,8 @@ AddBCD@temp                   cstackCOMRAM 00002B
 BlinkDigit@index              cstackCOMRAM 00002A
 ChangeTime@Address            cstackCOMRAM 00001E
 ChangeTime@Time               cstackCOMRAM 00001D
+DecrementTime@Time            cstackCOMRAM 000021
+DecrementTimeHour@Time        cstackCOMRAM 000021
 Display@Hours                 cstackCOMRAM 00002D
 Display@Lower_Hours           cstackCOMRAM 00002A
 Display@Lower_Minutes         cstackCOMRAM 00002C
@@ -246,39 +252,41 @@ SubBCD@Number1                cstackCOMRAM 00002A
 SubBCD@Number2                cstackCOMRAM 000028
 SubBCD@temp                   cstackCOMRAM 00002B
 _ACKEN                        (abs)        007E2C
-_AddBCD                       text4        00103A
+_AddBCD                       text4        001006
 _Blink                        bssCOMRAM    000011
-_BlinkDigit                   text13       000E78
+_BlinkDigit                   text13       000DB8
 _Blink_First_Digit            bssCOMRAM    000013
 _Blink_Second_Digit           bssCOMRAM    000012
-_Buzz                         text30       001168
+_Buzz                         text32       001134
 _BuzzerFlag                   bssCOMRAM    000009
 _CCP1CON                      (abs)        000FBD
 _CCP1CONbits                  (abs)        000FBD
 _CCPR1L                       (abs)        000FBE
-_ChangeTime                   text22       000C10
+_ChangeTime                   text24       000B50
 _CurrentTime                  bssCOMRAM    00001A
 _CurrentValveTime             bssCOMRAM    000004
 _CurrentWateringTime          bssCOMRAM    000006
-_Display                      text6        0009EE
-_GPIOconfig                   text12       001100
-_I2Cconfig                    text11       001174
-_INT0interruption             text23       000B06
-_INT1interruption             text19       0008A8
-_INT2interruption             text18       00040E
+_DecrementTime                text20       000EEC
+_DecrementTimeHour            text19       000EA6
+_Display                      text6        00092E
+_GPIOconfig                   text12       0010CC
+_I2Cconfig                    text11       001140
+_INT0interruption             text25       000A46
+_INT1interruption             text21       0007E8
+_INT2interruption             text18       0006A2
 _INTCON                       (abs)        000FF2
 _INTCON2                      (abs)        000FF1
 _INTCON3                      (abs)        000FF0
 _INTCON3bits                  (abs)        000FF0
 _INTCONbits                   (abs)        000FF2
-_INTconfig                    text10       001138
-_IncrementTime                text21       000F1E
-_IncrementTimeHour            text20       000ED6
+_INTconfig                    text10       001104
+_IncrementTime                text23       000E5E
+_IncrementTimeHour            text22       000E16
 _LATA                         (abs)        000F89
 _LATB                         (abs)        000F8A
 _LastSecond                   bssCOMRAM    000008
-_MCUconfig                    text7        00111E
-_MCUinit                      text5        00115C
+_MCUconfig                    text7        0010EA
+_MCUinit                      text5        001128
 _OSCCON                       (abs)        000FD3
 _PEN                          (abs)        007E2A
 _PIE1                         (abs)        000F9D
@@ -289,7 +297,7 @@ _PIR1bits                     (abs)        000F9E
 _PIR2bits                     (abs)        000FA1
 _PORTCbits                    (abs)        000F82
 _PR2                          (abs)        000FCB
-_PWMconfig                    text9        0010E0
+_PWMconfig                    text9        0010AC
 _SEN                          (abs)        007E28
 _SSPADD                       (abs)        000FC8
 _SSPBUF                       (abs)        000FC9
@@ -298,7 +306,7 @@ _SSPCON2bits                  (abs)        000FC5
 _SSPIF                        (abs)        007CF3
 _SSPSTATbits                  (abs)        000FC7
 _State                        bssCOMRAM    000010
-_SubBCD                       text3        00100E
+_SubBCD                       text3        000FDA
 _T0CON                        (abs)        000FD5
 _T0CONbits                    (abs)        000FD5
 _T1CON                        (abs)        000FCD
@@ -306,25 +314,25 @@ _T1CONbits                    (abs)        000FCD
 _T2CON                        (abs)        000FCA
 _T2CONbits                    (abs)        000FCA
 _T3CON                        (abs)        000FB1
-_TIMERconfig                  text8        00114E
-_TMR0enable                   text29       001184
-_TMR0interruption             text17       000DEA
-_TMR1enable                   text28       00117E
-_TMR1interruption             text16       0010BE
+_TIMERconfig                  text8        00111A
+_TMR0enable                   text31       001150
+_TMR0interruption             text17       000D2A
+_TMR1enable                   text30       00114A
+_TMR1interruption             text16       00108A
 _TMR3                         (abs)        000FB2
-_TMR3interruption             text15       000F66
+_TMR3interruption             text15       000F32
 _TRISA                        (abs)        000F92
 _TRISB                        (abs)        000F93
 _TRISC                        (abs)        000F94
 _TRISCbits                    (abs)        000F94
 _TargetTime                   dataCOMRAM   000030
-_UpdateCurrentTime            text2        000614
+_UpdateCurrentTime            text2        00040E
 _UpdateTimeFlag               bssCOMRAM    00000F
 _UpdateTimePrescale           bssCOMRAM    00000A
 _ValveEnable                  bssCOMRAM    00000C
 _ValveEnableLock              bssCOMRAM    00000B
 _ValveTime                    bssCOMRAM    000014
-_WakeUp                       text1        000CB6
+_WakeUp                       text1        000BF6
 _WakeUpTime                   bssCOMRAM    000001
 _WaterEnable                  bssCOMRAM    00000E
 _WaterEnableLock              bssCOMRAM    00000D
@@ -391,7 +399,7 @@ __Hreset_vec                  reset_vec    000004
 __Hrparam                     rparam       000000
 __Hsfr                        sfr          000000
 __Hsmallconst                 smallconst   000000
-__Hspace_0                    (abs)        00118D
+__Hspace_0                    (abs)        001159
 __Hspace_1                    (abs)        000034
 __Hspace_2                    (abs)        000000
 __Hspace_4                    (abs)        60000E
@@ -423,6 +431,8 @@ __Htext28                     text28       000000
 __Htext29                     text29       000000
 __Htext3                      text3        000000
 __Htext30                     text30       000000
+__Htext31                     text31       000000
+__Htext32                     text32       000000
 __Htext4                      text4        000000
 __Htext5                      text5        000000
 __Htext6                      text6        000000
@@ -523,13 +533,15 @@ __Ltext28                     text28       000000
 __Ltext29                     text29       000000
 __Ltext3                      text3        000000
 __Ltext30                     text30       000000
+__Ltext31                     text31       000000
+__Ltext32                     text32       000000
 __Ltext4                      text4        000000
 __Ltext5                      text5        000000
 __Ltext6                      text6        000000
 __Ltext7                      text7        000000
 __Ltext8                      text8        000000
 __Ltext9                      text9        000000
-__S0                          (abs)        00118D
+__S0                          (abs)        001159
 __S1                          (abs)        000034
 __S2                          (abs)        000000
 __S4                          (abs)        000000
@@ -541,82 +553,88 @@ ___rparam_used                (abs)        000001
 ___sp                         stack        000000
 __accesstop                   (abs)        000080
 __activetblptr                (abs)        000002
-__end_of_AddBCD               text4        001066
-__end_of_BlinkDigit           text13       000ED6
-__end_of_Buzz                 text30       001174
-__end_of_ChangeTime           text22       000CB6
-__end_of_Display              text6        000B06
-__end_of_GPIOconfig           text12       00111E
-__end_of_I2Cconfig            text11       00117E
-__end_of_INT0interruption     text23       000C10
-__end_of_INT1interruption     text19       0009EE
-__end_of_INT2interruption     text18       000614
-__end_of_INTconfig            text10       00114E
-__end_of_IncrementTime        text21       000F66
-__end_of_IncrementTimeHour    text20       000F1E
-__end_of_MCUconfig            text7        001138
-__end_of_MCUinit              text5        001168
-__end_of_PWMconfig            text9        001100
-__end_of_SubBCD               text3        00103A
-__end_of_TIMERconfig          text8        00115C
-__end_of_TMR0enable           text29       00118A
-__end_of_TMR0interruption     text17       000E78
-__end_of_TMR1enable           text28       001184
-__end_of_TMR1interruption     text16       0010E0
-__end_of_TMR3interruption     text15       000FA8
-__end_of_UpdateCurrentTime    text2        00075E
-__end_of_WakeUp               text1        000D50
-__end_of__initialization      cinit        000FD2
+__end_of_AddBCD               text4        001032
+__end_of_BlinkDigit           text13       000E16
+__end_of_Buzz                 text32       001140
+__end_of_ChangeTime           text24       000BF6
+__end_of_DecrementTime        text20       000F32
+__end_of_DecrementTimeHour    text19       000EEC
+__end_of_Display              text6        000A46
+__end_of_GPIOconfig           text12       0010EA
+__end_of_I2Cconfig            text11       00114A
+__end_of_INT0interruption     text25       000B50
+__end_of_INT1interruption     text21       00092E
+__end_of_INT2interruption     text18       0007E8
+__end_of_INTconfig            text10       00111A
+__end_of_IncrementTime        text23       000EA6
+__end_of_IncrementTimeHour    text22       000E5E
+__end_of_MCUconfig            text7        001104
+__end_of_MCUinit              text5        001134
+__end_of_PWMconfig            text9        0010CC
+__end_of_SubBCD               text3        001006
+__end_of_TIMERconfig          text8        001128
+__end_of_TMR0enable           text31       001156
+__end_of_TMR0interruption     text17       000DB8
+__end_of_TMR1enable           text30       001150
+__end_of_TMR1interruption     text16       0010AC
+__end_of_TMR3interruption     text15       000F74
+__end_of_UpdateCurrentTime    text2        000558
+__end_of_WakeUp               text1        000C90
+__end_of__initialization      cinit        000F9E
 __end_of_main                 text0        00040E
-__end_of_my_isr_routine       intcode_body 00100E
-__end_ofi2_AddBCD             text27       0010BE
-__end_ofi2_SubBCD             text26       001092
-__end_ofi2_UpdateCurrentTime  text25       0008A8
-__end_ofi2_WakeUp             text24       000DEA
-__initialization              cinit        000FA8
+__end_of_my_isr_routine       intcode_body 000FDA
+__end_ofi2_AddBCD             text29       00108A
+__end_ofi2_SubBCD             text28       00105E
+__end_ofi2_UpdateCurrentTime  text27       0006A2
+__end_ofi2_WakeUp             text26       000D2A
+__initialization              cinit        000F74
 __mediumconst                 mediumconst  000000
 __pbssCOMRAM                  bssCOMRAM    000001
-__pcinit                      cinit        000FA8
+__pcinit                      cinit        000F74
 __pcstackCOMRAM               cstackCOMRAM 00001D
 __pdataCOMRAM                 dataCOMRAM   000030
-__pidataCOMRAM                idataCOMRAM  00118A
+__pidataCOMRAM                idataCOMRAM  001156
 __pintcode                    intcode      000008
-__pintcode_body               intcode_body 000FE0
+__pintcode_body               intcode_body 000FAC
 __ptext0                      text0        000012
-__ptext1                      text1        000CB6
-__ptext10                     text10       001138
-__ptext11                     text11       001174
-__ptext12                     text12       001100
-__ptext13                     text13       000E78
-__ptext15                     text15       000F66
-__ptext16                     text16       0010BE
-__ptext17                     text17       000DEA
-__ptext18                     text18       00040E
-__ptext19                     text19       0008A8
-__ptext2                      text2        000614
-__ptext20                     text20       000ED6
-__ptext21                     text21       000F1E
-__ptext22                     text22       000C10
-__ptext23                     text23       000B06
-__ptext24                     text24       000D50
-__ptext25                     text25       00075E
-__ptext26                     text26       001066
-__ptext27                     text27       001092
-__ptext28                     text28       00117E
-__ptext29                     text29       001184
-__ptext3                      text3        00100E
-__ptext30                     text30       001168
-__ptext4                      text4        00103A
-__ptext5                      text5        00115C
-__ptext6                      text6        0009EE
-__ptext7                      text7        00111E
-__ptext8                      text8        00114E
-__ptext9                      text9        0010E0
+__ptext1                      text1        000BF6
+__ptext10                     text10       001104
+__ptext11                     text11       001140
+__ptext12                     text12       0010CC
+__ptext13                     text13       000DB8
+__ptext15                     text15       000F32
+__ptext16                     text16       00108A
+__ptext17                     text17       000D2A
+__ptext18                     text18       0006A2
+__ptext19                     text19       000EA6
+__ptext2                      text2        00040E
+__ptext20                     text20       000EEC
+__ptext21                     text21       0007E8
+__ptext22                     text22       000E16
+__ptext23                     text23       000E5E
+__ptext24                     text24       000B50
+__ptext25                     text25       000A46
+__ptext26                     text26       000C90
+__ptext27                     text27       000558
+__ptext28                     text28       001032
+__ptext29                     text29       00105E
+__ptext3                      text3        000FDA
+__ptext30                     text30       00114A
+__ptext31                     text31       001150
+__ptext32                     text32       001134
+__ptext4                      text4        001006
+__ptext5                      text5        001128
+__ptext6                      text6        00092E
+__ptext7                      text7        0010EA
+__ptext8                      text8        00111A
+__ptext9                      text9        0010AC
 __ramtop                      ramtop       001000
 __size_of_AddBCD              (abs)        000000
 __size_of_BlinkDigit          (abs)        000000
 __size_of_Buzz                (abs)        000000
 __size_of_ChangeTime          (abs)        000000
+__size_of_DecrementTime       (abs)        000000
+__size_of_DecrementTimeHour   (abs)        000000
 __size_of_Display             (abs)        000000
 __size_of_GPIOconfig          (abs)        000000
 __size_of_I2Cconfig           (abs)        000000
@@ -648,19 +666,19 @@ __smallconst                  smallconst   000000
 _main                         text0        000012
 _my_isr_routine               intcode      000008
 btemp                         temp         000033
-end_of_initialization         cinit        000FD2
+end_of_initialization         cinit        000F9E
 i2AddBCD@Number1              cstackCOMRAM 00001F
 i2AddBCD@Number2              cstackCOMRAM 00001D
 i2AddBCD@temp                 cstackCOMRAM 000020
 i2SubBCD@Number1              cstackCOMRAM 00001F
 i2SubBCD@Number2              cstackCOMRAM 00001D
 i2SubBCD@temp                 cstackCOMRAM 000020
-i2_AddBCD                     text27       001092
-i2_SubBCD                     text26       001066
-i2_UpdateCurrentTime          text25       00075E
-i2_WakeUp                     text24       000D50
+i2_AddBCD                     text29       00105E
+i2_SubBCD                     text28       001032
+i2_UpdateCurrentTime          text27       000558
+i2_WakeUp                     text26       000C90
 int$flags                     temp         000033
-int_func                      intcode_body 000FE0
+int_func                      intcode_body 000FAC
 intlevel0                     text         000000
 intlevel1                     text         000000
 intlevel2                     text         000000
@@ -670,7 +688,7 @@ isa$xinst                     (abs)        000000
 stackhi                       (abs)        000F7F
 stacklo                       (abs)        000080
 start                         init         00000E
-start_initialization          cinit        000FA8
+start_initialization          cinit        000F74
 ttemp5                        temp         000034
 ttemp6                        temp         000037
 ttemp7                        temp         00003B
@@ -681,42 +699,44 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		i2_AddBCD      		CODE           	1092	0000	44
-		i2_UpdateCurrentTime		CODE           	075E	0000	330
-		i2_WakeUp      		CODE           	0D50	0000	154
-		__initialization		CODE           	0FA8	0000	42
-		i2_SubBCD      		CODE           	1066	0000	44
+		i2_AddBCD      		CODE           	105E	0000	44
+		i2_UpdateCurrentTime		CODE           	0558	0000	330
+		i2_WakeUp      		CODE           	0C90	0000	154
+		__initialization		CODE           	0F74	0000	42
+		i2_SubBCD      		CODE           	1032	0000	44
 
 shared estimated size: 614
 
 main.c
-		_IncrementTimeHour		CODE           	0ED6	0000	72
-		_Buzz          		CODE           	1168	0000	12
-		_UpdateCurrentTime		CODE           	0614	0000	330
-		_BlinkDigit    		CODE           	0E78	0000	94
-		_INT0interruption		CODE           	0B06	0000	266
-		_TMR0interruption		CODE           	0DEA	0000	142
-		_TMR0enable    		CODE           	1184	0000	6
-		_INT1interruption		CODE           	08A8	0000	326
-		_TMR1interruption		CODE           	10BE	0000	34
-		_SubBCD        		CODE           	100E	0000	44
+		_IncrementTimeHour		CODE           	0E16	0000	72
+		_Buzz          		CODE           	1134	0000	12
+		_UpdateCurrentTime		CODE           	040E	0000	330
+		_BlinkDigit    		CODE           	0DB8	0000	94
+		_INT0interruption		CODE           	0A46	0000	266
+		_TMR0interruption		CODE           	0D2A	0000	142
+		_TMR0enable    		CODE           	1150	0000	6
+		_INT1interruption		CODE           	07E8	0000	326
+		_TMR1interruption		CODE           	108A	0000	34
+		_SubBCD        		CODE           	0FDA	0000	44
 		_main          		CODE           	0012	0000	1020
-		_TMR1enable    		CODE           	117E	0000	6
-		_INT2interruption		CODE           	040E	0000	518
-		_TIMERconfig   		CODE           	114E	0000	14
-		_GPIOconfig    		CODE           	1100	0000	30
-		_TMR3interruption		CODE           	0F66	0000	66
-		_I2Cconfig     		CODE           	1174	0000	10
-		_WakeUp        		CODE           	0CB6	0000	154
+		_TMR1enable    		CODE           	114A	0000	6
+		_INT2interruption		CODE           	06A2	0000	326
+		_TIMERconfig   		CODE           	111A	0000	14
+		_GPIOconfig    		CODE           	10CC	0000	30
+		_TMR3interruption		CODE           	0F32	0000	66
+		_I2Cconfig     		CODE           	1140	0000	10
+		_DecrementTime 		CODE           	0EEC	0000	70
+		_WakeUp        		CODE           	0BF6	0000	154
 		_my_isr_routine		CODE           	0008	0000	52
-		_MCUconfig     		CODE           	111E	0000	26
-		_PWMconfig     		CODE           	10E0	0000	32
-		_INTconfig     		CODE           	1138	0000	22
-		_IncrementTime 		CODE           	0F1E	0000	72
-		_AddBCD        		CODE           	103A	0000	44
-		_Display       		CODE           	09EE	0000	280
-		_MCUinit       		CODE           	115C	0000	12
-		_ChangeTime    		CODE           	0C10	0000	166
+		_MCUconfig     		CODE           	10EA	0000	26
+		_PWMconfig     		CODE           	10AC	0000	32
+		_INTconfig     		CODE           	1104	0000	22
+		_IncrementTime 		CODE           	0E5E	0000	72
+		_DecrementTimeHour		CODE           	0EA6	0000	70
+		_AddBCD        		CODE           	1006	0000	44
+		_Display       		CODE           	092E	0000	280
+		_MCUinit       		CODE           	1128	0000	12
+		_ChangeTime    		CODE           	0B50	0000	166
 
-main.c estimated size: 3850
+main.c estimated size: 3798
 

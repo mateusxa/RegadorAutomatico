@@ -287,6 +287,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63
 [; ;main.c: 63: void IncrementTimeHour(char *Time);
 [v _IncrementTimeHour `(v ~T0 @X0 0 ef1`*uc ]
+"80
+[; ;main.c: 80: void DecrementTime(char *Time);
+[v _DecrementTime `(v ~T0 @X0 0 ef1`*uc ]
+"81
+[; ;main.c: 81: void DecrementTimeHour(char *Time);
+[v _DecrementTimeHour `(v ~T0 @X0 0 ef1`*uc ]
 "55
 [; ;main.c: 55: char SubBCD(char Number1, char Number2);
 [v _SubBCD `(uc ~T0 @X0 0 ef2`uc`uc ]
@@ -880,11 +886,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5877
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f2620.h: 5877: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"82 main.c
-[; ;main.c: 82: char CurrentTime[3];
+"84 main.c
+[; ;main.c: 84: char CurrentTime[3];
 [v _CurrentTime `uc ~T0 @X0 -> 3 `i e ]
-"83
-[; ;main.c: 83: char TargetTime[3] = {0x00, 0x00, 0x12};
+"85
+[; ;main.c: 85: char TargetTime[3] = {0x00, 0x00, 0x12};
 [v _TargetTime `uc ~T0 @X0 -> 3 `i e ]
 [i _TargetTime
 :U ..
@@ -893,38 +899,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 18 `i `uc
 ..
 ]
-"85
-[; ;main.c: 85: char Blink_First_Digit = 0;
+"87
+[; ;main.c: 87: char Blink_First_Digit = 0;
 [v _Blink_First_Digit `uc ~T0 @X0 1 e ]
 [i _Blink_First_Digit
 -> -> 0 `i `uc
 ]
-"86
-[; ;main.c: 86: char Blink_Second_Digit = 0;
+"88
+[; ;main.c: 88: char Blink_Second_Digit = 0;
 [v _Blink_Second_Digit `uc ~T0 @X0 1 e ]
 [i _Blink_Second_Digit
 -> -> 0 `i `uc
 ]
-"87
-[; ;main.c: 87: char Blink = 0;
+"89
+[; ;main.c: 89: char Blink = 0;
 [v _Blink `uc ~T0 @X0 1 e ]
 [i _Blink
 -> -> 0 `i `uc
 ]
-"89
-[; ;main.c: 89: char State = 0;
+"91
+[; ;main.c: 91: char State = 0;
 [v _State `uc ~T0 @X0 1 e ]
 [i _State
 -> -> 0 `i `uc
 ]
-"91
-[; ;main.c: 91: char UpdateTimeFlag = 0;
+"93
+[; ;main.c: 93: char UpdateTimeFlag = 0;
 [v _UpdateTimeFlag `uc ~T0 @X0 1 e ]
 [i _UpdateTimeFlag
 -> -> 0 `i `uc
 ]
-"92
-[; ;main.c: 92: char WakeUpTime[3] = {0,0,0};
+"94
+[; ;main.c: 94: char WakeUpTime[3] = {0,0,0};
 [v _WakeUpTime `uc ~T0 @X0 -> 3 `i e ]
 [i _WakeUpTime
 :U ..
@@ -933,20 +939,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"94
-[; ;main.c: 94: char WaterEnable = 0;
+"96
+[; ;main.c: 96: char WaterEnable = 0;
 [v _WaterEnable `uc ~T0 @X0 1 e ]
 [i _WaterEnable
 -> -> 0 `i `uc
 ]
-"95
-[; ;main.c: 95: char WaterEnableLock = 0;
+"97
+[; ;main.c: 97: char WaterEnableLock = 0;
 [v _WaterEnableLock `uc ~T0 @X0 1 e ]
 [i _WaterEnableLock
 -> -> 0 `i `uc
 ]
-"96
-[; ;main.c: 96: char WateringTime[3] = {0,0,0};
+"98
+[; ;main.c: 98: char WateringTime[3] = {0,0,0};
 [v _WateringTime `uc ~T0 @X0 -> 3 `i e ]
 [i _WateringTime
 :U ..
@@ -955,8 +961,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"97
-[; ;main.c: 97: char CurrentWateringTime[2] = {0,0};
+"99
+[; ;main.c: 99: char CurrentWateringTime[2] = {0,0};
 [v _CurrentWateringTime `uc ~T0 @X0 -> 2 `i e ]
 [i _CurrentWateringTime
 :U ..
@@ -964,20 +970,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"99
-[; ;main.c: 99: char ValveEnable = 0;
+"101
+[; ;main.c: 101: char ValveEnable = 0;
 [v _ValveEnable `uc ~T0 @X0 1 e ]
 [i _ValveEnable
 -> -> 0 `i `uc
 ]
-"100
-[; ;main.c: 100: char ValveEnableLock = 0;
+"102
+[; ;main.c: 102: char ValveEnableLock = 0;
 [v _ValveEnableLock `uc ~T0 @X0 1 e ]
 [i _ValveEnableLock
 -> -> 0 `i `uc
 ]
-"101
-[; ;main.c: 101: char ValveTime[3] = {0,0,0};
+"103
+[; ;main.c: 103: char ValveTime[3] = {0,0,0};
 [v _ValveTime `uc ~T0 @X0 -> 3 `i e ]
 [i _ValveTime
 :U ..
@@ -986,8 +992,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"102
-[; ;main.c: 102: char CurrentValveTime[2] = {0,0};
+"104
+[; ;main.c: 104: char CurrentValveTime[2] = {0,0};
 [v _CurrentValveTime `uc ~T0 @X0 -> 2 `i e ]
 [i _CurrentValveTime
 :U ..
@@ -995,472 +1001,472 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"104
-[; ;main.c: 104: char UpdateTimePrescale = 0;
+"106
+[; ;main.c: 106: char UpdateTimePrescale = 0;
 [v _UpdateTimePrescale `uc ~T0 @X0 1 e ]
 [i _UpdateTimePrescale
 -> -> 0 `i `uc
 ]
-"106
-[; ;main.c: 106: char BuzzerFlag = 0;
+"108
+[; ;main.c: 108: char BuzzerFlag = 0;
 [v _BuzzerFlag `uc ~T0 @X0 1 e ]
 [i _BuzzerFlag
 -> -> 0 `i `uc
 ]
-"108
-[; ;main.c: 108: char LastSecond = 0;
+"110
+[; ;main.c: 110: char LastSecond = 0;
 [v _LastSecond `uc ~T0 @X0 1 e ]
 [i _LastSecond
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"111
-[; ;main.c: 111: void main(void) {
+"113
+[; ;main.c: 113: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"113
-[; ;main.c: 113:     MCUconfig();
+"115
+[; ;main.c: 115:     MCUconfig();
 [e ( _MCUconfig ..  ]
-"114
-[; ;main.c: 114:     MCUinit();
-[e ( _MCUinit ..  ]
 "116
-[; ;main.c: 116:     while(1){
+[; ;main.c: 116:     MCUinit();
+[e ( _MCUinit ..  ]
+"118
+[; ;main.c: 118:     while(1){
 [e :U 252 ]
 {
-"118
-[; ;main.c: 118:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "120
-[; ;main.c: 120:         switch(State){
+[; ;main.c: 120:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"122
+[; ;main.c: 122:         switch(State){
 [e $U 255  ]
 {
-"121
-[; ;main.c: 121:             case 0:
-[e :U 256 ]
 "123
-[; ;main.c: 123:                 Display(CurrentTime[2], CurrentTime[1]);
+[; ;main.c: 123:             case 0:
+[e :U 256 ]
+"125
+[; ;main.c: 125:                 Display(CurrentTime[2], CurrentTime[1]);
 [e ( _Display (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"124
-[; ;main.c: 124:                 BlinkDigit(1);
-[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
 "126
-[; ;main.c: 126:                 break;
-[e $U 254  ]
+[; ;main.c: 126:                 BlinkDigit(1);
+[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
 "128
-[; ;main.c: 128:             case 1:
-[e :U 257 ]
+[; ;main.c: 128:                 break;
+[e $U 254  ]
 "130
-[; ;main.c: 130:                 Display(CurrentTime[2], CurrentTime[1]);
+[; ;main.c: 130:             case 1:
+[e :U 257 ]
+"132
+[; ;main.c: 132:                 Display(CurrentTime[2], CurrentTime[1]);
 [e ( _Display (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"131
-[; ;main.c: 131:                 BlinkDigit(2);
-[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
 "133
-[; ;main.c: 133:                 break;
-[e $U 254  ]
+[; ;main.c: 133:                 BlinkDigit(2);
+[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
 "135
-[; ;main.c: 135:             case 2:
-[e :U 258 ]
-"137
-[; ;main.c: 137:                 __asm(" sleep");
-[; <"  sleep ;# ">
-"139
-[; ;main.c: 139:                 break;
+[; ;main.c: 135:                 break;
 [e $U 254  ]
+"137
+[; ;main.c: 137:             case 2:
+[e :U 258 ]
+"139
+[; ;main.c: 139:                 __asm(" sleep");
+[; <"  sleep ;# ">
 "141
-[; ;main.c: 141:             case 3:
-[e :U 259 ]
+[; ;main.c: 141:                 break;
+[e $U 254  ]
 "143
-[; ;main.c: 143:                 if(UpdateTimeFlag){
+[; ;main.c: 143:             case 3:
+[e :U 259 ]
+"145
+[; ;main.c: 145:                 if(UpdateTimeFlag){
 [e $ ! != -> _UpdateTimeFlag `i -> 0 `i 260  ]
 {
-"145
-[; ;main.c: 145:                     UpdateCurrentTime();
-[e ( _UpdateCurrentTime ..  ]
 "147
-[; ;main.c: 147:                     if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == TargetTime[1]) {
+[; ;main.c: 147:                     UpdateCurrentTime();
+[e ( _UpdateCurrentTime ..  ]
+"149
+[; ;main.c: 149:                     if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == TargetTime[1]) {
 [e $ ! && == -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i == -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i 261  ]
 {
-"148
-[; ;main.c: 148:                         WaterEnable = 1;
+"150
+[; ;main.c: 150:                         WaterEnable = 1;
 [e = _WaterEnable -> -> 1 `i `uc ]
-"149
-[; ;main.c: 149:                     }else{
+"151
+[; ;main.c: 151:                     }else{
 }
 [e $U 262  ]
 [e :U 261 ]
 {
-"150
-[; ;main.c: 150:                         WaterEnable = 0;
-[e = _WaterEnable -> -> 0 `i `uc ]
-"151
-[; ;main.c: 151:                         WaterEnableLock = 0;
-[e = _WaterEnableLock -> -> 0 `i `uc ]
 "152
-[; ;main.c: 152:                     }
+[; ;main.c: 152:                         WaterEnable = 0;
+[e = _WaterEnable -> -> 0 `i `uc ]
+"153
+[; ;main.c: 153:                         WaterEnableLock = 0;
+[e = _WaterEnableLock -> -> 0 `i `uc ]
+"154
+[; ;main.c: 154:                     }
 }
 [e :U 262 ]
-"154
-[; ;main.c: 154:                     UpdateTimeFlag = 0;
+"156
+[; ;main.c: 156:                     UpdateTimeFlag = 0;
 [e = _UpdateTimeFlag -> -> 0 `i `uc ]
-"155
-[; ;main.c: 155:                 }
+"157
+[; ;main.c: 157:                 }
 }
 [e :U 260 ]
-"157
-[; ;main.c: 157:                 Display(CurrentTime[2], CurrentTime[1]);
-[e ( _Display (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "159
-[; ;main.c: 159:                 BlinkDigit(0);
-[e ( _BlinkDigit (1 -> -> 0 `i `uc ]
+[; ;main.c: 159:                 Display(CurrentTime[2], CurrentTime[1]);
+[e ( _Display (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "161
-[; ;main.c: 161:                 if(WaterEnable == 1 && WaterEnableLock == 0) State = 10;
+[; ;main.c: 161:                 BlinkDigit(0);
+[e ( _BlinkDigit (1 -> -> 0 `i `uc ]
+"163
+[; ;main.c: 163:                 if(WaterEnable == 1 && WaterEnableLock == 0) State = 10;
 [e $ ! && == -> _WaterEnable `i -> 1 `i == -> _WaterEnableLock `i -> 0 `i 263  ]
 [e = _State -> -> 10 `i `uc ]
 [e $U 264  ]
-"162
-[; ;main.c: 162:                 else if(WakeUpTime[2] == CurrentTime[2] && WakeUpTime[1] == CurrentTime[1]) State = 2;
+"164
+[; ;main.c: 164:                 else if(WakeUpTime[2] == CurrentTime[2] && WakeUpTime[1] == CurrentTime[1]) State = 2;
 [e :U 263 ]
 [e $ ! && == -> *U + &U _WakeUpTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux `i -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i == -> *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux `i -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i 265  ]
 [e = _State -> -> 2 `i `uc ]
 [e :U 265 ]
 [e :U 264 ]
-"164
-[; ;main.c: 164:                 break;
-[e $U 254  ]
 "166
-[; ;main.c: 166:             case 4:
-[e :U 266 ]
-"167
-[; ;main.c: 167:                 Display(TargetTime[2], TargetTime[1]);
-[e ( _Display (2 , *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
+[; ;main.c: 166:                 break;
+[e $U 254  ]
 "168
-[; ;main.c: 168:                 BlinkDigit(1);
-[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
+[; ;main.c: 168:             case 4:
+[e :U 266 ]
 "169
-[; ;main.c: 169:                 break;
-[e $U 254  ]
-"171
-[; ;main.c: 171:             case 5:
-[e :U 267 ]
-"172
-[; ;main.c: 172:                 Display(TargetTime[2], TargetTime[1]);
+[; ;main.c: 169:                 Display(TargetTime[2], TargetTime[1]);
 [e ( _Display (2 , *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
+"170
+[; ;main.c: 170:                 BlinkDigit(1);
+[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
+"171
+[; ;main.c: 171:                 break;
+[e $U 254  ]
 "173
-[; ;main.c: 173:                 BlinkDigit(2);
-[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
+[; ;main.c: 173:             case 5:
+[e :U 267 ]
 "174
-[; ;main.c: 174:                 break;
-[e $U 254  ]
+[; ;main.c: 174:                 Display(TargetTime[2], TargetTime[1]);
+[e ( _Display (2 , *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
+"175
+[; ;main.c: 175:                 BlinkDigit(2);
+[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
 "176
-[; ;main.c: 176:             case 6:
-[e :U 268 ]
-"177
-[; ;main.c: 177:                 Display(WateringTime[1], WateringTime[0]);
-[e ( _Display (2 , *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
+[; ;main.c: 176:                 break;
+[e $U 254  ]
 "178
-[; ;main.c: 178:                 BlinkDigit(1);
-[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
+[; ;main.c: 178:             case 6:
+[e :U 268 ]
 "179
-[; ;main.c: 179:                 break;
-[e $U 254  ]
-"181
-[; ;main.c: 181:             case 7:
-[e :U 269 ]
-"182
-[; ;main.c: 182:                 Display(WateringTime[1], WateringTime[0]);
+[; ;main.c: 179:                 Display(WateringTime[1], WateringTime[0]);
 [e ( _Display (2 , *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
-"183
-[; ;main.c: 183:                 BlinkDigit(2);
-[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
-"184
-[; ;main.c: 184:                 break;
-[e $U 254  ]
-"186
-[; ;main.c: 186:             case 8:
-[e :U 270 ]
-"187
-[; ;main.c: 187:                 Display(ValveTime[1], ValveTime[0]);
-[e ( _Display (2 , *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
-"188
-[; ;main.c: 188:                 BlinkDigit(1);
+"180
+[; ;main.c: 180:                 BlinkDigit(1);
 [e ( _BlinkDigit (1 -> -> 1 `i `uc ]
-"189
-[; ;main.c: 189:                 break;
+"181
+[; ;main.c: 181:                 break;
 [e $U 254  ]
-"191
-[; ;main.c: 191:             case 9:
-[e :U 271 ]
-"192
-[; ;main.c: 192:                 Display(ValveTime[1], ValveTime[0]);
-[e ( _Display (2 , *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
-"193
-[; ;main.c: 193:                 BlinkDigit(2);
+"183
+[; ;main.c: 183:             case 7:
+[e :U 269 ]
+"184
+[; ;main.c: 184:                 Display(WateringTime[1], WateringTime[0]);
+[e ( _Display (2 , *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
+"185
+[; ;main.c: 185:                 BlinkDigit(2);
 [e ( _BlinkDigit (1 -> -> 2 `i `uc ]
-"194
-[; ;main.c: 194:                 break;
+"186
+[; ;main.c: 186:                 break;
 [e $U 254  ]
+"188
+[; ;main.c: 188:             case 8:
+[e :U 270 ]
+"189
+[; ;main.c: 189:                 Display(ValveTime[1], ValveTime[0]);
+[e ( _Display (2 , *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
+"190
+[; ;main.c: 190:                 BlinkDigit(1);
+[e ( _BlinkDigit (1 -> -> 1 `i `uc ]
+"191
+[; ;main.c: 191:                 break;
+[e $U 254  ]
+"193
+[; ;main.c: 193:             case 9:
+[e :U 271 ]
+"194
+[; ;main.c: 194:                 Display(ValveTime[1], ValveTime[0]);
+[e ( _Display (2 , *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
+"195
+[; ;main.c: 195:                 BlinkDigit(2);
+[e ( _BlinkDigit (1 -> -> 2 `i `uc ]
 "196
-[; ;main.c: 196:             case 10:
+[; ;main.c: 196:                 break;
+[e $U 254  ]
+"198
+[; ;main.c: 198:             case 10:
 [e :U 272 ]
-"197
-[; ;main.c: 197:                 if(UpdateTimeFlag) {
+"199
+[; ;main.c: 199:                 if(UpdateTimeFlag) {
 [e $ ! != -> _UpdateTimeFlag `i -> 0 `i 273  ]
 {
-"198
-[; ;main.c: 198:                     UpdateCurrentTime();
+"200
+[; ;main.c: 200:                     UpdateCurrentTime();
 [e ( _UpdateCurrentTime ..  ]
-"199
-[; ;main.c: 199:                     if(CurrentTime[0] != LastSecond){
+"201
+[; ;main.c: 201:                     if(CurrentTime[0] != LastSecond){
 [e $ ! != -> *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> _LastSecond `i 274  ]
 {
-"201
-[; ;main.c: 201:                         if(AddBCD(CurrentWateringTime[0], 0x01) > 0x59){
+"203
+[; ;main.c: 203:                         if(AddBCD(CurrentWateringTime[0], 0x01) > 0x59){
 [e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 1 `i `uc `i -> 89 `i 275  ]
 {
-"202
-[; ;main.c: 202:                             CurrentWateringTime[1] = AddBCD(CurrentWateringTime[1], 0x01);
-[e = *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 1 `i `uc ]
-"203
-[; ;main.c: 203:                             CurrentWateringTime[0] = 0x00;
-[e = *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
 "204
-[; ;main.c: 204:                         }else CurrentWateringTime[0] = AddBCD(CurrentWateringTime[0], 0x01);
+[; ;main.c: 204:                             CurrentWateringTime[1] = AddBCD(CurrentWateringTime[1], 0x01);
+[e = *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 1 `i `uc ]
+"205
+[; ;main.c: 205:                             CurrentWateringTime[0] = 0x00;
+[e = *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
+"206
+[; ;main.c: 206:                         }else CurrentWateringTime[0] = AddBCD(CurrentWateringTime[0], 0x01);
 }
 [e $U 276  ]
 [e :U 275 ]
 [e = *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 1 `i `uc ]
 [e :U 276 ]
-"206
-[; ;main.c: 206:                         LastSecond = CurrentTime[0];
+"208
+[; ;main.c: 208:                         LastSecond = CurrentTime[0];
 [e = _LastSecond *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"207
-[; ;main.c: 207:                     }
+"209
+[; ;main.c: 209:                     }
 }
 [e :U 274 ]
-"209
-[; ;main.c: 209:                     UpdateTimeFlag = 0;
+"211
+[; ;main.c: 211:                     UpdateTimeFlag = 0;
 [e = _UpdateTimeFlag -> -> 0 `i `uc ]
-"210
-[; ;main.c: 210:                 }
+"212
+[; ;main.c: 212:                 }
 }
 [e :U 273 ]
-"211
-[; ;main.c: 211:                 PIE2bits.TMR3IE = 0;
-[e = . . _PIE2bits 0 1 -> -> 0 `i `uc ]
-"212
-[; ;main.c: 212:                 PIE1bits.TMR1IE = 0;
-[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
 "213
-[; ;main.c: 213:                 INTCONbits.INT0IE = 0;
-[e = . . _INTCONbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 213:                 PIE2bits.TMR3IE = 0;
+[e = . . _PIE2bits 0 1 -> -> 0 `i `uc ]
 "214
-[; ;main.c: 214:                 INTCON3bits.INT1IE = 0;
-[e = . . _INTCON3bits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 214:                 PIE1bits.TMR1IE = 0;
+[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
 "215
-[; ;main.c: 215:                 INTCON3bits.INT2IE = 0;
-[e = . . _INTCON3bits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 215:                 INTCONbits.INT0IE = 0;
+[e = . . _INTCONbits 0 4 -> -> 0 `i `uc ]
 "216
-[; ;main.c: 216:                 PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 216:                 INTCON3bits.INT1IE = 0;
+[e = . . _INTCON3bits 0 3 -> -> 0 `i `uc ]
+"217
+[; ;main.c: 217:                 INTCON3bits.INT2IE = 0;
+[e = . . _INTCON3bits 0 4 -> -> 0 `i `uc ]
 "218
-[; ;main.c: 218:                 if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x01){
+[; ;main.c: 218:                 PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+"220
+[; ;main.c: 220:                 if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x01){
 [e $ ! && == -> *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 0 `i == -> *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 1 `i 277  ]
 {
-"219
-[; ;main.c: 219:                     CCP1CONbits.DC1B0 = 0;
-[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
-"220
-[; ;main.c: 220:                     CCP1CONbits.DC1B1 = 0;
-[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
 "221
-[; ;main.c: 221:                     CCPR1L = 0x19;
-[e = _CCPR1L -> -> 25 `i `uc ]
+[; ;main.c: 221:                     CCP1CONbits.DC1B0 = 0;
+[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
 "222
-[; ;main.c: 222:                 }else if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x02){
+[; ;main.c: 222:                     CCP1CONbits.DC1B1 = 0;
+[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
+"223
+[; ;main.c: 223:                     CCPR1L = 0x19;
+[e = _CCPR1L -> -> 25 `i `uc ]
+"224
+[; ;main.c: 224:                 }else if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x02){
 }
 [e $U 278  ]
 [e :U 277 ]
 [e $ ! && == -> *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 0 `i == -> *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 2 `i 279  ]
 {
-"223
-[; ;main.c: 223:                     CCP1CONbits.DC1B0 = 0;
-[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
-"224
-[; ;main.c: 224:                     CCP1CONbits.DC1B1 = 1;
-[e = . . _CCP1CONbits 2 2 -> -> 1 `i `uc ]
 "225
-[; ;main.c: 225:                     CCPR1L = 0x25;
-[e = _CCPR1L -> -> 37 `i `uc ]
+[; ;main.c: 225:                     CCP1CONbits.DC1B0 = 0;
+[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
 "226
-[; ;main.c: 226:                 }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringTime[0] >= 0x03){
+[; ;main.c: 226:                     CCP1CONbits.DC1B1 = 1;
+[e = . . _CCP1CONbits 2 2 -> -> 1 `i `uc ]
+"227
+[; ;main.c: 227:                     CCPR1L = 0x25;
+[e = _CCPR1L -> -> 37 `i `uc ]
+"228
+[; ;main.c: 228:                 }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringTime[0] >= 0x03){
 }
 [e $U 280  ]
 [e :U 279 ]
 [e $ ! || > -> *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 0 `i >= -> *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> 3 `i 281  ]
 {
-"227
-[; ;main.c: 227:                     CCP1CONbits.DC1B0 = 0;
-[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
-"228
-[; ;main.c: 228:                     CCP1CONbits.DC1B1 = 0;
-[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
 "229
-[; ;main.c: 229:                     CCPR1L = 0x32;
-[e = _CCPR1L -> -> 50 `i `uc ]
+[; ;main.c: 229:                     CCP1CONbits.DC1B0 = 0;
+[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
 "230
-[; ;main.c: 230:                 }
+[; ;main.c: 230:                     CCP1CONbits.DC1B1 = 0;
+[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
+"231
+[; ;main.c: 231:                     CCPR1L = 0x32;
+[e = _CCPR1L -> -> 50 `i `uc ]
+"232
+[; ;main.c: 232:                 }
 }
 [e :U 281 ]
 [e :U 280 ]
 [e :U 278 ]
-"231
-[; ;main.c: 231:                 BlinkDigit(0);
+"233
+[; ;main.c: 233:                 BlinkDigit(0);
 [e ( _BlinkDigit (1 -> -> 0 `i `uc ]
-"232
-[; ;main.c: 232:                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
-[e ( _Display (2 , *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux ]
 "234
-[; ;main.c: 234:                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWateringTime[0] == WateringTime[0]){
+[; ;main.c: 234:                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
+[e ( _Display (2 , *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux ]
+"236
+[; ;main.c: 236:                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWateringTime[0] == WateringTime[0]){
 [e $ ! && == -> *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux `i == -> *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux `i -> *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux `i 282  ]
 {
-"235
-[; ;main.c: 235:                     CCP1CONbits.DC1B0 = 0;
-[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
-"236
-[; ;main.c: 236:                     CCP1CONbits.DC1B1 = 0;
-[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
 "237
-[; ;main.c: 237:                     CCPR1L = 0x00;
-[e = _CCPR1L -> -> 0 `i `uc ]
+[; ;main.c: 237:                     CCP1CONbits.DC1B0 = 0;
+[e = . . _CCP1CONbits 2 1 -> -> 0 `i `uc ]
 "238
-[; ;main.c: 238:                     CurrentWateringTime[0] = 0x00;
-[e = *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 238:                     CCP1CONbits.DC1B1 = 0;
+[e = . . _CCP1CONbits 2 2 -> -> 0 `i `uc ]
 "239
-[; ;main.c: 239:                     CurrentWateringTime[1] = 0x00;
-[e = *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 239:                     CCPR1L = 0x00;
+[e = _CCPR1L -> -> 0 `i `uc ]
 "240
-[; ;main.c: 240:                     LastSecond = 0x00;
-[e = _LastSecond -> -> 0 `i `uc ]
+[; ;main.c: 240:                     CurrentWateringTime[0] = 0x00;
+[e = *U + &U _CurrentWateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
 "241
-[; ;main.c: 241:                     State = 11;
-[e = _State -> -> 11 `i `uc ]
+[; ;main.c: 241:                     CurrentWateringTime[1] = 0x00;
+[e = *U + &U _CurrentWateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentWateringTime `ui `ux -> -> 0 `i `uc ]
 "242
-[; ;main.c: 242:                 }
+[; ;main.c: 242:                     LastSecond = 0x00;
+[e = _LastSecond -> -> 0 `i `uc ]
+"243
+[; ;main.c: 243:                     State = 11;
+[e = _State -> -> 11 `i `uc ]
+"244
+[; ;main.c: 244:                 }
 }
 [e :U 282 ]
-"244
-[; ;main.c: 244:                 break;
-[e $U 254  ]
-"245
-[; ;main.c: 245:             case 11:
-[e :U 283 ]
 "246
-[; ;main.c: 246:                 if(UpdateTimeFlag) {
+[; ;main.c: 246:                 break;
+[e $U 254  ]
+"247
+[; ;main.c: 247:             case 11:
+[e :U 283 ]
+"248
+[; ;main.c: 248:                 if(UpdateTimeFlag) {
 [e $ ! != -> _UpdateTimeFlag `i -> 0 `i 284  ]
 {
-"247
-[; ;main.c: 247:                     UpdateCurrentTime();
+"249
+[; ;main.c: 249:                     UpdateCurrentTime();
 [e ( _UpdateCurrentTime ..  ]
-"248
-[; ;main.c: 248:                     if(CurrentTime[0] != LastSecond){
+"250
+[; ;main.c: 250:                     if(CurrentTime[0] != LastSecond){
 [e $ ! != -> *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> _LastSecond `i 285  ]
 {
-"250
-[; ;main.c: 250:                         if(AddBCD(CurrentValveTime[0], 0x01) > 0x59){
+"252
+[; ;main.c: 252:                         if(AddBCD(CurrentValveTime[0], 0x01) > 0x59){
 [e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 1 `i `uc `i -> 89 `i 286  ]
 {
-"251
-[; ;main.c: 251:                             CurrentValveTime[1] = AddBCD(CurrentValveTime[1], 0x01);
-[e = *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 1 `i `uc ]
-"252
-[; ;main.c: 252:                             CurrentValveTime[0] = 0x00;
-[e = *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
 "253
-[; ;main.c: 253:                         }else CurrentValveTime[0] = AddBCD(CurrentValveTime[0], 0x01);
+[; ;main.c: 253:                             CurrentValveTime[1] = AddBCD(CurrentValveTime[1], 0x01);
+[e = *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 1 `i `uc ]
+"254
+[; ;main.c: 254:                             CurrentValveTime[0] = 0x00;
+[e = *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
+"255
+[; ;main.c: 255:                         }else CurrentValveTime[0] = AddBCD(CurrentValveTime[0], 0x01);
 }
 [e $U 287  ]
 [e :U 286 ]
 [e = *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 1 `i `uc ]
 [e :U 287 ]
-"255
-[; ;main.c: 255:                         LastSecond = CurrentTime[0];
+"257
+[; ;main.c: 257:                         LastSecond = CurrentTime[0];
 [e = _LastSecond *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"256
-[; ;main.c: 256:                     }
+"258
+[; ;main.c: 258:                     }
 }
 [e :U 285 ]
-"258
-[; ;main.c: 258:                     UpdateTimeFlag = 0;
+"260
+[; ;main.c: 260:                     UpdateTimeFlag = 0;
 [e = _UpdateTimeFlag -> -> 0 `i `uc ]
-"259
-[; ;main.c: 259:                 }
+"261
+[; ;main.c: 261:                 }
 }
 [e :U 284 ]
-"261
-[; ;main.c: 261:                 PORTCbits.RC0 = 0;
+"263
+[; ;main.c: 263:                 PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"264
-[; ;main.c: 264:                 PORTCbits.RC5 = 1;
-[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
 "266
-[; ;main.c: 266:                 Display(CurrentValveTime[1], CurrentValveTime[0]);
-[e ( _Display (2 , *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux ]
+[; ;main.c: 266:                 PORTCbits.RC5 = 1;
+[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
 "268
-[; ;main.c: 268:                 if(CurrentValveTime[1] == ValveTime[1] && CurrentValveTime[0] == ValveTime[0]){
+[; ;main.c: 268:                 Display(CurrentValveTime[1], CurrentValveTime[0]);
+[e ( _Display (2 , *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux ]
+"270
+[; ;main.c: 270:                 if(CurrentValveTime[1] == ValveTime[1] && CurrentValveTime[0] == ValveTime[0]){
 [e $ ! && == -> *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux `i -> *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux `i == -> *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux `i -> *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux `i 288  ]
 {
-"271
-[; ;main.c: 271:                     PORTCbits.RC5 = 0;
-[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"272
-[; ;main.c: 272:                     PIE2bits.TMR3IE = 1;
-[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
 "273
-[; ;main.c: 273:                     PIE1bits.TMR1IE = 1;
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 273:                     PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
 "274
-[; ;main.c: 274:                     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 274:                     PIE2bits.TMR3IE = 1;
+[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
 "275
-[; ;main.c: 275:                     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 275:                     PIE1bits.TMR1IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
 "276
-[; ;main.c: 276:                     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 276:                     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"277
+[; ;main.c: 277:                     INTCON3bits.INT1IE = 1;
+[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
 "278
-[; ;main.c: 278:                     WaterEnable = 0;
-[e = _WaterEnable -> -> 0 `i `uc ]
-"279
-[; ;main.c: 279:                     WaterEnableLock = 1;
-[e = _WaterEnableLock -> -> 1 `i `uc ]
+[; ;main.c: 278:                     INTCON3bits.INT2IE = 1;
+[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
 "280
-[; ;main.c: 280:                     WakeUp();
-[e ( _WakeUp ..  ]
+[; ;main.c: 280:                     WaterEnable = 0;
+[e = _WaterEnable -> -> 0 `i `uc ]
 "281
-[; ;main.c: 281:                     CurrentValveTime[0] = 0x00;
-[e = *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 281:                     WaterEnableLock = 1;
+[e = _WaterEnableLock -> -> 1 `i `uc ]
 "282
-[; ;main.c: 282:                     CurrentValveTime[1] = 0x00;
-[e = *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 282:                     WakeUp();
+[e ( _WakeUp ..  ]
 "283
-[; ;main.c: 283:                     LastSecond = 0x00;
-[e = _LastSecond -> -> 0 `i `uc ]
+[; ;main.c: 283:                     CurrentValveTime[0] = 0x00;
+[e = *U + &U _CurrentValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
 "284
-[; ;main.c: 284:                     State = 3;
-[e = _State -> -> 3 `i `uc ]
+[; ;main.c: 284:                     CurrentValveTime[1] = 0x00;
+[e = *U + &U _CurrentValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentValveTime `ui `ux -> -> 0 `i `uc ]
 "285
-[; ;main.c: 285:                 }
+[; ;main.c: 285:                     LastSecond = 0x00;
+[e = _LastSecond -> -> 0 `i `uc ]
+"286
+[; ;main.c: 286:                     State = 3;
+[e = _State -> -> 3 `i `uc ]
+"287
+[; ;main.c: 287:                 }
 }
 [e :U 288 ]
-"287
-[; ;main.c: 287:                 break;
+"289
+[; ;main.c: 289:                 break;
 [e $U 254  ]
-"288
-[; ;main.c: 288:         }
+"290
+[; ;main.c: 290:         }
 }
 [e $U 254  ]
 [e :U 255 ]
@@ -1478,509 +1484,509 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 11 `i 283
  254 ]
 [e :U 254 ]
-"292
-[; ;main.c: 292:     }
+"294
+[; ;main.c: 294:     }
 }
 [e :U 251 ]
 [e $U 252  ]
 [e :U 253 ]
-"295
-[; ;main.c: 295:     return;
+"297
+[; ;main.c: 297:     return;
 [e $UE 250  ]
-"296
-[; ;main.c: 296: }
+"298
+[; ;main.c: 298: }
 [e :UE 250 ]
 }
 [v $root$_my_isr_routine `(v ~T0 @X0 0 e ]
-"298
-[; ;main.c: 298: void __attribute__((picinterrupt(("")))) my_isr_routine (void) {
+"300
+[; ;main.c: 300: void __attribute__((picinterrupt(("")))) my_isr_routine (void) {
 [v _my_isr_routine `(v ~T25 @X0 1 ef ]
 {
 [e :U _my_isr_routine ]
 [f ]
-"300
-[; ;main.c: 300:     TMR0interruption();
-[e ( _TMR0interruption ..  ]
-"301
-[; ;main.c: 301:     TMR1interruption();
-[e ( _TMR1interruption ..  ]
 "302
-[; ;main.c: 302:     TMR3interruption();
+[; ;main.c: 302:     TMR0interruption();
+[e ( _TMR0interruption ..  ]
+"303
+[; ;main.c: 303:     TMR1interruption();
+[e ( _TMR1interruption ..  ]
+"304
+[; ;main.c: 304:     TMR3interruption();
 [e ( _TMR3interruption ..  ]
-"305
-[; ;main.c: 305:     INT0interruption();
-[e ( _INT0interruption ..  ]
-"306
-[; ;main.c: 306:     INT1interruption();
-[e ( _INT1interruption ..  ]
 "307
-[; ;main.c: 307:     INT2interruption();
-[e ( _INT2interruption ..  ]
+[; ;main.c: 307:     INT0interruption();
+[e ( _INT0interruption ..  ]
 "308
-[; ;main.c: 308: }
+[; ;main.c: 308:     INT1interruption();
+[e ( _INT1interruption ..  ]
+"309
+[; ;main.c: 309:     INT2interruption();
+[e ( _INT2interruption ..  ]
+"310
+[; ;main.c: 310: }
 [e :UE 289 ]
 }
-"310
-[; ;main.c: 310: void GPIOconfig(void){
+"312
+[; ;main.c: 312: void GPIOconfig(void){
 [v _GPIOconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIOconfig ]
 [f ]
-"312
-[; ;main.c: 312:     TRISC = 0;
-[e = _TRISC -> -> 0 `i `uc ]
 "314
-[; ;main.c: 314:     TRISC |= 0x18;
-[e =| _TRISC -> -> 24 `i `Vuc ]
+[; ;main.c: 314:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
 "316
-[; ;main.c: 316:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 316:     TRISC |= 0x18;
+[e =| _TRISC -> -> 24 `i `Vuc ]
 "318
-[; ;main.c: 318:     TRISB = 0x07;
-[e = _TRISB -> -> 7 `i `uc ]
+[; ;main.c: 318:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "320
-[; ;main.c: 320:     TRISCbits.RC0 = 0;
+[; ;main.c: 320:     TRISB = 0x07;
+[e = _TRISB -> -> 7 `i `uc ]
+"322
+[; ;main.c: 322:     TRISCbits.RC0 = 0;
 [e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
-"321
-[; ;main.c: 321:     PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 "323
-[; ;main.c: 323:     TRISCbits.RC2 = 0;
+[; ;main.c: 323:     PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"325
+[; ;main.c: 325:     TRISCbits.RC2 = 0;
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"324
-[; ;main.c: 324:     PORTCbits.RC2 = 1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 "326
-[; ;main.c: 326:     TRISCbits.RC5 = 0;
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
-"327
-[; ;main.c: 327:     PORTCbits.RC5 = 0;
-[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 326:     PORTCbits.RC2 = 1;
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 "328
-[; ;main.c: 328: }
+[; ;main.c: 328:     TRISCbits.RC5 = 0;
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+"329
+[; ;main.c: 329:     PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"330
+[; ;main.c: 330: }
 [e :UE 290 ]
 }
-"329
-[; ;main.c: 329: void I2Cconfig(void){
+"331
+[; ;main.c: 331: void I2Cconfig(void){
 [v _I2Cconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2Cconfig ]
 [f ]
-"331
-[; ;main.c: 331:     SSPADD = 9;
-[e = _SSPADD -> -> 9 `i `uc ]
 "333
-[; ;main.c: 333:     SSPCON1 = 0x28;
+[; ;main.c: 333:     SSPADD = 9;
+[e = _SSPADD -> -> 9 `i `uc ]
+"335
+[; ;main.c: 335:     SSPCON1 = 0x28;
 [e = _SSPCON1 -> -> 40 `i `uc ]
-"334
-[; ;main.c: 334: }
+"336
+[; ;main.c: 336: }
 [e :UE 291 ]
 }
-"335
-[; ;main.c: 335: void TIMERconfig(void){
+"337
+[; ;main.c: 337: void TIMERconfig(void){
 [v _TIMERconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _TIMERconfig ]
 [f ]
-"336
-[; ;main.c: 336:     T0CON = 0x83;
+"338
+[; ;main.c: 338:     T0CON = 0x83;
 [e = _T0CON -> -> 131 `i `uc ]
-"341
-[; ;main.c: 341:     T1CON = 0xB1;
+"343
+[; ;main.c: 343:     T1CON = 0xB1;
 [e = _T1CON -> -> 177 `i `uc ]
-"345
-[; ;main.c: 345:     T3CON = 0x91;
+"347
+[; ;main.c: 347:     T3CON = 0x91;
 [e = _T3CON -> -> 145 `i `uc ]
-"348
-[; ;main.c: 348: }
+"350
+[; ;main.c: 350: }
 [e :UE 292 ]
 }
-"349
-[; ;main.c: 349: void INTconfig(void){
+"351
+[; ;main.c: 351: void INTconfig(void){
 [v _INTconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _INTconfig ]
 [f ]
-"350
-[; ;main.c: 350:     INTCON = 0xF0;
+"352
+[; ;main.c: 352:     INTCON = 0xF0;
 [e = _INTCON -> -> 240 `i `uc ]
-"357
-[; ;main.c: 357:     PIE2 = 0x02;
+"359
+[; ;main.c: 359:     PIE2 = 0x02;
 [e = _PIE2 -> -> 2 `i `uc ]
-"360
-[; ;main.c: 360:     PIE1 = 0x01;
-[e = _PIE1 -> -> 1 `i `uc ]
 "362
-[; ;main.c: 362:     INTCON2 &= ~(0xF0);
-[e =& _INTCON2 -> ~ -> 240 `i `Vuc ]
+[; ;main.c: 362:     PIE1 = 0x01;
+[e = _PIE1 -> -> 1 `i `uc ]
 "364
-[; ;main.c: 364:     INTCON3 = 0x18;
-[e = _INTCON3 -> -> 24 `i `uc ]
+[; ;main.c: 364:     INTCON2 &= ~(0xF0);
+[e =& _INTCON2 -> ~ -> 240 `i `Vuc ]
 "366
-[; ;main.c: 366: }
+[; ;main.c: 366:     INTCON3 = 0x18;
+[e = _INTCON3 -> -> 24 `i `uc ]
+"368
+[; ;main.c: 368: }
 [e :UE 293 ]
 }
-"367
-[; ;main.c: 367: void PWMconfig(void){
+"369
+[; ;main.c: 369: void PWMconfig(void){
 [v _PWMconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWMconfig ]
 [f ]
-"369
-[; ;main.c: 369:     PR2 = 49;
+"371
+[; ;main.c: 371:     PR2 = 49;
 [e = _PR2 -> -> 49 `i `uc ]
-"375
-[; ;main.c: 375:     CCP1CON = 0x00;
+"377
+[; ;main.c: 377:     CCP1CON = 0x00;
 [e = _CCP1CON -> -> 0 `i `uc ]
-"376
-[; ;main.c: 376:     CCPR1L = 0x19;
+"378
+[; ;main.c: 378:     CCPR1L = 0x19;
 [e = _CCPR1L -> -> 25 `i `uc ]
-"381
-[; ;main.c: 381:     TRISCbits.RC2 = 0;
+"383
+[; ;main.c: 383:     TRISCbits.RC2 = 0;
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"384
-[; ;main.c: 384:     T2CON = 0x01;
-[e = _T2CON -> -> 1 `i `uc ]
 "386
-[; ;main.c: 386:     T2CONbits.TMR2ON = 1;
+[; ;main.c: 386:     T2CON = 0x01;
+[e = _T2CON -> -> 1 `i `uc ]
+"388
+[; ;main.c: 388:     T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"389
-[; ;main.c: 389:     CCP1CON = 0x0C;
-[e = _CCP1CON -> -> 12 `i `uc ]
 "391
-[; ;main.c: 391:     _delay((unsigned long)((1)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 391:     CCP1CON = 0x0C;
+[e = _CCP1CON -> -> 12 `i `uc ]
 "393
-[; ;main.c: 393:     CCPR1L = 0x00;
+[; ;main.c: 393:     _delay((unsigned long)((1)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"395
+[; ;main.c: 395:     CCPR1L = 0x00;
 [e = _CCPR1L -> -> 0 `i `uc ]
-"394
-[; ;main.c: 394: }
+"396
+[; ;main.c: 396: }
 [e :UE 294 ]
 }
-"395
-[; ;main.c: 395: void MCUconfig(void) {
+"397
+[; ;main.c: 397: void MCUconfig(void) {
 [v _MCUconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _MCUconfig ]
 [f ]
-"396
-[; ;main.c: 396:     OSCCON |= 0xE2;
-[e =| _OSCCON -> -> 226 `i `Vuc ]
 "398
-[; ;main.c: 398:     GPIOconfig();
+[; ;main.c: 398:     OSCCON |= 0xE2;
+[e =| _OSCCON -> -> 226 `i `Vuc ]
+"400
+[; ;main.c: 400:     GPIOconfig();
 [e ( _GPIOconfig ..  ]
-"401
-[; ;main.c: 401:     I2Cconfig();
-[e ( _I2Cconfig ..  ]
 "403
-[; ;main.c: 403:     TIMERconfig();
-[e ( _TIMERconfig ..  ]
+[; ;main.c: 403:     I2Cconfig();
+[e ( _I2Cconfig ..  ]
 "405
-[; ;main.c: 405:     INTconfig();
-[e ( _INTconfig ..  ]
+[; ;main.c: 405:     TIMERconfig();
+[e ( _TIMERconfig ..  ]
 "407
-[; ;main.c: 407:     PWMconfig();
+[; ;main.c: 407:     INTconfig();
+[e ( _INTconfig ..  ]
+"409
+[; ;main.c: 409:     PWMconfig();
 [e ( _PWMconfig ..  ]
-"408
-[; ;main.c: 408: }
+"410
+[; ;main.c: 410: }
 [e :UE 295 ]
 }
-"409
-[; ;main.c: 409: void TMR0interruption (void){
+"411
+[; ;main.c: 411: void TMR0interruption (void){
 [v _TMR0interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0interruption ]
 [f ]
-"411
-[; ;main.c: 411:     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
+"413
+[; ;main.c: 413:     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
 [e $ ! && != -> . . _INTCONbits 0 5 `i -> 0 `i != -> . . _INTCONbits 0 2 `i -> 0 `i 297  ]
 {
-"413
-[; ;main.c: 413:         switch(State){
+"415
+[; ;main.c: 415:         switch(State){
 [e $U 299  ]
 {
-"414
-[; ;main.c: 414:             case 2:
+"416
+[; ;main.c: 416:             case 2:
 [e :U 300 ]
-"415
-[; ;main.c: 415:                 UpdateCurrentTime();
-[e ( _UpdateCurrentTime ..  ]
 "417
-[; ;main.c: 417:                 if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == TargetTime[1]) {
+[; ;main.c: 417:                 UpdateCurrentTime();
+[e ( _UpdateCurrentTime ..  ]
+"419
+[; ;main.c: 419:                 if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == TargetTime[1]) {
 [e $ ! && == -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i == -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i 301  ]
 {
-"418
-[; ;main.c: 418:                     WaterEnable = 1;
-[e = _WaterEnable -> -> 1 `i `uc ]
 "420
-[; ;main.c: 420:                     State = 3;
+[; ;main.c: 420:                     WaterEnable = 1;
+[e = _WaterEnable -> -> 1 `i `uc ]
+"422
+[; ;main.c: 422:                     State = 3;
 [e = _State -> -> 3 `i `uc ]
-"421
-[; ;main.c: 421:                 }else{
+"423
+[; ;main.c: 423:                 }else{
 }
 [e $U 302  ]
 [e :U 301 ]
 {
-"422
-[; ;main.c: 422:                     WaterEnable = 0;
-[e = _WaterEnable -> -> 0 `i `uc ]
-"423
-[; ;main.c: 423:                     WaterEnableLock = 0;
-[e = _WaterEnableLock -> -> 0 `i `uc ]
 "424
-[; ;main.c: 424:                 }
+[; ;main.c: 424:                     WaterEnable = 0;
+[e = _WaterEnable -> -> 0 `i `uc ]
+"425
+[; ;main.c: 425:                     WaterEnableLock = 0;
+[e = _WaterEnableLock -> -> 0 `i `uc ]
+"426
+[; ;main.c: 426:                 }
 }
 [e :U 302 ]
-"425
-[; ;main.c: 425:                 break;
-[e $U 298  ]
-"426
-[; ;main.c: 426:             default:
-[e :U 303 ]
 "427
-[; ;main.c: 427:                 UpdateTimeFlag = 1;
-[e = _UpdateTimeFlag -> -> 1 `i `uc ]
-"428
-[; ;main.c: 428:                 break;
+[; ;main.c: 427:                 break;
 [e $U 298  ]
+"428
+[; ;main.c: 428:             default:
+[e :U 303 ]
 "429
-[; ;main.c: 429:         }
+[; ;main.c: 429:                 UpdateTimeFlag = 1;
+[e = _UpdateTimeFlag -> -> 1 `i `uc ]
+"430
+[; ;main.c: 430:                 break;
+[e $U 298  ]
+"431
+[; ;main.c: 431:         }
 }
 [e $U 298  ]
 [e :U 299 ]
 [e [\ -> _State `i , $ -> 2 `i 300
  303 ]
 [e :U 298 ]
-"430
-[; ;main.c: 430:         INTCONbits.TMR0IF = 0;
+"432
+[; ;main.c: 432:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"431
-[; ;main.c: 431:     }
+"433
+[; ;main.c: 433:     }
 }
 [e :U 297 ]
-"432
-[; ;main.c: 432: }
+"434
+[; ;main.c: 434: }
 [e :UE 296 ]
 }
-"433
-[; ;main.c: 433: void TMR1interruption (void){
+"435
+[; ;main.c: 435: void TMR1interruption (void){
 [v _TMR1interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR1interruption ]
 [f ]
-"435
-[; ;main.c: 435:     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
+"437
+[; ;main.c: 437:     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
 [e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 305  ]
 {
-"437
-[; ;main.c: 437:         Blink = ~Blink;
-[e = _Blink -> ~ -> _Blink `i `uc ]
 "439
-[; ;main.c: 439:         PIR1bits.TMR1IF = 0;
+[; ;main.c: 439:         Blink = ~Blink;
+[e = _Blink -> ~ -> _Blink `i `uc ]
+"441
+[; ;main.c: 441:         PIR1bits.TMR1IF = 0;
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"440
-[; ;main.c: 440:     }
+"442
+[; ;main.c: 442:     }
 }
 [e :U 305 ]
-"441
-[; ;main.c: 441: }
+"443
+[; ;main.c: 443: }
 [e :UE 304 ]
 }
-"442
-[; ;main.c: 442: void TMR3interruption (void){
+"444
+[; ;main.c: 444: void TMR3interruption (void){
 [v _TMR3interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR3interruption ]
 [f ]
-"444
-[; ;main.c: 444:     if(PIE2bits.TMR3IE == 1 && PIR2bits.TMR3IF == 1){
+"446
+[; ;main.c: 446:     if(PIE2bits.TMR3IE == 1 && PIR2bits.TMR3IF == 1){
 [e $ ! && == -> . . _PIE2bits 0 1 `i -> 1 `i == -> . . _PIR2bits 0 1 `i -> 1 `i 307  ]
 {
-"446
-[; ;main.c: 446:         if(BuzzerFlag){
+"448
+[; ;main.c: 448:         if(BuzzerFlag){
 [e $ ! != -> _BuzzerFlag `i -> 0 `i 308  ]
 {
-"447
-[; ;main.c: 447:             PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"448
-[; ;main.c: 448:             PIE2bits.TMR3IE = 0;
-[e = . . _PIE2bits 0 1 -> -> 0 `i `uc ]
 "449
-[; ;main.c: 449:             BuzzerFlag = 0;
-[e = _BuzzerFlag -> -> 0 `i `uc ]
+[; ;main.c: 449:             PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
 "450
-[; ;main.c: 450:         }else{
+[; ;main.c: 450:             PIE2bits.TMR3IE = 0;
+[e = . . _PIE2bits 0 1 -> -> 0 `i `uc ]
+"451
+[; ;main.c: 451:             BuzzerFlag = 0;
+[e = _BuzzerFlag -> -> 0 `i `uc ]
+"452
+[; ;main.c: 452:         }else{
 }
 [e $U 309  ]
 [e :U 308 ]
 {
-"451
-[; ;main.c: 451:             PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"452
-[; ;main.c: 452:             BuzzerFlag = 1;
-[e = _BuzzerFlag -> -> 1 `i `uc ]
 "453
-[; ;main.c: 453:         }
+[; ;main.c: 453:             PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"454
+[; ;main.c: 454:             BuzzerFlag = 1;
+[e = _BuzzerFlag -> -> 1 `i `uc ]
+"455
+[; ;main.c: 455:         }
 }
 [e :U 309 ]
-"456
-[; ;main.c: 456:         PIR2bits.TMR3IF = 0;
+"458
+[; ;main.c: 458:         PIR2bits.TMR3IF = 0;
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-"457
-[; ;main.c: 457:     }
+"459
+[; ;main.c: 459:     }
 }
 [e :U 307 ]
-"458
-[; ;main.c: 458: }
+"460
+[; ;main.c: 460: }
 [e :UE 306 ]
 }
-"459
-[; ;main.c: 459: void INT0interruption (void){
+"461
+[; ;main.c: 461: void INT0interruption (void){
 [v _INT0interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _INT0interruption ]
 [f ]
-"461
-[; ;main.c: 461:     if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
+"463
+[; ;main.c: 463:     if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
 [e $ ! && == -> . . _INTCONbits 0 4 `i -> 1 `i == -> . . _INTCONbits 0 1 `i -> 1 `i 311  ]
 {
-"463
-[; ;main.c: 463:         Buzz();
-[e ( _Buzz ..  ]
 "465
-[; ;main.c: 465:         switch(State){
+[; ;main.c: 465:         Buzz();
+[e ( _Buzz ..  ]
+"467
+[; ;main.c: 467:         switch(State){
 [e $U 313  ]
 {
-"468
-[; ;main.c: 468:             case 0:
-[e :U 314 ]
-"469
-[; ;main.c: 469:                 State = 1;
-[e = _State -> -> 1 `i `uc ]
 "470
-[; ;main.c: 470:                 TMR1enable();
-[e ( _TMR1enable ..  ]
+[; ;main.c: 470:             case 0:
+[e :U 314 ]
 "471
-[; ;main.c: 471:                 break;
-[e $U 312  ]
+[; ;main.c: 471:                 State = 1;
+[e = _State -> -> 1 `i `uc ]
+"472
+[; ;main.c: 472:                 TMR1enable();
+[e ( _TMR1enable ..  ]
 "473
-[; ;main.c: 473:             case 1:
-[e :U 315 ]
-"474
-[; ;main.c: 474:                 State = 3;
-[e = _State -> -> 3 `i `uc ]
+[; ;main.c: 473:                 break;
+[e $U 312  ]
 "475
-[; ;main.c: 475:                 WakeUp();
-[e ( _WakeUp ..  ]
+[; ;main.c: 475:             case 1:
+[e :U 315 ]
 "476
-[; ;main.c: 476:                 TMR0enable();
-[e ( _TMR0enable ..  ]
+[; ;main.c: 476:                 State = 3;
+[e = _State -> -> 3 `i `uc ]
 "477
-[; ;main.c: 477:                 break;
-[e $U 312  ]
-"479
-[; ;main.c: 479:             case 2:
-[e :U 316 ]
-"481
-[; ;main.c: 481:                 WakeUp();
+[; ;main.c: 477:                 WakeUp();
 [e ( _WakeUp ..  ]
-"482
-[; ;main.c: 482:                 State = 3;
-[e = _State -> -> 3 `i `uc ]
-"484
-[; ;main.c: 484:                 break;
-[e $U 312  ]
-"486
-[; ;main.c: 486:             case 3:
-[e :U 317 ]
-"487
-[; ;main.c: 487:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"488
-[; ;main.c: 488:                 State = 4;
-[e = _State -> -> 4 `i `uc ]
-"489
-[; ;main.c: 489:                 break;
-[e $U 312  ]
-"491
-[; ;main.c: 491:             case 4:
-[e :U 318 ]
-"492
-[; ;main.c: 492:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"493
-[; ;main.c: 493:                 State = 5;
-[e = _State -> -> 5 `i `uc ]
-"494
-[; ;main.c: 494:                 break;
-[e $U 312  ]
-"496
-[; ;main.c: 496:             case 5:
-[e :U 319 ]
-"497
-[; ;main.c: 497:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"498
-[; ;main.c: 498:                 State = 6;
-[e = _State -> -> 6 `i `uc ]
-"499
-[; ;main.c: 499:                 break;
-[e $U 312  ]
-"501
-[; ;main.c: 501:             case 6:
-[e :U 320 ]
-"502
-[; ;main.c: 502:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"503
-[; ;main.c: 503:                 State = 7;
-[e = _State -> -> 7 `i `uc ]
-"504
-[; ;main.c: 504:                 break;
-[e $U 312  ]
-"506
-[; ;main.c: 506:             case 7:
-[e :U 321 ]
-"507
-[; ;main.c: 507:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"508
-[; ;main.c: 508:                 State = 8;
-[e = _State -> -> 8 `i `uc ]
-"509
-[; ;main.c: 509:                 break;
-[e $U 312  ]
-"511
-[; ;main.c: 511:             case 8:
-[e :U 322 ]
-"512
-[; ;main.c: 512:                 TMR1enable();
-[e ( _TMR1enable ..  ]
-"513
-[; ;main.c: 513:                 State = 9;
-[e = _State -> -> 9 `i `uc ]
-"514
-[; ;main.c: 514:                 break;
-[e $U 312  ]
-"516
-[; ;main.c: 516:             case 9:
-[e :U 323 ]
-"517
-[; ;main.c: 517:                 TMR0enable();
+"478
+[; ;main.c: 478:                 TMR0enable();
 [e ( _TMR0enable ..  ]
-"518
-[; ;main.c: 518:                 WakeUp();
-[e ( _WakeUp ..  ]
-"519
-[; ;main.c: 519:                 State = 3;
-[e = _State -> -> 3 `i `uc ]
-"520
-[; ;main.c: 520:                 break;
+"479
+[; ;main.c: 479:                 break;
 [e $U 312  ]
+"481
+[; ;main.c: 481:             case 2:
+[e :U 316 ]
+"483
+[; ;main.c: 483:                 WakeUp();
+[e ( _WakeUp ..  ]
+"484
+[; ;main.c: 484:                 State = 3;
+[e = _State -> -> 3 `i `uc ]
+"486
+[; ;main.c: 486:                 break;
+[e $U 312  ]
+"488
+[; ;main.c: 488:             case 3:
+[e :U 317 ]
+"489
+[; ;main.c: 489:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"490
+[; ;main.c: 490:                 State = 4;
+[e = _State -> -> 4 `i `uc ]
+"491
+[; ;main.c: 491:                 break;
+[e $U 312  ]
+"493
+[; ;main.c: 493:             case 4:
+[e :U 318 ]
+"494
+[; ;main.c: 494:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"495
+[; ;main.c: 495:                 State = 5;
+[e = _State -> -> 5 `i `uc ]
+"496
+[; ;main.c: 496:                 break;
+[e $U 312  ]
+"498
+[; ;main.c: 498:             case 5:
+[e :U 319 ]
+"499
+[; ;main.c: 499:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"500
+[; ;main.c: 500:                 State = 6;
+[e = _State -> -> 6 `i `uc ]
+"501
+[; ;main.c: 501:                 break;
+[e $U 312  ]
+"503
+[; ;main.c: 503:             case 6:
+[e :U 320 ]
+"504
+[; ;main.c: 504:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"505
+[; ;main.c: 505:                 State = 7;
+[e = _State -> -> 7 `i `uc ]
+"506
+[; ;main.c: 506:                 break;
+[e $U 312  ]
+"508
+[; ;main.c: 508:             case 7:
+[e :U 321 ]
+"509
+[; ;main.c: 509:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"510
+[; ;main.c: 510:                 State = 8;
+[e = _State -> -> 8 `i `uc ]
+"511
+[; ;main.c: 511:                 break;
+[e $U 312  ]
+"513
+[; ;main.c: 513:             case 8:
+[e :U 322 ]
+"514
+[; ;main.c: 514:                 TMR1enable();
+[e ( _TMR1enable ..  ]
+"515
+[; ;main.c: 515:                 State = 9;
+[e = _State -> -> 9 `i `uc ]
+"516
+[; ;main.c: 516:                 break;
+[e $U 312  ]
+"518
+[; ;main.c: 518:             case 9:
+[e :U 323 ]
+"519
+[; ;main.c: 519:                 TMR0enable();
+[e ( _TMR0enable ..  ]
+"520
+[; ;main.c: 520:                 WakeUp();
+[e ( _WakeUp ..  ]
 "521
-[; ;main.c: 521:         }
+[; ;main.c: 521:                 State = 3;
+[e = _State -> -> 3 `i `uc ]
+"522
+[; ;main.c: 522:                 break;
+[e $U 312  ]
+"523
+[; ;main.c: 523:         }
 }
 [e $U 312  ]
 [e :U 313 ]
@@ -1996,138 +2002,138 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 9 `i 323
  312 ]
 [e :U 312 ]
-"523
-[; ;main.c: 523:         INTCONbits.INT0F = 0;
+"525
+[; ;main.c: 525:         INTCONbits.INT0F = 0;
 [e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
-"524
-[; ;main.c: 524:     }
+"526
+[; ;main.c: 526:     }
 }
 [e :U 311 ]
-"525
-[; ;main.c: 525: }
+"527
+[; ;main.c: 527: }
 [e :UE 310 ]
 }
-"526
-[; ;main.c: 526: void INT1interruption (void){
+"528
+[; ;main.c: 528: void INT1interruption (void){
 [v _INT1interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _INT1interruption ]
 [f ]
-"528
-[; ;main.c: 528:     if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
+"530
+[; ;main.c: 530:     if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
 [e $ ! && == -> . . _INTCON3bits 0 3 `i -> 1 `i == -> . . _INTCON3bits 0 0 `i -> 1 `i 325  ]
 {
-"530
-[; ;main.c: 530:         Buzz();
+"532
+[; ;main.c: 532:         Buzz();
 [e ( _Buzz ..  ]
-"533
-[; ;main.c: 533:         switch(State){
+"535
+[; ;main.c: 535:         switch(State){
 [e $U 327  ]
 {
-"534
-[; ;main.c: 534:             case 0:
-[e :U 328 ]
-"535
-[; ;main.c: 535:                 IncrementTime(&CurrentTime[1]);
-[e ( _IncrementTime (1 &U *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "536
-[; ;main.c: 536:                 ChangeTime(0x00, 0x00);
-[e ( _ChangeTime (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 536:             case 0:
+[e :U 328 ]
 "537
-[; ;main.c: 537:                 ChangeTime(0x01, CurrentTime[1]);
-[e ( _ChangeTime (2 , -> -> 1 `i `uc -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `uc ]
+[; ;main.c: 537:                 IncrementTime(&CurrentTime[1]);
+[e ( _IncrementTime (1 &U *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "538
-[; ;main.c: 538:                 break;
-[e $U 326  ]
-"540
-[; ;main.c: 540:             case 1:
-[e :U 329 ]
-"541
-[; ;main.c: 541:                 IncrementTimeHour(&CurrentTime[2]);
-[e ( _IncrementTimeHour (1 &U *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"542
-[; ;main.c: 542:                 ChangeTime(0x00, 0x00);
+[; ;main.c: 538:                 ChangeTime(0x00, 0x00);
 [e ( _ChangeTime (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"539
+[; ;main.c: 539:                 ChangeTime(0x01, CurrentTime[1]);
+[e ( _ChangeTime (2 , -> -> 1 `i `uc -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `uc ]
+"540
+[; ;main.c: 540:                 break;
+[e $U 326  ]
+"542
+[; ;main.c: 542:             case 1:
+[e :U 329 ]
 "543
-[; ;main.c: 543:                 ChangeTime(0x02, CurrentTime[2]);
-[e ( _ChangeTime (2 , -> -> 2 `i `uc -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `uc ]
+[; ;main.c: 543:                 IncrementTimeHour(&CurrentTime[2]);
+[e ( _IncrementTimeHour (1 &U *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "544
-[; ;main.c: 544:                 break;
-[e $U 326  ]
+[; ;main.c: 544:                 ChangeTime(0x00, 0x00);
+[e ( _ChangeTime (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"545
+[; ;main.c: 545:                 ChangeTime(0x02, CurrentTime[2]);
+[e ( _ChangeTime (2 , -> -> 2 `i `uc -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `uc ]
 "546
-[; ;main.c: 546:             case 2:
-[e :U 330 ]
-"547
-[; ;main.c: 547:                 WakeUp();
-[e ( _WakeUp ..  ]
+[; ;main.c: 546:                 break;
+[e $U 326  ]
 "548
-[; ;main.c: 548:                 State = 3;
-[e = _State -> -> 3 `i `uc ]
+[; ;main.c: 548:             case 2:
+[e :U 330 ]
 "549
-[; ;main.c: 549:                 break;
-[e $U 326  ]
+[; ;main.c: 549:                 WakeUp();
+[e ( _WakeUp ..  ]
+"550
+[; ;main.c: 550:                 State = 3;
+[e = _State -> -> 3 `i `uc ]
 "551
-[; ;main.c: 551:             case 3:
-[e :U 331 ]
+[; ;main.c: 551:                 break;
+[e $U 326  ]
 "553
-[; ;main.c: 553:                 break;
-[e $U 326  ]
+[; ;main.c: 553:             case 3:
+[e :U 331 ]
 "555
-[; ;main.c: 555:             case 4:
-[e :U 332 ]
-"556
-[; ;main.c: 556:                 IncrementTime(&TargetTime[1]);
-[e ( _IncrementTime (1 &U *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
+[; ;main.c: 555:                 break;
+[e $U 326  ]
 "557
-[; ;main.c: 557:                 break;
-[e $U 326  ]
+[; ;main.c: 557:             case 4:
+[e :U 332 ]
+"558
+[; ;main.c: 558:                 IncrementTime(&TargetTime[1]);
+[e ( _IncrementTime (1 &U *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
 "559
-[; ;main.c: 559:             case 5:
-[e :U 333 ]
-"560
-[; ;main.c: 560:                 IncrementTimeHour(&TargetTime[2]);
-[e ( _IncrementTimeHour (1 &U *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
+[; ;main.c: 559:                 break;
+[e $U 326  ]
 "561
-[; ;main.c: 561:                 break;
-[e $U 326  ]
+[; ;main.c: 561:             case 5:
+[e :U 333 ]
+"562
+[; ;main.c: 562:                 IncrementTimeHour(&TargetTime[2]);
+[e ( _IncrementTimeHour (1 &U *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
 "563
-[; ;main.c: 563:             case 6:
-[e :U 334 ]
-"564
-[; ;main.c: 564:                 IncrementTime(&WateringTime[0]);
-[e ( _IncrementTime (1 &U *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
+[; ;main.c: 563:                 break;
+[e $U 326  ]
 "565
-[; ;main.c: 565:                 break;
-[e $U 326  ]
+[; ;main.c: 565:             case 6:
+[e :U 334 ]
+"566
+[; ;main.c: 566:                 IncrementTime(&WateringTime[0]);
+[e ( _IncrementTime (1 &U *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
 "567
-[; ;main.c: 567:             case 7:
-[e :U 335 ]
-"568
-[; ;main.c: 568:                 IncrementTime(&WateringTime[1]);
-[e ( _IncrementTime (1 &U *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
+[; ;main.c: 567:                 break;
+[e $U 326  ]
 "569
-[; ;main.c: 569:                 break;
-[e $U 326  ]
+[; ;main.c: 569:             case 7:
+[e :U 335 ]
+"570
+[; ;main.c: 570:                 IncrementTime(&WateringTime[1]);
+[e ( _IncrementTime (1 &U *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
 "571
-[; ;main.c: 571:             case 8:
-[e :U 336 ]
-"572
-[; ;main.c: 572:                 IncrementTime(&ValveTime[0]);
-[e ( _IncrementTime (1 &U *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
+[; ;main.c: 571:                 break;
+[e $U 326  ]
 "573
-[; ;main.c: 573:                 break;
-[e $U 326  ]
+[; ;main.c: 573:             case 8:
+[e :U 336 ]
+"574
+[; ;main.c: 574:                 IncrementTime(&ValveTime[0]);
+[e ( _IncrementTime (1 &U *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
 "575
-[; ;main.c: 575:             case 9:
-[e :U 337 ]
-"576
-[; ;main.c: 576:                 IncrementTime(&ValveTime[1]);
-[e ( _IncrementTime (1 &U *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
-"577
-[; ;main.c: 577:                 break;
+[; ;main.c: 575:                 break;
 [e $U 326  ]
+"577
+[; ;main.c: 577:             case 9:
+[e :U 337 ]
 "578
-[; ;main.c: 578:         }
+[; ;main.c: 578:                 IncrementTime(&ValveTime[1]);
+[e ( _IncrementTime (1 &U *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
+"579
+[; ;main.c: 579:                 break;
+[e $U 326  ]
+"580
+[; ;main.c: 580:         }
 }
 [e $U 326  ]
 [e :U 327 ]
@@ -2143,47 +2149,40 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 9 `i 337
  326 ]
 [e :U 326 ]
-"580
-[; ;main.c: 580:         INTCON3bits.INT1IF = 0;
+"582
+[; ;main.c: 582:         INTCON3bits.INT1IF = 0;
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-"581
-[; ;main.c: 581:     }
+"583
+[; ;main.c: 583:     }
 }
 [e :U 325 ]
-"582
-[; ;main.c: 582: }
+"584
+[; ;main.c: 584: }
 [e :UE 324 ]
 }
-"583
-[; ;main.c: 583: void INT2interruption (void){
+"585
+[; ;main.c: 585: void INT2interruption (void){
 [v _INT2interruption `(v ~T0 @X0 1 ef ]
 {
 [e :U _INT2interruption ]
 [f ]
-"585
-[; ;main.c: 585:     if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
+"587
+[; ;main.c: 587:     if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
 [e $ ! && == -> . . _INTCON3bits 0 4 `i -> 1 `i == -> . . _INTCON3bits 0 1 `i -> 1 `i 339  ]
 {
-"587
-[; ;main.c: 587:         Buzz();
+"589
+[; ;main.c: 589:         Buzz();
 [e ( _Buzz ..  ]
-"590
-[; ;main.c: 590:         switch(State){
+"592
+[; ;main.c: 592:         switch(State){
 [e $U 341  ]
 {
-"592
-[; ;main.c: 592:             case 0:
-[e :U 342 ]
-"593
-[; ;main.c: 593:                 if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;
-[e $ ! == -> *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> 0 `i 343  ]
-[e = *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 89 `i `uc ]
-[e $U 344  ]
 "594
-[; ;main.c: 594:                 else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);
-[e :U 343 ]
-[e = *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ( _SubBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 1 `i `uc ]
-[e :U 344 ]
+[; ;main.c: 594:             case 0:
+[e :U 342 ]
+"595
+[; ;main.c: 595:                 DecrementTime(&CurrentTime[1]);
+[e ( _DecrementTime (1 &U *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
 "596
 [; ;main.c: 596:                 ChangeTime(0x00, 0x00);
 [e ( _ChangeTime (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
@@ -2193,1144 +2192,1137 @@ Version 4.0 HI-TECH Software Intermediate Code
 "598
 [; ;main.c: 598:                 break;
 [e $U 340  ]
-"599
-[; ;main.c: 599:             case 1:
-[e :U 345 ]
 "600
-[; ;main.c: 600:                 if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;
-[e $ ! == -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `i -> 0 `i 346  ]
-[e = *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 35 `i `uc ]
-[e $U 347  ]
+[; ;main.c: 600:             case 1:
+[e :U 343 ]
 "601
-[; ;main.c: 601:                 else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);
-[e :U 346 ]
-[e = *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ( _SubBCD (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 1 `i `uc ]
-[e :U 347 ]
-"603
-[; ;main.c: 603:                 ChangeTime(0x00, 0x00);
+[; ;main.c: 601:                 DecrementTimeHour(&CurrentTime[2]);
+[e ( _DecrementTimeHour (1 &U *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
+"602
+[; ;main.c: 602:                 ChangeTime(0x00, 0x00);
 [e ( _ChangeTime (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"604
-[; ;main.c: 604:                 ChangeTime(0x02, CurrentTime[2]);
+"603
+[; ;main.c: 603:                 ChangeTime(0x02, CurrentTime[2]);
 [e ( _ChangeTime (2 , -> -> 2 `i `uc -> *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux `uc ]
-"605
-[; ;main.c: 605:                 break;
+"604
+[; ;main.c: 604:                 break;
 [e $U 340  ]
-"607
-[; ;main.c: 607:             case 2:
-[e :U 348 ]
-"609
-[; ;main.c: 609:                 WakeUp();
+"606
+[; ;main.c: 606:             case 2:
+[e :U 344 ]
+"608
+[; ;main.c: 608:                 WakeUp();
 [e ( _WakeUp ..  ]
-"611
-[; ;main.c: 611:                 State = 3;
+"610
+[; ;main.c: 610:                 State = 3;
 [e = _State -> -> 3 `i `uc ]
-"613
-[; ;main.c: 613:                 break;
+"612
+[; ;main.c: 612:                 break;
 [e $U 340  ]
-"615
-[; ;main.c: 615:             case 3:
-[e :U 349 ]
-"617
-[; ;main.c: 617:                 break;
+"614
+[; ;main.c: 614:             case 3:
+[e :U 345 ]
+"616
+[; ;main.c: 616:                 break;
 [e $U 340  ]
+"618
+[; ;main.c: 618:             case 4:
+[e :U 346 ]
 "619
-[; ;main.c: 619:             case 4:
-[e :U 350 ]
+[; ;main.c: 619:                 DecrementTime(&TargetTime[1]);
+[e ( _DecrementTime (1 &U *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
 "620
-[; ;main.c: 620:                 if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;
-[e $ ! == -> *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i -> 0 `i 351  ]
-[e = *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux -> -> 89 `i `uc ]
-[e $U 352  ]
-"621
-[; ;main.c: 621:                 else TargetTime[1] = SubBCD(TargetTime[1], 0x01);
-[e :U 351 ]
-[e = *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ( _SubBCD (2 , *U + &U _TargetTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux -> -> 1 `i `uc ]
-[e :U 352 ]
+[; ;main.c: 620:                 break;
+[e $U 340  ]
 "622
-[; ;main.c: 622:                 break;
-[e $U 340  ]
+[; ;main.c: 622:             case 5:
+[e :U 347 ]
+"623
+[; ;main.c: 623:                 DecrementTimeHour(&TargetTime[2]);
+[e ( _DecrementTimeHour (1 &U *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ]
 "624
-[; ;main.c: 624:             case 5:
-[e :U 353 ]
-"625
-[; ;main.c: 625:                 if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;
-[e $ ! == -> *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux `i -> 0 `i 354  ]
-[e = *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux -> -> 35 `i `uc ]
-[e $U 355  ]
+[; ;main.c: 624:                 break;
+[e $U 340  ]
 "626
-[; ;main.c: 626:                 else TargetTime[2] = SubBCD(TargetTime[2], 0x01);
-[e :U 354 ]
-[e = *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux ( _SubBCD (2 , *U + &U _TargetTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _TargetTime `ui `ux -> -> 1 `i `uc ]
-[e :U 355 ]
+[; ;main.c: 626:             case 6:
+[e :U 348 ]
 "627
-[; ;main.c: 627:                 break;
-[e $U 340  ]
+[; ;main.c: 627:                 DecrementTime(&WateringTime[0]);
+[e ( _DecrementTime (1 &U *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
 "628
-[; ;main.c: 628:             case 6:
-[e :U 356 ]
-"629
-[; ;main.c: 629:                 if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;
-[e $ ! == -> *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux `i -> 0 `i 357  ]
-[e = *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux -> -> 89 `i `uc ]
-[e $U 358  ]
-"630
-[; ;main.c: 630:                 else WateringTime[0] = SubBCD(WateringTime[0], 0x01);
-[e :U 357 ]
-[e = *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ( _SubBCD (2 , *U + &U _WateringTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux -> -> 1 `i `uc ]
-[e :U 358 ]
-"631
-[; ;main.c: 631:                 break;
+[; ;main.c: 628:                 break;
 [e $U 340  ]
-"633
-[; ;main.c: 633:             case 7:
-[e :U 359 ]
+"630
+[; ;main.c: 630:             case 7:
+[e :U 349 ]
+"631
+[; ;main.c: 631:                 DecrementTime(&WateringTime[1]);
+[e ( _DecrementTime (1 &U *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ]
+"632
+[; ;main.c: 632:                 break;
+[e $U 340  ]
 "634
-[; ;main.c: 634:                 if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;
-[e $ ! == -> *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux `i -> 0 `i 360  ]
-[e = *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux -> -> 89 `i `uc ]
-[e $U 361  ]
+[; ;main.c: 634:             case 8:
+[e :U 350 ]
 "635
-[; ;main.c: 635:                 else WateringTime[1] = SubBCD(WateringTime[1], 0x01);
-[e :U 360 ]
-[e = *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux ( _SubBCD (2 , *U + &U _WateringTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WateringTime `ui `ux -> -> 1 `i `uc ]
-[e :U 361 ]
+[; ;main.c: 635:                 DecrementTime(&ValveTime[0]);
+[e ( _DecrementTime (1 &U *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
 "636
 [; ;main.c: 636:                 break;
 [e $U 340  ]
 "638
-[; ;main.c: 638:             case 8:
-[e :U 362 ]
+[; ;main.c: 638:             case 9:
+[e :U 351 ]
 "639
-[; ;main.c: 639:                 if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;
-[e $ ! == -> *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux `i -> 0 `i 363  ]
-[e = *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux -> -> 89 `i `uc ]
-[e $U 364  ]
+[; ;main.c: 639:                 DecrementTime(&ValveTime[1]);
+[e ( _DecrementTime (1 &U *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ]
 "640
-[; ;main.c: 640:                 else ValveTime[0] = SubBCD(ValveTime[0], 0x01);
-[e :U 363 ]
-[e = *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ( _SubBCD (2 , *U + &U _ValveTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux -> -> 1 `i `uc ]
-[e :U 364 ]
+[; ;main.c: 640:                 break;
+[e $U 340  ]
 "641
-[; ;main.c: 641:                 break;
-[e $U 340  ]
-"643
-[; ;main.c: 643:             case 9:
-[e :U 365 ]
-"644
-[; ;main.c: 644:                 if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;
-[e $ ! == -> *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux `i -> 0 `i 366  ]
-[e = *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux -> -> 89 `i `uc ]
-[e $U 367  ]
-"645
-[; ;main.c: 645:                 else ValveTime[1] = SubBCD(ValveTime[1], 0x01);
-[e :U 366 ]
-[e = *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux ( _SubBCD (2 , *U + &U _ValveTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _ValveTime `ui `ux -> -> 1 `i `uc ]
-[e :U 367 ]
-"646
-[; ;main.c: 646:                 break;
-[e $U 340  ]
-"647
-[; ;main.c: 647:         }
+[; ;main.c: 641:         }
 }
 [e $U 340  ]
 [e :U 341 ]
 [e [\ -> _State `i , $ -> 0 `i 342
- , $ -> 1 `i 345
- , $ -> 2 `i 348
- , $ -> 3 `i 349
- , $ -> 4 `i 350
- , $ -> 5 `i 353
- , $ -> 6 `i 356
- , $ -> 7 `i 359
- , $ -> 8 `i 362
- , $ -> 9 `i 365
+ , $ -> 1 `i 343
+ , $ -> 2 `i 344
+ , $ -> 3 `i 345
+ , $ -> 4 `i 346
+ , $ -> 5 `i 347
+ , $ -> 6 `i 348
+ , $ -> 7 `i 349
+ , $ -> 8 `i 350
+ , $ -> 9 `i 351
  340 ]
 [e :U 340 ]
-"649
-[; ;main.c: 649:         INTCON3bits.INT2IF = 0;
+"643
+[; ;main.c: 643:         INTCON3bits.INT2IF = 0;
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"650
-[; ;main.c: 650:     }
+"644
+[; ;main.c: 644:     }
 }
 [e :U 339 ]
-"651
-[; ;main.c: 651: }
+"645
+[; ;main.c: 645: }
 [e :UE 338 ]
 }
-"653
-[; ;main.c: 653: void MCUinit(void){
+"647
+[; ;main.c: 647: void MCUinit(void){
 [v _MCUinit `(v ~T0 @X0 1 ef ]
 {
 [e :U _MCUinit ]
 [f ]
-"654
-[; ;main.c: 654:     Display(0x88, 0x88);
+"648
+[; ;main.c: 648:     Display(0x88, 0x88);
 [e ( _Display (2 , -> -> 136 `i `uc -> -> 136 `i `uc ]
-"656
-[; ;main.c: 656: }
-[e :UE 368 ]
+"650
+[; ;main.c: 650: }
+[e :UE 352 ]
 }
-"658
-[; ;main.c: 658: void WakeUp(void){
+"652
+[; ;main.c: 652: void WakeUp(void){
 [v _WakeUp `(v ~T0 @X0 1 ef ]
 {
 [e :U _WakeUp ]
 [f ]
-"659
-[; ;main.c: 659:     UpdateCurrentTime();
+"653
+[; ;main.c: 653:     UpdateCurrentTime();
 [e ( _UpdateCurrentTime ..  ]
-"661
-[; ;main.c: 661:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
-[e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 2 `i `uc `i -> 89 `i 370  ]
+"655
+[; ;main.c: 655:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
+[e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 2 `i `uc `i -> 89 `i 354  ]
 {
-"662
-[; ;main.c: 662:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
-[e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 1 `i `uc `i -> 35 `i 371  ]
+"656
+[; ;main.c: 656:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
+[e $ ! > -> ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 1 `i `uc `i -> 35 `i 355  ]
 {
-"663
-[; ;main.c: 663:             WakeUpTime[2] = 0x00;
+"657
+[; ;main.c: 657:             WakeUpTime[2] = 0x00;
 [e = *U + &U _WakeUpTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux -> -> 0 `i `uc ]
-"664
-[; ;main.c: 664:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+"658
+[; ;main.c: 658:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
 [e = *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 2 `i `uc ]
-"665
-[; ;main.c: 665:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+"659
+[; ;main.c: 659:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
 [e = *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _SubBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 96 `i `uc ]
-"666
-[; ;main.c: 666:         }else{
+"660
+[; ;main.c: 660:         }else{
 }
-[e $U 372  ]
-[e :U 371 ]
+[e $U 356  ]
+[e :U 355 ]
 {
-"667
-[; ;main.c: 667:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
+"661
+[; ;main.c: 661:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
 [e = *U + &U _WakeUpTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 1 `i `uc ]
-"668
-[; ;main.c: 668:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+"662
+[; ;main.c: 662:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
 [e = *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 2 `i `uc ]
-"669
-[; ;main.c: 669:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+"663
+[; ;main.c: 663:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
 [e = *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _SubBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 96 `i `uc ]
-"670
-[; ;main.c: 670:         }
+"664
+[; ;main.c: 664:         }
 }
-[e :U 372 ]
-"671
-[; ;main.c: 671:     }else{
+[e :U 356 ]
+"665
+[; ;main.c: 665:     }else{
 }
-[e $U 373  ]
-[e :U 370 ]
+[e $U 357  ]
+[e :U 354 ]
 {
-"672
-[; ;main.c: 672:         WakeUpTime[2] = CurrentTime[2];
+"666
+[; ;main.c: 666:         WakeUpTime[2] = CurrentTime[2];
 [e = *U + &U _WakeUpTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux ]
-"673
-[; ;main.c: 673:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+"667
+[; ;main.c: 667:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
 [e = *U + &U _WakeUpTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _WakeUpTime `ui `ux ( _AddBCD (2 , *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> -> 2 `i `uc ]
-"674
-[; ;main.c: 674:     }
+"668
+[; ;main.c: 668:     }
 }
-[e :U 373 ]
-"675
-[; ;main.c: 675:     UpdateTimeFlag = 1;
+[e :U 357 ]
+"669
+[; ;main.c: 669:     UpdateTimeFlag = 1;
 [e = _UpdateTimeFlag -> -> 1 `i `uc ]
-"676
-[; ;main.c: 676: }
-[e :UE 369 ]
+"670
+[; ;main.c: 670: }
+[e :UE 353 ]
 }
-"677
-[; ;main.c: 677: void BlinkDigit(char index){
+"671
+[; ;main.c: 671: void BlinkDigit(char index){
 [v _BlinkDigit `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _BlinkDigit ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"678
-[; ;main.c: 678:     switch(index){
-[e $U 376  ]
+"672
+[; ;main.c: 672:     switch(index){
+[e $U 360  ]
 {
+"673
+[; ;main.c: 673:         case 0:
+[e :U 361 ]
+"674
+[; ;main.c: 674:             Blink_First_Digit = 0;
+[e = _Blink_First_Digit -> -> 0 `i `uc ]
+"675
+[; ;main.c: 675:             Blink_Second_Digit = 0;
+[e = _Blink_Second_Digit -> -> 0 `i `uc ]
+"676
+[; ;main.c: 676:         break;
+[e $U 359  ]
+"678
+[; ;main.c: 678:         case 1:
+[e :U 362 ]
 "679
-[; ;main.c: 679:         case 0:
-[e :U 377 ]
+[; ;main.c: 679:             Blink_First_Digit = 0;
+[e = _Blink_First_Digit -> -> 0 `i `uc ]
 "680
-[; ;main.c: 680:             Blink_First_Digit = 0;
-[e = _Blink_First_Digit -> -> 0 `i `uc ]
-"681
-[; ;main.c: 681:             Blink_Second_Digit = 0;
-[e = _Blink_Second_Digit -> -> 0 `i `uc ]
-"682
-[; ;main.c: 682:         break;
-[e $U 375  ]
-"684
-[; ;main.c: 684:         case 1:
-[e :U 378 ]
-"685
-[; ;main.c: 685:             Blink_First_Digit = 0;
-[e = _Blink_First_Digit -> -> 0 `i `uc ]
-"686
-[; ;main.c: 686:             Blink_Second_Digit = 1;
+[; ;main.c: 680:             Blink_Second_Digit = 1;
 [e = _Blink_Second_Digit -> -> 1 `i `uc ]
-"687
-[; ;main.c: 687:         break;
-[e $U 375  ]
-"689
-[; ;main.c: 689:         case 2:
-[e :U 379 ]
-"690
-[; ;main.c: 690:             Blink_First_Digit = 1;
+"681
+[; ;main.c: 681:         break;
+[e $U 359  ]
+"683
+[; ;main.c: 683:         case 2:
+[e :U 363 ]
+"684
+[; ;main.c: 684:             Blink_First_Digit = 1;
 [e = _Blink_First_Digit -> -> 1 `i `uc ]
-"691
-[; ;main.c: 691:             Blink_Second_Digit = 0;
+"685
+[; ;main.c: 685:             Blink_Second_Digit = 0;
 [e = _Blink_Second_Digit -> -> 0 `i `uc ]
-"692
-[; ;main.c: 692:         break;
-[e $U 375  ]
-"693
-[; ;main.c: 693:     }
+"686
+[; ;main.c: 686:         break;
+[e $U 359  ]
+"687
+[; ;main.c: 687:     }
 }
-[e $U 375  ]
-[e :U 376 ]
-[e [\ -> _index `i , $ -> 0 `i 377
- , $ -> 1 `i 378
- , $ -> 2 `i 379
- 375 ]
-[e :U 375 ]
-"695
-[; ;main.c: 695: }
-[e :UE 374 ]
+[e $U 359  ]
+[e :U 360 ]
+[e [\ -> _index `i , $ -> 0 `i 361
+ , $ -> 1 `i 362
+ , $ -> 2 `i 363
+ 359 ]
+[e :U 359 ]
+"689
+[; ;main.c: 689: }
+[e :UE 358 ]
 }
-"696
-[; ;main.c: 696: void TMR1enable(void){
+"690
+[; ;main.c: 690: void TMR1enable(void){
 [v _TMR1enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR1enable ]
 [f ]
-"697
-[; ;main.c: 697:     T0CONbits.TMR0ON = 0;
+"691
+[; ;main.c: 691:     T0CONbits.TMR0ON = 0;
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"698
-[; ;main.c: 698:     T1CONbits.TMR1ON = 1;
+"692
+[; ;main.c: 692:     T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-"699
-[; ;main.c: 699: }
-[e :UE 380 ]
+"693
+[; ;main.c: 693: }
+[e :UE 364 ]
 }
-"700
-[; ;main.c: 700: void TMR0enable(void){
+"694
+[; ;main.c: 694: void TMR0enable(void){
 [v _TMR0enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0enable ]
 [f ]
-"701
-[; ;main.c: 701:     T0CONbits.TMR0ON = 1;
+"695
+[; ;main.c: 695:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"702
-[; ;main.c: 702:     T1CONbits.TMR1ON = 0;
+"696
+[; ;main.c: 696:     T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-"703
-[; ;main.c: 703: }
-[e :UE 381 ]
+"697
+[; ;main.c: 697: }
+[e :UE 365 ]
 }
-"705
-[; ;main.c: 705: void IncrementTime(char *Time){
+"699
+[; ;main.c: 699: void IncrementTime(char *Time){
 [v _IncrementTime `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _IncrementTime ]
 [v _Time `*uc ~T0 @X0 1 r1 ]
 [f ]
-"706
-[; ;main.c: 706:     if(*Time == 0x59) *Time = 0x00;
-[e $ ! == -> *U _Time `i -> 89 `i 383  ]
+"700
+[; ;main.c: 700:     if(*Time == 0x59) *Time = 0x00;
+[e $ ! == -> *U _Time `i -> 89 `i 367  ]
 [e = *U _Time -> -> 0 `i `uc ]
-[e $U 384  ]
-"707
-[; ;main.c: 707:     else *Time = AddBCD(*Time, 0x01);
-[e :U 383 ]
+[e $U 368  ]
+"701
+[; ;main.c: 701:     else *Time = AddBCD(*Time, 0x01);
+[e :U 367 ]
 [e = *U _Time ( _AddBCD (2 , *U _Time -> -> 1 `i `uc ]
-[e :U 384 ]
-"708
-[; ;main.c: 708: }
-[e :UE 382 ]
+[e :U 368 ]
+"702
+[; ;main.c: 702: }
+[e :UE 366 ]
 }
-"709
-[; ;main.c: 709: void IncrementTimeHour(char *Time){
+"703
+[; ;main.c: 703: void IncrementTimeHour(char *Time){
 [v _IncrementTimeHour `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _IncrementTimeHour ]
 [v _Time `*uc ~T0 @X0 1 r1 ]
 [f ]
-"710
-[; ;main.c: 710:     if(*Time == 0x23) *Time = 0x00;
-[e $ ! == -> *U _Time `i -> 35 `i 386  ]
+"704
+[; ;main.c: 704:     if(*Time == 0x23) *Time = 0x00;
+[e $ ! == -> *U _Time `i -> 35 `i 370  ]
 [e = *U _Time -> -> 0 `i `uc ]
-[e $U 387  ]
-"711
-[; ;main.c: 711:     else *Time = AddBCD(*Time, 0x01);
-[e :U 386 ]
+[e $U 371  ]
+"705
+[; ;main.c: 705:     else *Time = AddBCD(*Time, 0x01);
+[e :U 370 ]
 [e = *U _Time ( _AddBCD (2 , *U _Time -> -> 1 `i `uc ]
-[e :U 387 ]
-"712
-[; ;main.c: 712: }
-[e :UE 385 ]
+[e :U 371 ]
+"706
+[; ;main.c: 706: }
+[e :UE 369 ]
 }
+"708
+[; ;main.c: 708: void DecrementTime(char *Time){
+[v _DecrementTime `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _DecrementTime ]
+[v _Time `*uc ~T0 @X0 1 r1 ]
+[f ]
+"709
+[; ;main.c: 709:     if(*Time == 0x00) *Time = 0x59;
+[e $ ! == -> *U _Time `i -> 0 `i 373  ]
+[e = *U _Time -> -> 89 `i `uc ]
+[e $U 374  ]
+"710
+[; ;main.c: 710:     else *Time = SubBCD(*Time, 0x01);
+[e :U 373 ]
+[e = *U _Time ( _SubBCD (2 , *U _Time -> -> 1 `i `uc ]
+[e :U 374 ]
+"711
+[; ;main.c: 711: }
+[e :UE 372 ]
+}
+"712
+[; ;main.c: 712: void DecrementTimeHour(char *Time){
+[v _DecrementTimeHour `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _DecrementTimeHour ]
+[v _Time `*uc ~T0 @X0 1 r1 ]
+[f ]
+"713
+[; ;main.c: 713:     if(*Time == 0x00) *Time = 0x23;
+[e $ ! == -> *U _Time `i -> 0 `i 376  ]
+[e = *U _Time -> -> 35 `i `uc ]
+[e $U 377  ]
 "714
-[; ;main.c: 714: char AddBCD(char Number1, char Number2){
+[; ;main.c: 714:     else *Time = SubBCD(*Time, 0x01);
+[e :U 376 ]
+[e = *U _Time ( _SubBCD (2 , *U _Time -> -> 1 `i `uc ]
+[e :U 377 ]
+"715
+[; ;main.c: 715: }
+[e :UE 375 ]
+}
+"717
+[; ;main.c: 717: char AddBCD(char Number1, char Number2){
 [v _AddBCD `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _AddBCD ]
 [v _Number1 `uc ~T0 @X0 1 r1 ]
 [v _Number2 `uc ~T0 @X0 1 r2 ]
 [f ]
-"715
-[; ;main.c: 715:     char temp = Number1 + Number2;
+"718
+[; ;main.c: 718:     char temp = Number1 + Number2;
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> + -> _Number1 `i -> _Number2 `i `uc ]
-"717
-[; ;main.c: 717:     if ((temp & 0x0F) > 9) return temp + 0x06;
-[e $ ! > & -> _temp `i -> 15 `i -> 9 `i 389  ]
-[e ) -> + -> _temp `i -> 6 `i `uc ]
-[e $UE 388  ]
-[e $U 390  ]
-"718
-[; ;main.c: 718:     else return temp;
-[e :U 389 ]
-[e ) _temp ]
-[e $UE 388  ]
-[e :U 390 ]
-"719
-[; ;main.c: 719: }
-[e :UE 388 ]
-}
 "720
-[; ;main.c: 720: char SubBCD(char Number1, char Number2){
+[; ;main.c: 720:     if ((temp & 0x0F) > 9) return temp + 0x06;
+[e $ ! > & -> _temp `i -> 15 `i -> 9 `i 379  ]
+[e ) -> + -> _temp `i -> 6 `i `uc ]
+[e $UE 378  ]
+[e $U 380  ]
+"721
+[; ;main.c: 721:     else return temp;
+[e :U 379 ]
+[e ) _temp ]
+[e $UE 378  ]
+[e :U 380 ]
+"722
+[; ;main.c: 722: }
+[e :UE 378 ]
+}
+"723
+[; ;main.c: 723: char SubBCD(char Number1, char Number2){
 [v _SubBCD `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _SubBCD ]
 [v _Number1 `uc ~T0 @X0 1 r1 ]
 [v _Number2 `uc ~T0 @X0 1 r2 ]
 [f ]
-"721
-[; ;main.c: 721:     char temp = Number1 - Number2;
+"724
+[; ;main.c: 724:     char temp = Number1 - Number2;
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> - -> _Number1 `i -> _Number2 `i `uc ]
-"723
-[; ;main.c: 723:     if ((temp & 0x0F) > 9) return temp - 0x06;
-[e $ ! > & -> _temp `i -> 15 `i -> 9 `i 392  ]
-[e ) -> - -> _temp `i -> 6 `i `uc ]
-[e $UE 391  ]
-[e $U 393  ]
-"724
-[; ;main.c: 724:     else return temp;
-[e :U 392 ]
-[e ) _temp ]
-[e $UE 391  ]
-[e :U 393 ]
-"725
-[; ;main.c: 725: }
-[e :UE 391 ]
-}
 "726
-[; ;main.c: 726: void Display(char Hours, char Minutes){
+[; ;main.c: 726:     if ((temp & 0x0F) > 9) return temp - 0x06;
+[e $ ! > & -> _temp `i -> 15 `i -> 9 `i 382  ]
+[e ) -> - -> _temp `i -> 6 `i `uc ]
+[e $UE 381  ]
+[e $U 383  ]
+"727
+[; ;main.c: 727:     else return temp;
+[e :U 382 ]
+[e ) _temp ]
+[e $UE 381  ]
+[e :U 383 ]
+"728
+[; ;main.c: 728: }
+[e :UE 381 ]
+}
+"729
+[; ;main.c: 729: void Display(char Hours, char Minutes){
 [v _Display `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _Display ]
 [v _Hours `uc ~T0 @X0 1 r1 ]
 [v _Minutes `uc ~T0 @X0 1 r2 ]
 [f ]
-"727
-[; ;main.c: 727:     char Upper_Hours = ((Hours & 0xF0) >> 4);
+"730
+[; ;main.c: 730:     char Upper_Hours = ((Hours & 0xF0) >> 4);
 [v _Upper_Hours `uc ~T0 @X0 1 a ]
 [e = _Upper_Hours -> >> & -> _Hours `i -> 240 `i -> 4 `i `uc ]
-"728
-[; ;main.c: 728:     char Lower_Hours = Hours & 0x0F;
+"731
+[; ;main.c: 731:     char Lower_Hours = Hours & 0x0F;
 [v _Lower_Hours `uc ~T0 @X0 1 a ]
 [e = _Lower_Hours -> & -> _Hours `i -> 15 `i `uc ]
-"730
-[; ;main.c: 730:     char Upper_Minutes = ((Minutes & 0xF0) >> 4);
+"733
+[; ;main.c: 733:     char Upper_Minutes = ((Minutes & 0xF0) >> 4);
 [v _Upper_Minutes `uc ~T0 @X0 1 a ]
 [e = _Upper_Minutes -> >> & -> _Minutes `i -> 240 `i -> 4 `i `uc ]
-"731
-[; ;main.c: 731:     char Lower_Minutes = Minutes & 0x0F;
+"734
+[; ;main.c: 734:     char Lower_Minutes = Minutes & 0x0F;
 [v _Lower_Minutes `uc ~T0 @X0 1 a ]
 [e = _Lower_Minutes -> & -> _Minutes `i -> 15 `i `uc ]
-"733
-[; ;main.c: 733:     if(Blink_First_Digit && Blink) {
-[e $ ! && != -> _Blink_First_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 395  ]
-{
-"734
-[; ;main.c: 734:         LATA |= 0x00;
-[e =| _LATA -> -> 0 `i `Vuc ]
-"735
-[; ;main.c: 735:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "736
-[; ;main.c: 736:     }
-}
-[e $U 396  ]
+[; ;main.c: 736:     if(Blink_First_Digit && Blink) {
+[e $ ! && != -> _Blink_First_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 385  ]
+{
 "737
-[; ;main.c: 737:     else {
-[e :U 395 ]
-{
+[; ;main.c: 737:         LATA |= 0x00;
+[e =| _LATA -> -> 0 `i `Vuc ]
 "738
-[; ;main.c: 738:         LATA = Upper_Hours;
-[e = _LATA -> _Upper_Hours `uc ]
+[; ;main.c: 738:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "739
-[; ;main.c: 739:         LATB |= 0x10;
-[e =| _LATB -> -> 16 `i `Vuc ]
+[; ;main.c: 739:     }
+}
+[e $U 386  ]
 "740
-[; ;main.c: 740:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 740:     else {
+[e :U 385 ]
+{
 "741
-[; ;main.c: 741:         LATB &= ~(0x10);
-[e =& _LATB -> ~ -> 16 `i `Vuc ]
+[; ;main.c: 741:         LATA = Upper_Hours;
+[e = _LATA -> _Upper_Hours `uc ]
 "742
-[; ;main.c: 742:     }
-}
-[e :U 396 ]
+[; ;main.c: 742:         LATB |= 0x10;
+[e =| _LATB -> -> 16 `i `Vuc ]
+"743
+[; ;main.c: 743:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "744
-[; ;main.c: 744:     if(Blink_First_Digit && Blink) {
-[e $ ! && != -> _Blink_First_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 397  ]
-{
+[; ;main.c: 744:         LATB &= ~(0x10);
+[e =& _LATB -> ~ -> 16 `i `Vuc ]
 "745
-[; ;main.c: 745:         LATA |= 0x00;
-[e =| _LATA -> -> 0 `i `Vuc ]
-"746
-[; ;main.c: 746:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 745:     }
+}
+[e :U 386 ]
 "747
-[; ;main.c: 747:     }
-}
-[e $U 398  ]
+[; ;main.c: 747:     if(Blink_First_Digit && Blink) {
+[e $ ! && != -> _Blink_First_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 387  ]
+{
 "748
-[; ;main.c: 748:     else {
-[e :U 397 ]
-{
+[; ;main.c: 748:         LATA |= 0x00;
+[e =| _LATA -> -> 0 `i `Vuc ]
 "749
-[; ;main.c: 749:         LATA = Lower_Hours;
-[e = _LATA -> _Lower_Hours `uc ]
+[; ;main.c: 749:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "750
-[; ;main.c: 750:         LATB |= 0x20;
-[e =| _LATB -> -> 32 `i `Vuc ]
+[; ;main.c: 750:     }
+}
+[e $U 388  ]
 "751
-[; ;main.c: 751:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 751:     else {
+[e :U 387 ]
+{
 "752
-[; ;main.c: 752:         LATB &= ~(0x20);
-[e =& _LATB -> ~ -> 32 `i `Vuc ]
+[; ;main.c: 752:         LATA = Lower_Hours;
+[e = _LATA -> _Lower_Hours `uc ]
 "753
-[; ;main.c: 753:     }
-}
-[e :U 398 ]
+[; ;main.c: 753:         LATB |= 0x20;
+[e =| _LATB -> -> 32 `i `Vuc ]
+"754
+[; ;main.c: 754:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "755
-[; ;main.c: 755:     if(Blink_Second_Digit && Blink) {
-[e $ ! && != -> _Blink_Second_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 399  ]
-{
+[; ;main.c: 755:         LATB &= ~(0x20);
+[e =& _LATB -> ~ -> 32 `i `Vuc ]
 "756
-[; ;main.c: 756:         LATA |= 0x00;
-[e =| _LATA -> -> 0 `i `Vuc ]
-"757
-[; ;main.c: 757:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 756:     }
+}
+[e :U 388 ]
 "758
-[; ;main.c: 758:     }
-}
-[e $U 400  ]
+[; ;main.c: 758:     if(Blink_Second_Digit && Blink) {
+[e $ ! && != -> _Blink_Second_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 389  ]
+{
 "759
-[; ;main.c: 759:     else {
-[e :U 399 ]
-{
-"760
-[; ;main.c: 760:         LATA = Upper_Minutes;
-[e = _LATA -> _Upper_Minutes `uc ]
-"761
-[; ;main.c: 761:         LATB |= 0x40;
-[e =| _LATB -> -> 64 `i `Vuc ]
-"762
-[; ;main.c: 762:         _delay((unsigned long)((800)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"763
-[; ;main.c: 763:         LATB &= ~(0x40);
-[e =& _LATB -> ~ -> 64 `i `Vuc ]
-"764
-[; ;main.c: 764:     }
-}
-[e :U 400 ]
-"766
-[; ;main.c: 766:     if(Blink_Second_Digit && Blink) {
-[e $ ! && != -> _Blink_Second_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 401  ]
-{
-"767
-[; ;main.c: 767:         LATA |= 0x00;
+[; ;main.c: 759:         LATA |= 0x00;
 [e =| _LATA -> -> 0 `i `Vuc ]
-"768
-[; ;main.c: 768:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+"760
+[; ;main.c: 760:         _delay((unsigned long)((800)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"769
-[; ;main.c: 769:     }else {
+"761
+[; ;main.c: 761:     }
 }
-[e $U 402  ]
-[e :U 401 ]
+[e $U 390  ]
+"762
+[; ;main.c: 762:     else {
+[e :U 389 ]
+{
+"763
+[; ;main.c: 763:         LATA = Upper_Minutes;
+[e = _LATA -> _Upper_Minutes `uc ]
+"764
+[; ;main.c: 764:         LATB |= 0x40;
+[e =| _LATB -> -> 64 `i `Vuc ]
+"765
+[; ;main.c: 765:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"766
+[; ;main.c: 766:         LATB &= ~(0x40);
+[e =& _LATB -> ~ -> 64 `i `Vuc ]
+"767
+[; ;main.c: 767:     }
+}
+[e :U 390 ]
+"769
+[; ;main.c: 769:     if(Blink_Second_Digit && Blink) {
+[e $ ! && != -> _Blink_Second_Digit `i -> 0 `i != -> _Blink `i -> 0 `i 391  ]
 {
 "770
-[; ;main.c: 770:         LATA = Lower_Minutes;
-[e = _LATA -> _Lower_Minutes `uc ]
+[; ;main.c: 770:         LATA |= 0x00;
+[e =| _LATA -> -> 0 `i `Vuc ]
 "771
-[; ;main.c: 771:         LATB |= 0x80;
-[e =| _LATB -> -> 128 `i `Vuc ]
-"772
-[; ;main.c: 772:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[; ;main.c: 771:         _delay((unsigned long)((800)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"772
+[; ;main.c: 772:     }else {
+}
+[e $U 392  ]
+[e :U 391 ]
+{
 "773
-[; ;main.c: 773:         LATB &= ~(0x80);
-[e =& _LATB -> ~ -> 128 `i `Vuc ]
+[; ;main.c: 773:         LATA = Lower_Minutes;
+[e = _LATA -> _Lower_Minutes `uc ]
 "774
-[; ;main.c: 774:     }
-}
-[e :U 402 ]
+[; ;main.c: 774:         LATB |= 0x80;
+[e =| _LATB -> -> 128 `i `Vuc ]
 "775
-[; ;main.c: 775: }
-[e :UE 394 ]
-}
+[; ;main.c: 775:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "776
-[; ;main.c: 776: void Buzz(void){
+[; ;main.c: 776:         LATB &= ~(0x80);
+[e =& _LATB -> ~ -> 128 `i `Vuc ]
+"777
+[; ;main.c: 777:     }
+}
+[e :U 392 ]
+"778
+[; ;main.c: 778: }
+[e :UE 384 ]
+}
+"779
+[; ;main.c: 779: void Buzz(void){
 [v _Buzz `(v ~T0 @X0 1 ef ]
 {
 [e :U _Buzz ]
 [f ]
-"778
-[; ;main.c: 778:     PIE2bits.TMR3IE = 1;
-[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
-"779
-[; ;main.c: 779:     TMR3 = 0;
-[e = _TMR3 -> -> 0 `i `us ]
-"780
-[; ;main.c: 780: }
-[e :UE 403 ]
-}
 "781
-[; ;main.c: 781: void ChangeTime(uint8_t Address, uint8_t Time){
+[; ;main.c: 781:     PIE2bits.TMR3IE = 1;
+[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
+"782
+[; ;main.c: 782:     TMR3 = 0;
+[e = _TMR3 -> -> 0 `i `us ]
+"783
+[; ;main.c: 783: }
+[e :UE 393 ]
+}
+"784
+[; ;main.c: 784: void ChangeTime(uint8_t Address, uint8_t Time){
 [v _ChangeTime `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _ChangeTime ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [v _Time `uc ~T0 @X0 1 r2 ]
 [f ]
-"783
-[; ;main.c: 783:     SSPCON2bits.SEN = 1;
+"786
+[; ;main.c: 786:     SSPCON2bits.SEN = 1;
 [e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-"784
-[; ;main.c: 784:     while(SEN);
+"787
+[; ;main.c: 787:     while(SEN);
+[e $U 395  ]
+[e :U 396 ]
+[e :U 395 ]
+[e $ _SEN 396  ]
+[e :U 397 ]
+"788
+[; ;main.c: 788:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"790
+[; ;main.c: 790:     SSPBUF = 0xD0;
+[e = _SSPBUF -> -> 208 `i `uc ]
+"791
+[; ;main.c: 791:     while(!SSPIF);
+[e $U 398  ]
+[e :U 399 ]
+[e :U 398 ]
+[e $ ! _SSPIF 399  ]
+[e :U 400 ]
+"792
+[; ;main.c: 792:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"793
+[; ;main.c: 793:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 401  ]
+{
+"794
+[; ;main.c: 794:         SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"795
+[; ;main.c: 795:         while(PEN);
+[e $U 402  ]
+[e :U 403 ]
+[e :U 402 ]
+[e $ _PEN 403  ]
+[e :U 404 ]
+"796
+[; ;main.c: 796:         return;
+[e $UE 394  ]
+"797
+[; ;main.c: 797:     }
+}
+[e :U 401 ]
+"799
+[; ;main.c: 799:     SSPBUF = Address;
+[e = _SSPBUF _Address ]
+"800
+[; ;main.c: 800:     while(!SSPIF);
 [e $U 405  ]
 [e :U 406 ]
 [e :U 405 ]
-[e $ _SEN 406  ]
+[e $ ! _SSPIF 406  ]
 [e :U 407 ]
-"785
-[; ;main.c: 785:     PIR1bits.SSPIF = 0;
+"801
+[; ;main.c: 801:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"787
-[; ;main.c: 787:     SSPBUF = 0xD0;
-[e = _SSPBUF -> -> 208 `i `uc ]
-"788
-[; ;main.c: 788:     while(!SSPIF);
-[e $U 408  ]
-[e :U 409 ]
-[e :U 408 ]
-[e $ ! _SSPIF 409  ]
-[e :U 410 ]
-"789
-[; ;main.c: 789:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"790
-[; ;main.c: 790:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 411  ]
+"802
+[; ;main.c: 802:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 408  ]
 {
-"791
-[; ;main.c: 791:         SSPCON2bits.PEN = 1;
+"803
+[; ;main.c: 803:         SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"792
-[; ;main.c: 792:         while(PEN);
+"804
+[; ;main.c: 804:         while(PEN);
+[e $U 409  ]
+[e :U 410 ]
+[e :U 409 ]
+[e $ _PEN 410  ]
+[e :U 411 ]
+"805
+[; ;main.c: 805:         return;
+[e $UE 394  ]
+"806
+[; ;main.c: 806:     }
+}
+[e :U 408 ]
+"808
+[; ;main.c: 808:     SSPBUF = Time;
+[e = _SSPBUF _Time ]
+"809
+[; ;main.c: 809:     while(!SSPIF);
 [e $U 412  ]
 [e :U 413 ]
 [e :U 412 ]
-[e $ _PEN 413  ]
+[e $ ! _SSPIF 413  ]
 [e :U 414 ]
-"793
-[; ;main.c: 793:         return;
-[e $UE 404  ]
-"794
-[; ;main.c: 794:     }
-}
-[e :U 411 ]
-"796
-[; ;main.c: 796:     SSPBUF = Address;
-[e = _SSPBUF _Address ]
-"797
-[; ;main.c: 797:     while(!SSPIF);
+"810
+[; ;main.c: 810:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"813
+[; ;main.c: 813:     SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"814
+[; ;main.c: 814:     while(PEN);
 [e $U 415  ]
 [e :U 416 ]
 [e :U 415 ]
-[e $ ! _SSPIF 416  ]
+[e $ _PEN 416  ]
 [e :U 417 ]
-"798
-[; ;main.c: 798:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"799
-[; ;main.c: 799:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 418  ]
-{
-"800
-[; ;main.c: 800:         SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"801
-[; ;main.c: 801:         while(PEN);
-[e $U 419  ]
-[e :U 420 ]
-[e :U 419 ]
-[e $ _PEN 420  ]
-[e :U 421 ]
-"802
-[; ;main.c: 802:         return;
-[e $UE 404  ]
-"803
-[; ;main.c: 803:     }
+"815
+[; ;main.c: 815: }
+[e :UE 394 ]
 }
-[e :U 418 ]
-"805
-[; ;main.c: 805:     SSPBUF = Time;
-[e = _SSPBUF _Time ]
-"806
-[; ;main.c: 806:     while(!SSPIF);
-[e $U 422  ]
-[e :U 423 ]
-[e :U 422 ]
-[e $ ! _SSPIF 423  ]
-[e :U 424 ]
-"807
-[; ;main.c: 807:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"810
-[; ;main.c: 810:     SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"811
-[; ;main.c: 811:     while(PEN);
-[e $U 425  ]
-[e :U 426 ]
-[e :U 425 ]
-[e $ _PEN 426  ]
-[e :U 427 ]
-"812
-[; ;main.c: 812: }
-[e :UE 404 ]
-}
-"813
-[; ;main.c: 813: uint8_t ReadTime(uint8_t Address){
+"816
+[; ;main.c: 816: uint8_t ReadTime(uint8_t Address){
 [v _ReadTime `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _ReadTime ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [f ]
-"814
-[; ;main.c: 814:     char TempData;
-[v _TempData `uc ~T0 @X0 1 a ]
-"816
-[; ;main.c: 816:     SSPCON2bits.SEN = 1;
-[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
 "817
-[; ;main.c: 817:     while(SEN);
+[; ;main.c: 817:     char TempData;
+[v _TempData `uc ~T0 @X0 1 a ]
+"819
+[; ;main.c: 819:     SSPCON2bits.SEN = 1;
+[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
+"820
+[; ;main.c: 820:     while(SEN);
+[e $U 419  ]
+[e :U 420 ]
+[e :U 419 ]
+[e $ _SEN 420  ]
+[e :U 421 ]
+"821
+[; ;main.c: 821:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"823
+[; ;main.c: 823:     SSPBUF = 0xD0;
+[e = _SSPBUF -> -> 208 `i `uc ]
+"824
+[; ;main.c: 824:     while(!SSPIF);
+[e $U 422  ]
+[e :U 423 ]
+[e :U 422 ]
+[e $ ! _SSPIF 423  ]
+[e :U 424 ]
+"825
+[; ;main.c: 825:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"826
+[; ;main.c: 826:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 425  ]
+{
+"827
+[; ;main.c: 827:         SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"828
+[; ;main.c: 828:         while(PEN);
+[e $U 426  ]
+[e :U 427 ]
+[e :U 426 ]
+[e $ _PEN 427  ]
+[e :U 428 ]
+"829
+[; ;main.c: 829:         return(0xFF);
+[e ) -> -> 255 `i `uc ]
+[e $UE 418  ]
+"830
+[; ;main.c: 830:     }
+}
+[e :U 425 ]
+"832
+[; ;main.c: 832:     SSPBUF = Address;
+[e = _SSPBUF _Address ]
+"833
+[; ;main.c: 833:     while(!SSPIF);
 [e $U 429  ]
 [e :U 430 ]
 [e :U 429 ]
-[e $ _SEN 430  ]
+[e $ ! _SSPIF 430  ]
 [e :U 431 ]
-"818
-[; ;main.c: 818:     PIR1bits.SSPIF = 0;
+"834
+[; ;main.c: 834:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"820
-[; ;main.c: 820:     SSPBUF = 0xD0;
-[e = _SSPBUF -> -> 208 `i `uc ]
-"821
-[; ;main.c: 821:     while(!SSPIF);
-[e $U 432  ]
-[e :U 433 ]
-[e :U 432 ]
-[e $ ! _SSPIF 433  ]
-[e :U 434 ]
-"822
-[; ;main.c: 822:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"823
-[; ;main.c: 823:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 435  ]
+"835
+[; ;main.c: 835:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 432  ]
 {
-"824
-[; ;main.c: 824:         SSPCON2bits.PEN = 1;
+"836
+[; ;main.c: 836:         SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"825
-[; ;main.c: 825:         while(PEN);
+"837
+[; ;main.c: 837:         while(PEN);
+[e $U 433  ]
+[e :U 434 ]
+[e :U 433 ]
+[e $ _PEN 434  ]
+[e :U 435 ]
+"838
+[; ;main.c: 838:         return(0xFF);
+[e ) -> -> 255 `i `uc ]
+[e $UE 418  ]
+"839
+[; ;main.c: 839:     }
+}
+[e :U 432 ]
+"841
+[; ;main.c: 841:     SSPCON2bits.RSEN = 1;
+[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
+"842
+[; ;main.c: 842:     while(SSPCON2bits.RSEN);
 [e $U 436  ]
 [e :U 437 ]
 [e :U 436 ]
-[e $ _PEN 437  ]
+[e $ != -> . . _SSPCON2bits 0 1 `i -> 0 `i 437  ]
 [e :U 438 ]
-"826
-[; ;main.c: 826:         return(0xFF);
-[e ) -> -> 255 `i `uc ]
-[e $UE 428  ]
-"827
-[; ;main.c: 827:     }
-}
-[e :U 435 ]
-"829
-[; ;main.c: 829:     SSPBUF = Address;
-[e = _SSPBUF _Address ]
-"830
-[; ;main.c: 830:     while(!SSPIF);
+"843
+[; ;main.c: 843:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"845
+[; ;main.c: 845:     SSPBUF = 0xD1;
+[e = _SSPBUF -> -> 209 `i `uc ]
+"846
+[; ;main.c: 846:     while(!SSPIF);
 [e $U 439  ]
 [e :U 440 ]
 [e :U 439 ]
 [e $ ! _SSPIF 440  ]
 [e :U 441 ]
-"831
-[; ;main.c: 831:     PIR1bits.SSPIF = 0;
+"847
+[; ;main.c: 847:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"832
-[; ;main.c: 832:     if (SSPCON2bits.ACKSTAT){
+"848
+[; ;main.c: 848:     if (SSPCON2bits.ACKSTAT){
 [e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 442  ]
 {
-"833
-[; ;main.c: 833:         SSPCON2bits.PEN = 1;
+"849
+[; ;main.c: 849:         SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"834
-[; ;main.c: 834:         while(PEN);
+"850
+[; ;main.c: 850:         while(PEN);
 [e $U 443  ]
 [e :U 444 ]
 [e :U 443 ]
 [e $ _PEN 444  ]
 [e :U 445 ]
-"835
-[; ;main.c: 835:         return(0xFF);
+"851
+[; ;main.c: 851:         return(0xFF);
 [e ) -> -> 255 `i `uc ]
-[e $UE 428  ]
-"836
-[; ;main.c: 836:     }
+[e $UE 418  ]
+"852
+[; ;main.c: 852:     }
 }
 [e :U 442 ]
-"838
-[; ;main.c: 838:     SSPCON2bits.RSEN = 1;
-[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
-"839
-[; ;main.c: 839:     while(SSPCON2bits.RSEN);
+"854
+[; ;main.c: 854:     SSPCON2bits.RCEN = 1;
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"855
+[; ;main.c: 855:     while(!SSPSTATbits.BF);
 [e $U 446  ]
 [e :U 447 ]
 [e :U 446 ]
-[e $ != -> . . _SSPCON2bits 0 1 `i -> 0 `i 447  ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 447  ]
 [e :U 448 ]
-"840
-[; ;main.c: 840:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"842
-[; ;main.c: 842:     SSPBUF = 0xD1;
-[e = _SSPBUF -> -> 209 `i `uc ]
-"843
-[; ;main.c: 843:     while(!SSPIF);
+"856
+[; ;main.c: 856:     TempData = SSPBUF;
+[e = _TempData -> _SSPBUF `uc ]
+"858
+[; ;main.c: 858:     SSPCON2bits.ACKDT = 1;
+[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
+"859
+[; ;main.c: 859:     SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
+"860
+[; ;main.c: 860:     while(ACKEN);
 [e $U 449  ]
 [e :U 450 ]
 [e :U 449 ]
-[e $ ! _SSPIF 450  ]
+[e $ _ACKEN 450  ]
 [e :U 451 ]
-"844
-[; ;main.c: 844:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"845
-[; ;main.c: 845:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 452  ]
-{
-"846
-[; ;main.c: 846:         SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"847
-[; ;main.c: 847:         while(PEN);
-[e $U 453  ]
-[e :U 454 ]
-[e :U 453 ]
-[e $ _PEN 454  ]
-[e :U 455 ]
-"848
-[; ;main.c: 848:         return(0xFF);
-[e ) -> -> 255 `i `uc ]
-[e $UE 428  ]
-"849
-[; ;main.c: 849:     }
-}
-[e :U 452 ]
-"851
-[; ;main.c: 851:     SSPCON2bits.RCEN = 1;
-[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
-"852
-[; ;main.c: 852:     while(!SSPSTATbits.BF);
-[e $U 456  ]
-[e :U 457 ]
-[e :U 456 ]
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 457  ]
-[e :U 458 ]
-"853
-[; ;main.c: 853:     TempData = SSPBUF;
-[e = _TempData -> _SSPBUF `uc ]
-"855
-[; ;main.c: 855:     SSPCON2bits.ACKDT = 1;
-[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
-"856
-[; ;main.c: 856:     SSPCON2bits.ACKEN = 1;
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-"857
-[; ;main.c: 857:     while(ACKEN);
-[e $U 459  ]
-[e :U 460 ]
-[e :U 459 ]
-[e $ _ACKEN 460  ]
-[e :U 461 ]
-"859
-[; ;main.c: 859:     SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"860
-[; ;main.c: 860:     while(PEN);
-[e $U 462  ]
-[e :U 463 ]
-[e :U 462 ]
-[e $ _PEN 463  ]
-[e :U 464 ]
 "862
-[; ;main.c: 862:     return TempData;
-[e ) -> _TempData `uc ]
-[e $UE 428  ]
-"864
-[; ;main.c: 864: }
-[e :UE 428 ]
-}
+[; ;main.c: 862:     SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"863
+[; ;main.c: 863:     while(PEN);
+[e $U 452  ]
+[e :U 453 ]
+[e :U 452 ]
+[e $ _PEN 453  ]
+[e :U 454 ]
 "865
-[; ;main.c: 865: void UpdateCurrentTime(void){
+[; ;main.c: 865:     return TempData;
+[e ) -> _TempData `uc ]
+[e $UE 418  ]
+"867
+[; ;main.c: 867: }
+[e :UE 418 ]
+}
+"868
+[; ;main.c: 868: void UpdateCurrentTime(void){
 [v _UpdateCurrentTime `(v ~T0 @X0 1 ef ]
 {
 [e :U _UpdateCurrentTime ]
 [f ]
-"866
-[; ;main.c: 866:     SSPCON2bits.SEN = 1;
+"869
+[; ;main.c: 869:     SSPCON2bits.SEN = 1;
 [e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-"867
-[; ;main.c: 867:     while(SEN);
+"870
+[; ;main.c: 870:     while(SEN);
+[e $U 456  ]
+[e :U 457 ]
+[e :U 456 ]
+[e $ _SEN 457  ]
+[e :U 458 ]
+"871
+[; ;main.c: 871:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"873
+[; ;main.c: 873:     SSPBUF = 0xD0;
+[e = _SSPBUF -> -> 208 `i `uc ]
+"874
+[; ;main.c: 874:     while(!SSPIF);
+[e $U 459  ]
+[e :U 460 ]
+[e :U 459 ]
+[e $ ! _SSPIF 460  ]
+[e :U 461 ]
+"875
+[; ;main.c: 875:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"876
+[; ;main.c: 876:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 462  ]
+{
+"877
+[; ;main.c: 877:         SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"878
+[; ;main.c: 878:         while(PEN);
+[e $U 463  ]
+[e :U 464 ]
+[e :U 463 ]
+[e $ _PEN 464  ]
+[e :U 465 ]
+"879
+[; ;main.c: 879:         return;
+[e $UE 455  ]
+"880
+[; ;main.c: 880:     }
+}
+[e :U 462 ]
+"882
+[; ;main.c: 882:     SSPBUF = 0;
+[e = _SSPBUF -> -> 0 `i `uc ]
+"883
+[; ;main.c: 883:     while(!SSPIF);
 [e $U 466  ]
 [e :U 467 ]
 [e :U 466 ]
-[e $ _SEN 467  ]
+[e $ ! _SSPIF 467  ]
 [e :U 468 ]
-"868
-[; ;main.c: 868:     PIR1bits.SSPIF = 0;
+"884
+[; ;main.c: 884:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"870
-[; ;main.c: 870:     SSPBUF = 0xD0;
-[e = _SSPBUF -> -> 208 `i `uc ]
-"871
-[; ;main.c: 871:     while(!SSPIF);
-[e $U 469  ]
-[e :U 470 ]
-[e :U 469 ]
-[e $ ! _SSPIF 470  ]
-[e :U 471 ]
-"872
-[; ;main.c: 872:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"873
-[; ;main.c: 873:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 472  ]
+"885
+[; ;main.c: 885:     if (SSPCON2bits.ACKSTAT){
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 469  ]
 {
-"874
-[; ;main.c: 874:         SSPCON2bits.PEN = 1;
+"886
+[; ;main.c: 886:         SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"875
-[; ;main.c: 875:         while(PEN);
+"887
+[; ;main.c: 887:         while(PEN);
+[e $U 470  ]
+[e :U 471 ]
+[e :U 470 ]
+[e $ _PEN 471  ]
+[e :U 472 ]
+"888
+[; ;main.c: 888:         return;
+[e $UE 455  ]
+"889
+[; ;main.c: 889:     }
+}
+[e :U 469 ]
+"891
+[; ;main.c: 891:     SSPCON2bits.RSEN = 1;
+[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
+"892
+[; ;main.c: 892:     while(SSPCON2bits.RSEN);
 [e $U 473  ]
 [e :U 474 ]
 [e :U 473 ]
-[e $ _PEN 474  ]
+[e $ != -> . . _SSPCON2bits 0 1 `i -> 0 `i 474  ]
 [e :U 475 ]
-"876
-[; ;main.c: 876:         return;
-[e $UE 465  ]
-"877
-[; ;main.c: 877:     }
-}
-[e :U 472 ]
-"879
-[; ;main.c: 879:     SSPBUF = 0;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"880
-[; ;main.c: 880:     while(!SSPIF);
+"893
+[; ;main.c: 893:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"895
+[; ;main.c: 895:     SSPBUF = 0xD1;
+[e = _SSPBUF -> -> 209 `i `uc ]
+"896
+[; ;main.c: 896:     while(!SSPIF);
 [e $U 476  ]
 [e :U 477 ]
 [e :U 476 ]
 [e $ ! _SSPIF 477  ]
 [e :U 478 ]
-"881
-[; ;main.c: 881:     PIR1bits.SSPIF = 0;
+"897
+[; ;main.c: 897:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"882
-[; ;main.c: 882:     if (SSPCON2bits.ACKSTAT){
+"898
+[; ;main.c: 898:     if (SSPCON2bits.ACKSTAT){
 [e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 479  ]
 {
-"883
-[; ;main.c: 883:         SSPCON2bits.PEN = 1;
+"899
+[; ;main.c: 899:         SSPCON2bits.PEN = 1;
 [e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"884
-[; ;main.c: 884:         while(PEN);
+"900
+[; ;main.c: 900:         while(PEN);
 [e $U 480  ]
 [e :U 481 ]
 [e :U 480 ]
 [e $ _PEN 481  ]
 [e :U 482 ]
-"885
-[; ;main.c: 885:         return;
-[e $UE 465  ]
-"886
-[; ;main.c: 886:     }
+"901
+[; ;main.c: 901:         return;
+[e $UE 455  ]
+"902
+[; ;main.c: 902:     }
 }
 [e :U 479 ]
-"888
-[; ;main.c: 888:     SSPCON2bits.RSEN = 1;
-[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
-"889
-[; ;main.c: 889:     while(SSPCON2bits.RSEN);
+"904
+[; ;main.c: 904:     SSPCON2bits.RCEN = 1;
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"905
+[; ;main.c: 905:     while(!SSPSTATbits.BF);
 [e $U 483  ]
 [e :U 484 ]
 [e :U 483 ]
-[e $ != -> . . _SSPCON2bits 0 1 `i -> 0 `i 484  ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 484  ]
 [e :U 485 ]
-"890
-[; ;main.c: 890:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"892
-[; ;main.c: 892:     SSPBUF = 0xD1;
-[e = _SSPBUF -> -> 209 `i `uc ]
-"893
-[; ;main.c: 893:     while(!SSPIF);
+"906
+[; ;main.c: 906:     CurrentTime[0] = SSPBUF;
+[e = *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
+"908
+[; ;main.c: 908:     SSPCON2bits.ACKDT = 0;
+[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
+"909
+[; ;main.c: 909:     SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
+"910
+[; ;main.c: 910:     while(ACKEN);
 [e $U 486  ]
 [e :U 487 ]
 [e :U 486 ]
-[e $ ! _SSPIF 487  ]
+[e $ _ACKEN 487  ]
 [e :U 488 ]
-"894
-[; ;main.c: 894:     PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"895
-[; ;main.c: 895:     if (SSPCON2bits.ACKSTAT){
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 489  ]
-{
-"896
-[; ;main.c: 896:         SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-"897
-[; ;main.c: 897:         while(PEN);
-[e $U 490  ]
-[e :U 491 ]
-[e :U 490 ]
-[e $ _PEN 491  ]
-[e :U 492 ]
-"898
-[; ;main.c: 898:         return;
-[e $UE 465  ]
-"899
-[; ;main.c: 899:     }
-}
-[e :U 489 ]
-"901
-[; ;main.c: 901:     SSPCON2bits.RCEN = 1;
+"912
+[; ;main.c: 912:     SSPCON2bits.RCEN = 1;
 [e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
-"902
-[; ;main.c: 902:     while(!SSPSTATbits.BF);
-[e $U 493  ]
-[e :U 494 ]
-[e :U 493 ]
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 494  ]
-[e :U 495 ]
-"903
-[; ;main.c: 903:     CurrentTime[0] = SSPBUF;
-[e = *U + &U _CurrentTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
-"905
-[; ;main.c: 905:     SSPCON2bits.ACKDT = 0;
-[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
-"906
-[; ;main.c: 906:     SSPCON2bits.ACKEN = 1;
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-"907
-[; ;main.c: 907:     while(ACKEN);
-[e $U 496  ]
-[e :U 497 ]
-[e :U 496 ]
-[e $ _ACKEN 497  ]
-[e :U 498 ]
-"909
-[; ;main.c: 909:     SSPCON2bits.RCEN = 1;
-[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
-"910
-[; ;main.c: 910:     while(!SSPSTATbits.BF);
-[e $U 499  ]
-[e :U 500 ]
-[e :U 499 ]
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 500  ]
-[e :U 501 ]
-"911
-[; ;main.c: 911:     CurrentTime[1] = SSPBUF;
-[e = *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
 "913
-[; ;main.c: 913:     SSPCON2bits.ACKDT = 0;
-[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 913:     while(!SSPSTATbits.BF);
+[e $U 489  ]
+[e :U 490 ]
+[e :U 489 ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 490  ]
+[e :U 491 ]
 "914
-[; ;main.c: 914:     SSPCON2bits.ACKEN = 1;
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-"915
-[; ;main.c: 915:     while(ACKEN);
-[e $U 502  ]
-[e :U 503 ]
-[e :U 502 ]
-[e $ _ACKEN 503  ]
-[e :U 504 ]
+[; ;main.c: 914:     CurrentTime[1] = SSPBUF;
+[e = *U + &U _CurrentTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
+"916
+[; ;main.c: 916:     SSPCON2bits.ACKDT = 0;
+[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
 "917
-[; ;main.c: 917:     SSPCON2bits.RCEN = 1;
-[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
-"918
-[; ;main.c: 918:     while(!SSPSTATbits.BF);
-[e $U 505  ]
-[e :U 506 ]
-[e :U 505 ]
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 506  ]
-[e :U 507 ]
-"919
-[; ;main.c: 919:     CurrentTime[2] = SSPBUF;
-[e = *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
-"921
-[; ;main.c: 921:     SSPCON2bits.ACKDT = 1;
-[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
-"922
-[; ;main.c: 922:     SSPCON2bits.ACKEN = 1;
+[; ;main.c: 917:     SSPCON2bits.ACKEN = 1;
 [e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-"923
-[; ;main.c: 923:     while(ACKEN);
-[e $U 508  ]
-[e :U 509 ]
-[e :U 508 ]
-[e $ _ACKEN 509  ]
-[e :U 510 ]
+"918
+[; ;main.c: 918:     while(ACKEN);
+[e $U 492  ]
+[e :U 493 ]
+[e :U 492 ]
+[e $ _ACKEN 493  ]
+[e :U 494 ]
+"920
+[; ;main.c: 920:     SSPCON2bits.RCEN = 1;
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"921
+[; ;main.c: 921:     while(!SSPSTATbits.BF);
+[e $U 495  ]
+[e :U 496 ]
+[e :U 495 ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> 0 `i 496  ]
+[e :U 497 ]
+"922
+[; ;main.c: 922:     CurrentTime[2] = SSPBUF;
+[e = *U + &U _CurrentTime * -> -> -> 2 `i `ui `ux -> -> # *U &U _CurrentTime `ui `ux -> _SSPBUF `uc ]
+"924
+[; ;main.c: 924:     SSPCON2bits.ACKDT = 1;
+[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
 "925
-[; ;main.c: 925:     SSPCON2bits.PEN = 1;
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 925:     SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
 "926
-[; ;main.c: 926:     while(PEN);
-[e $U 511  ]
-[e :U 512 ]
-[e :U 511 ]
-[e $ _PEN 512  ]
-[e :U 513 ]
-"927
-[; ;main.c: 927: }
-[e :UE 465 ]
+[; ;main.c: 926:     while(ACKEN);
+[e $U 498  ]
+[e :U 499 ]
+[e :U 498 ]
+[e $ _ACKEN 499  ]
+[e :U 500 ]
+"928
+[; ;main.c: 928:     SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"929
+[; ;main.c: 929:     while(PEN);
+[e $U 501  ]
+[e :U 502 ]
+[e :U 501 ]
+[e $ _PEN 502  ]
+[e :U 503 ]
+"930
+[; ;main.c: 930: }
+[e :UE 455 ]
 }

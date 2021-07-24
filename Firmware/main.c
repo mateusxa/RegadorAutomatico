@@ -77,6 +77,8 @@ void TMR3interruption (void);
 void INT0interruption (void);
 void INT1interruption (void);
 void INT2interruption (void);
+void DecrementTime(char *Time);
+void DecrementTimeHour(char *Time);
 
 
 char CurrentTime[3];
@@ -590,16 +592,13 @@ void INT2interruption (void){
         switch(State){
             
             case SETTING_CURRENT_MINUTES:
-                if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;       // Reset Minutes
-                else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);           // Increment Minutes
-                
+                DecrementTime(&CurrentTime[1]);
                 ChangeTime(DS1307_SECONDS, 0x00);
                 ChangeTime(DS1307_MINUTES, CurrentTime[1]);
                 break;
+
             case SETTING_CURRENT_HOURS:
-                if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;           // Reset Hours
-                else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);               // Increment Hours
-                
+                DecrementTimeHour(&CurrentTime[2]);
                 ChangeTime(DS1307_SECONDS, 0x00);
                 ChangeTime(DS1307_HOURS, CurrentTime[2]);
                 break;
@@ -617,32 +616,27 @@ void INT2interruption (void){
                 break;
 
             case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
-                if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;       // Reset Minutes
-                else TargetTime[1] = SubBCD(TargetTime[1], 0x01);           // Decrement Minutes
+                DecrementTime(&TargetTime[1]);
                 break;
                 
             case SETTING_TARGET_HOURS:                                                     // Hours Mode
-                if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;           // Reset Hours
-                else TargetTime[2] = SubBCD(TargetTime[2], 0x01);               // Decrement Hours
+                DecrementTimeHour(&TargetTime[2]);
                 break;
+
             case SETTING_WATERING_SECONDS:                                                     // Minutes Mode
-                if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;       // Reset Minutes
-                else WateringTime[0] = SubBCD(WateringTime[0], 0x01);           // Decrement Minutes
+                DecrementTime(&WateringTime[0]);
                 break;
                 
             case SETTING_WATERING_MINUTES:                                                     // Hours Mode
-                if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;           // Reset Hours
-                else WateringTime[1] = SubBCD(WateringTime[1], 0x01);               // Decrement Hours
+                DecrementTime(&WateringTime[1]);
                 break;
                 
             case SETTING_VALVE_SECONDS:                                                     // Minutes Mode
-                if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;       // Reset Minutes
-                else ValveTime[0] = SubBCD(ValveTime[0], 0x01);           // Decrement Minutes
+                DecrementTime(&ValveTime[0]);
                 break;
                 
             case SETTING_VALVE_MINUTES:                                                     // Hours Mode
-                if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;           // Reset Hours
-                else ValveTime[1] = SubBCD(ValveTime[1], 0x01);               // Decrement Hours
+                DecrementTime(&ValveTime[1]);
                 break;
         }
         
@@ -709,6 +703,15 @@ void IncrementTime(char *Time){
 void IncrementTimeHour(char *Time){
     if(*Time == 0x23) *Time = 0x00;       // Reset Minutes
     else *Time = AddBCD(*Time, 0x01);           // Increment Minutes
+}
+
+void DecrementTime(char *Time){
+    if(*Time == 0x00) *Time = 0x59;       // Reset Minutes
+    else *Time = SubBCD(*Time, 0x01);           // Decrement Minutes
+}
+void DecrementTimeHour(char *Time){
+    if(*Time == 0x00) *Time = 0x23;           // Reset Hours
+    else *Time = SubBCD(*Time, 0x01);               // Decrement Hours
 }
 
 char AddBCD(char Number1, char Number2){
