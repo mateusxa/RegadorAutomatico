@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include/**"
+                "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic/**"
             ],
             "defines": [
                 "_DEBUG",
