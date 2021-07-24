@@ -71,6 +71,8 @@ void TMR3interruption (void);
 void INT0interruption (void);
 void INT1interruption (void);
 void INT2interruption (void);
+void TMR0enable(void);
+void TMR1enable(void);
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -459,18 +461,14 @@ void INT0interruption (void){
             
             
             case SETTING_CURRENT_MINUTES:
-                
                 State = SETTING_CURRENT_HOURS;
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                
+                TMR1enable();
                 break;
             
             case SETTING_CURRENT_HOURS:
                 State = MAIN_LOOP_HANDLER;
                 WakeUp();
-                T0CONbits.TMR0ON = 1;    // Disable Timer 0
-                T1CONbits.TMR1ON = 0;    // Enable Timer 1
+                TMR0enable();
                 break;
             
             case IDLE_MODE:
@@ -481,39 +479,37 @@ void INT0interruption (void){
                 break;
                 
             case MAIN_LOOP_HANDLER:                     // colocar nome dos estados
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_TARGET_MINUTES;
                 break;
                 
             case SETTING_TARGET_MINUTES:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_TARGET_HOURS;
                 break;
+
             case SETTING_TARGET_HOURS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_WATERING_SECONDS;
                 break;
+
             case SETTING_WATERING_SECONDS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_WATERING_MINUTES;
                 break;
+
             case SETTING_WATERING_MINUTES:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_VALVE_SECONDS;
                 break;
+
             case SETTING_VALVE_SECONDS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                TMR1enable();
                 State = SETTING_VALVE_MINUTES;
                 break;
+
             case SETTING_VALVE_MINUTES:
-                T0CONbits.TMR0ON = 1;    // Enable Timer 0
-                T1CONbits.TMR1ON = 0;    // Disable Timer 1
+                TMR1enable();
                 WakeUp();
                 State = MAIN_LOOP_HANDLER;
                 break;
@@ -654,7 +650,6 @@ void INT2interruption (void){
     }
 }
 
-
 void MCUinit(void){
     Display(0x88, 0x88);
     
@@ -679,7 +674,6 @@ void WakeUp(void){
     } 
     UpdateTimeFlag = 1;
 }
-
 void BlinkDigit(char index){
     switch(index){
         case 0:
@@ -698,6 +692,14 @@ void BlinkDigit(char index){
         break;
     }
     
+}
+void TMR1enable(void){
+    T0CONbits.TMR0ON = 0;    // Disable Timer 0
+    T1CONbits.TMR1ON = 1;    // Enable Timer 1
+}
+void TMR0enable(void){
+    T0CONbits.TMR0ON = 1;    // Disable Timer 0
+    T1CONbits.TMR1ON = 0;    // Enable Timer 1
 }
 
 char AddBCD(char Number1, char Number2){

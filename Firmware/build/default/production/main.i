@@ -4240,6 +4240,8 @@ void TMR3interruption (void);
 void INT0interruption (void);
 void INT1interruption (void);
 void INT2interruption (void);
+void TMR0enable(void);
+void TMR1enable(void);
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -4628,18 +4630,14 @@ void INT0interruption (void){
 
 
             case 0:
-
                 State = 1;
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-
+                TMR1enable();
                 break;
 
             case 1:
                 State = 3;
                 WakeUp();
-                T0CONbits.TMR0ON = 1;
-                T1CONbits.TMR1ON = 0;
+                TMR0enable();
                 break;
 
             case 2:
@@ -4650,39 +4648,37 @@ void INT0interruption (void){
                 break;
 
             case 3:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 4;
                 break;
 
             case 4:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 5;
                 break;
+
             case 5:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 6;
                 break;
+
             case 6:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 7;
                 break;
+
             case 7:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 8;
                 break;
+
             case 8:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
+                TMR1enable();
                 State = 9;
                 break;
+
             case 9:
-                T0CONbits.TMR0ON = 1;
-                T1CONbits.TMR1ON = 0;
+                TMR1enable();
                 WakeUp();
                 State = 3;
                 break;
@@ -4823,7 +4819,6 @@ void INT2interruption (void){
     }
 }
 
-
 void MCUinit(void){
     Display(0x88, 0x88);
 
@@ -4848,7 +4843,6 @@ void WakeUp(void){
     }
     UpdateTimeFlag = 1;
 }
-
 void BlinkDigit(char index){
     switch(index){
         case 0:
@@ -4867,6 +4861,14 @@ void BlinkDigit(char index){
         break;
     }
 
+}
+void TMR1enable(void){
+    T0CONbits.TMR0ON = 0;
+    T1CONbits.TMR1ON = 1;
+}
+void TMR0enable(void){
+    T0CONbits.TMR0ON = 1;
+    T1CONbits.TMR1ON = 0;
 }
 
 char AddBCD(char Number1, char Number2){
