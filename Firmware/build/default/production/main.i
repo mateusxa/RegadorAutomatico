@@ -4214,7 +4214,7 @@ typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdint.h" 2 3
 # 15 "main.c" 2
-# 49 "main.c"
+# 52 "main.c"
 void ChangeTime(uint8_t Address, uint8_t Time);
 uint8_t ReadTime(uint8_t Address);
 char AddBCD(char Number1, char Number2);
@@ -4678,7 +4678,7 @@ void INT0interruption (void){
                 break;
 
             case 9:
-                TMR1enable();
+                TMR0enable();
                 WakeUp();
                 State = 3;
                 break;

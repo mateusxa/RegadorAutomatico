@@ -31,6 +31,9 @@
 
 #define BUTTON_DELAY    50
 
+#define DS1307_SECONDS                      0x00
+#define DS1307_MINUTES                      0x01
+#define DS1307_HOURS                        0x02
 
 // MODES
 #define SETTING_CURRENT_MINUTES             0
@@ -509,7 +512,7 @@ void INT0interruption (void){
                 break;
 
             case SETTING_VALVE_MINUTES:
-                TMR1enable();
+                TMR0enable();
                 WakeUp();
                 State = MAIN_LOOP_HANDLER;
                 break;
@@ -530,15 +533,15 @@ void INT1interruption (void){
                 if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;       // Reset Minutes
                 else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);           // Increment Minutes
                 
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
+                ChangeTime(DS1307_SECONDS, 0x00);
+                ChangeTime(DS1307_MINUTES, CurrentTime[1]);
                 break;
             case SETTING_CURRENT_HOURS:
                 if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;           // Reset Hours
                 else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);               // Increment Hours
                 
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
+                ChangeTime(DS1307_SECONDS, 0x00);
+                ChangeTime(DS1307_HOURS, CurrentTime[2]);
                 break;
                 
             case IDLE_MODE:
@@ -593,15 +596,15 @@ void INT2interruption (void){
                 if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;       // Reset Minutes
                 else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);           // Increment Minutes
                 
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
+                ChangeTime(DS1307_SECONDS, 0x00);
+                ChangeTime(DS1307_MINUTES, CurrentTime[1]);
                 break;
             case SETTING_CURRENT_HOURS:
                 if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;           // Reset Hours
                 else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);               // Increment Hours
                 
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
+                ChangeTime(DS1307_SECONDS, 0x00);
+                ChangeTime(DS1307_HOURS, CurrentTime[2]);
                 break;
             
             case IDLE_MODE:

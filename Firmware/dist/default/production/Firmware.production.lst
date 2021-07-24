@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Sat Jul 24 17:42:53 2021
+                                                                                               Sat Jul 24 17:56:15 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	18F2620
@@ -351,7 +351,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    337 ;;
    338 ;; *************** function _main *****************
    339 ;; Defined at:
-   340 ;;		line 106 in file "main.c"
+   340 ;;		line 109 in file "main.c"
    341 ;; Parameters:    Size  Location     Type
    342 ;;		None
    343 ;; Auto vars:     Size  Location     Type
@@ -395,56 +395,56 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    376  000012                     _main:
    377                           	callstack 25
    378  000012                     
-   379                           ;main.c: 108:     MCUconfig();
+   379                           ;main.c: 111:     MCUconfig();
    380  000012  ECA7  F008         	call	_MCUconfig	;wreg free
    381                           
-   382                           ;main.c: 109:     MCUinit();
+   382                           ;main.c: 112:     MCUinit();
    383  000016  ECC6  F008         	call	_MCUinit	;wreg free
    384  00001A                     l2232:
    385                           
-   386                           ;main.c: 113:         _delay((unsigned long)((1)*(4000000/4000.0)));
+   386                           ;main.c: 116:         _delay((unsigned long)((1)*(4000000/4000.0)));
    387  00001A  0EC8               	movlw	200
    388  00001C                     u2007:
    389  00001C  D000               	nop2	
    390  00001E  2EE8               	decfsz	wreg,f,c
    391  000020  D7FD               	bra	u2007
    392                           
-   393                           ;main.c: 115:         switch(State){
+   393                           ;main.c: 118:         switch(State){
    394  000022  EFC6  F001         	goto	l2386
    395  000026                     l2234:
    396                           
-   397                           ;main.c: 118:                 Display(CurrentTime[2], CurrentTime[1]);
+   397                           ;main.c: 121:                 Display(CurrentTime[2], CurrentTime[1]);
    398  000026  C00B  F024         	movff	_CurrentTime+1,Display@Minutes
    399  00002A  500C               	movf	(_CurrentTime+2)^0,w,c
    400  00002C  EC5F  F005         	call	_Display
    401                           
-   402                           ;main.c: 119:                 BlinkDigit(1);
+   402                           ;main.c: 122:                 BlinkDigit(1);
    403  000030  0E01               	movlw	1
    404  000032  ECA4  F007         	call	_BlinkDigit
    405                           
-   406                           ;main.c: 121:                 break;
+   406                           ;main.c: 124:                 break;
    407  000036  EF0D  F000         	goto	l2232
    408  00003A                     l2236:
    409                           
-   410                           ;main.c: 125:                 Display(CurrentTime[2], CurrentTime[1]);
+   410                           ;main.c: 128:                 Display(CurrentTime[2], CurrentTime[1]);
    411  00003A  C00B  F024         	movff	_CurrentTime+1,Display@Minutes
    412  00003E  500C               	movf	(_CurrentTime+2)^0,w,c
    413  000040  EC5F  F005         	call	_Display
    414                           
-   415                           ;main.c: 126:                 BlinkDigit(2);
+   415                           ;main.c: 129:                 BlinkDigit(2);
    416  000044  0E02               	movlw	2
    417  000046  ECA4  F007         	call	_BlinkDigit
    418                           
-   419                           ;main.c: 128:                 break;
+   419                           ;main.c: 131:                 break;
    420  00004A  EF0D  F000         	goto	l2232
    421  00004E                     l166:
    422  00004E  0003               	sleep		;# 
    423                           
-   424                           ;main.c: 134:                 break;
+   424                           ;main.c: 137:                 break;
    425  000050  EF0D  F000         	goto	l2232
    426  000054                     l2238:
    427                           
-   428                           ;main.c: 138:                 if(UpdateTimeFlag){
+   428                           ;main.c: 141:                 if(UpdateTimeFlag){
    429  000054  5018               	movf	_UpdateTimeFlag^0,w,c
    430  000056  B4D8               	btfsc	status,2,c
    431  000058  EF30  F000         	goto	u1771
@@ -453,10 +453,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    434  000060  EF50  F000         	goto	l2250
    435  000064                     u1770:
    436  000064                     
-   437                           ;main.c: 140:                     UpdateCurrentTime();
+   437                           ;main.c: 143:                     UpdateCurrentTime();
    438  000064  EC15  F004         	call	_UpdateCurrentTime	;wreg free
    439  000068                     
-   440                           ;main.c: 142:                     if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] =
+   440                           ;main.c: 145:                     if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] =
       +                          = TargetTime[1]) {
    441  000068  502E               	movf	(_TargetTime+2)^0,w,c
    442  00006A  180C               	xorwf	(_CurrentTime+2)^0,w,c
@@ -475,38 +475,38 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    455  000088  EF4A  F000         	goto	l2248
    456  00008C                     u1790:
    457  00008C                     
-   458                           ;main.c: 143:                         WaterEnable = 1;
+   458                           ;main.c: 146:                         WaterEnable = 1;
    459  00008C  0E01               	movlw	1
    460  00008E  6E17               	movwf	_WaterEnable^0,c
    461                           
-   462                           ;main.c: 144:                     }else{
+   462                           ;main.c: 147:                     }else{
    463  000090  EF4E  F000         	goto	l170
    464  000094                     l2248:
    465                           
-   466                           ;main.c: 145:                         WaterEnable = 0;
+   466                           ;main.c: 148:                         WaterEnable = 0;
    467  000094  0E00               	movlw	0
    468  000096  6E17               	movwf	_WaterEnable^0,c
    469                           
-   470                           ;main.c: 146:                         WaterEnableLock = 0;
+   470                           ;main.c: 149:                         WaterEnableLock = 0;
    471  000098  0E00               	movlw	0
    472  00009A  6E16               	movwf	_WaterEnableLock^0,c
    473  00009C                     l170:
    474                           
-   475                           ;main.c: 149:                     UpdateTimeFlag = 0;
+   475                           ;main.c: 152:                     UpdateTimeFlag = 0;
    476  00009C  0E00               	movlw	0
    477  00009E  6E18               	movwf	_UpdateTimeFlag^0,c
    478  0000A0                     l2250:
    479                           
-   480                           ;main.c: 152:                 Display(CurrentTime[2], CurrentTime[1]);
+   480                           ;main.c: 155:                 Display(CurrentTime[2], CurrentTime[1]);
    481  0000A0  C00B  F024         	movff	_CurrentTime+1,Display@Minutes
    482  0000A4  500C               	movf	(_CurrentTime+2)^0,w,c
    483  0000A6  EC5F  F005         	call	_Display
    484  0000AA                     
-   485                           ;main.c: 154:                 BlinkDigit(0);
+   485                           ;main.c: 157:                 BlinkDigit(0);
    486  0000AA  0E00               	movlw	0
    487  0000AC  ECA4  F007         	call	_BlinkDigit
    488  0000B0                     
-   489                           ;main.c: 156:                 if(WaterEnable == 1 && WaterEnableLock == 0) State = 10;
+   489                           ;main.c: 159:                 if(WaterEnable == 1 && WaterEnableLock == 0) State = 10;
    490  0000B0  0417               	decf	_WaterEnable^0,w,c
    491  0000B2  A4D8               	btfss	status,2,c
    492  0000B4  EF5E  F000         	goto	u1801
@@ -546,85 +546,85 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    526  000100  EF0D  F000         	goto	l2232
    527  000104                     l2266:
    528                           
-   529                           ;main.c: 162:                 Display(TargetTime[2], TargetTime[1]);
+   529                           ;main.c: 165:                 Display(TargetTime[2], TargetTime[1]);
    530  000104  C02D  F024         	movff	_TargetTime+1,Display@Minutes
    531  000108  502E               	movf	(_TargetTime+2)^0,w,c
    532  00010A  EC5F  F005         	call	_Display
    533                           
-   534                           ;main.c: 163:                 BlinkDigit(1);
+   534                           ;main.c: 166:                 BlinkDigit(1);
    535  00010E  0E01               	movlw	1
    536  000110  ECA4  F007         	call	_BlinkDigit
    537                           
-   538                           ;main.c: 164:                 break;
+   538                           ;main.c: 167:                 break;
    539  000114  EF0D  F000         	goto	l2232
    540  000118                     l2268:
    541                           
-   542                           ;main.c: 167:                 Display(TargetTime[2], TargetTime[1]);
+   542                           ;main.c: 170:                 Display(TargetTime[2], TargetTime[1]);
    543  000118  C02D  F024         	movff	_TargetTime+1,Display@Minutes
    544  00011C  502E               	movf	(_TargetTime+2)^0,w,c
    545  00011E  EC5F  F005         	call	_Display
    546                           
-   547                           ;main.c: 168:                 BlinkDigit(2);
+   547                           ;main.c: 171:                 BlinkDigit(2);
    548  000122  0E02               	movlw	2
    549  000124  ECA4  F007         	call	_BlinkDigit
    550                           
-   551                           ;main.c: 169:                 break;
+   551                           ;main.c: 172:                 break;
    552  000128  EF0D  F000         	goto	l2232
    553  00012C                     l2270:
    554                           
-   555                           ;main.c: 172:                 Display(WateringTime[1], WateringTime[0]);
+   555                           ;main.c: 175:                 Display(WateringTime[1], WateringTime[0]);
    556  00012C  C004  F024         	movff	_WateringTime,Display@Minutes
    557  000130  5005               	movf	(_WateringTime+1)^0,w,c
    558  000132  EC5F  F005         	call	_Display
    559                           
-   560                           ;main.c: 173:                 BlinkDigit(1);
+   560                           ;main.c: 176:                 BlinkDigit(1);
    561  000136  0E01               	movlw	1
    562  000138  ECA4  F007         	call	_BlinkDigit
    563                           
-   564                           ;main.c: 174:                 break;
+   564                           ;main.c: 177:                 break;
    565  00013C  EF0D  F000         	goto	l2232
    566  000140                     l2272:
    567                           
-   568                           ;main.c: 177:                 Display(WateringTime[1], WateringTime[0]);
+   568                           ;main.c: 180:                 Display(WateringTime[1], WateringTime[0]);
    569  000140  C004  F024         	movff	_WateringTime,Display@Minutes
    570  000144  5005               	movf	(_WateringTime+1)^0,w,c
    571  000146  EC5F  F005         	call	_Display
    572                           
-   573                           ;main.c: 178:                 BlinkDigit(2);
+   573                           ;main.c: 181:                 BlinkDigit(2);
    574  00014A  0E02               	movlw	2
    575  00014C  ECA4  F007         	call	_BlinkDigit
    576                           
-   577                           ;main.c: 179:                 break;
+   577                           ;main.c: 182:                 break;
    578  000150  EF0D  F000         	goto	l2232
    579  000154                     l2274:
    580                           
-   581                           ;main.c: 182:                 Display(ValveTime[1], ValveTime[0]);
+   581                           ;main.c: 185:                 Display(ValveTime[1], ValveTime[0]);
    582  000154  C001  F024         	movff	_ValveTime,Display@Minutes
    583  000158  5002               	movf	(_ValveTime+1)^0,w,c
    584  00015A  EC5F  F005         	call	_Display
    585                           
-   586                           ;main.c: 183:                 BlinkDigit(1);
+   586                           ;main.c: 186:                 BlinkDigit(1);
    587  00015E  0E01               	movlw	1
    588  000160  ECA4  F007         	call	_BlinkDigit
    589                           
-   590                           ;main.c: 184:                 break;
+   590                           ;main.c: 187:                 break;
    591  000164  EF0D  F000         	goto	l2232
    592  000168                     l2276:
    593                           
-   594                           ;main.c: 187:                 Display(ValveTime[1], ValveTime[0]);
+   594                           ;main.c: 190:                 Display(ValveTime[1], ValveTime[0]);
    595  000168  C001  F024         	movff	_ValveTime,Display@Minutes
    596  00016C  5002               	movf	(_ValveTime+1)^0,w,c
    597  00016E  EC5F  F005         	call	_Display
    598                           
-   599                           ;main.c: 188:                 BlinkDigit(2);
+   599                           ;main.c: 191:                 BlinkDigit(2);
    600  000172  0E02               	movlw	2
    601  000174  ECA4  F007         	call	_BlinkDigit
    602                           
-   603                           ;main.c: 189:                 break;
+   603                           ;main.c: 192:                 break;
    604  000178  EF0D  F000         	goto	l2232
    605  00017C                     l2278:
    606                           
-   607                           ;main.c: 192:                 if(UpdateTimeFlag) {
+   607                           ;main.c: 195:                 if(UpdateTimeFlag) {
    608  00017C  5018               	movf	_UpdateTimeFlag^0,w,c
    609  00017E  B4D8               	btfsc	status,2,c
    610  000180  EFC4  F000         	goto	u1841
@@ -633,10 +633,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    613  000188  EFF3  F000         	goto	l2296
    614  00018C                     u1840:
    615  00018C                     
-   616                           ;main.c: 193:                     UpdateCurrentTime();
+   616                           ;main.c: 196:                     UpdateCurrentTime();
    617  00018C  EC15  F004         	call	_UpdateCurrentTime	;wreg free
    618  000190                     
-   619                           ;main.c: 194:                     if(CurrentTime[0] != LastSecond){
+   619                           ;main.c: 197:                     if(CurrentTime[0] != LastSecond){
    620  000190  5011               	movf	_LastSecond^0,w,c
    621  000192  180A               	xorwf	_CurrentTime^0,w,c
    622  000194  B4D8               	btfsc	status,2,c
@@ -646,7 +646,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    626  00019E  EFF1  F000         	goto	l2294
    627  0001A2                     u1850:
    628  0001A2                     
-   629                           ;main.c: 196:                         if(AddBCD(CurrentWateringTime[0], 0x01) > 0x59){
+   629                           ;main.c: 199:                         if(AddBCD(CurrentWateringTime[0], 0x01) > 0x59){
    630  0001A2  0E01               	movlw	1
    631  0001A4  6E24               	movwf	AddBCD@Number2^0,c
    632  0001A6  500F               	movf	_CurrentWateringTime^0,w,c
@@ -660,7 +660,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    640  0001BA  EFE9  F000         	goto	l2290
    641  0001BE                     u1860:
    642  0001BE                     
-   643                           ;main.c: 197:                             CurrentWateringTime[1] = AddBCD(CurrentWaterin
+   643                           ;main.c: 200:                             CurrentWateringTime[1] = AddBCD(CurrentWaterin
       +                          gTime[1], 0x01);
    644  0001BE  0E01               	movlw	1
    645  0001C0  6E24               	movwf	AddBCD@Number2^0,c
@@ -668,11 +668,11 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    647  0001C4  EC26  F008         	call	_AddBCD
    648  0001C8  6E10               	movwf	(_CurrentWateringTime+1)^0,c
    649  0001CA                     
-   650                           ;main.c: 198:                             CurrentWateringTime[0] = 0x00;
+   650                           ;main.c: 201:                             CurrentWateringTime[0] = 0x00;
    651  0001CA  0E00               	movlw	0
    652  0001CC  6E0F               	movwf	_CurrentWateringTime^0,c
    653                           
-   654                           ;main.c: 199:                         }else CurrentWateringTime[0] = AddBCD(CurrentWater
+   654                           ;main.c: 202:                         }else CurrentWateringTime[0] = AddBCD(CurrentWater
       +                          ingTime[0], 0x01);
    655  0001CE  EFEF  F000         	goto	l2292
    656  0001D2                     l2290:
@@ -683,34 +683,34 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    661  0001DC  6E0F               	movwf	_CurrentWateringTime^0,c
    662  0001DE                     l2292:
    663                           
-   664                           ;main.c: 201:                         LastSecond = CurrentTime[0];
+   664                           ;main.c: 204:                         LastSecond = CurrentTime[0];
    665  0001DE  C00A  F011         	movff	_CurrentTime,_LastSecond
    666  0001E2                     l2294:
    667                           
-   668                           ;main.c: 204:                     UpdateTimeFlag = 0;
+   668                           ;main.c: 207:                     UpdateTimeFlag = 0;
    669  0001E2  0E00               	movlw	0
    670  0001E4  6E18               	movwf	_UpdateTimeFlag^0,c
    671  0001E6                     l2296:
    672                           
-   673                           ;main.c: 206:                 PIE2bits.TMR3IE = 0;
+   673                           ;main.c: 209:                 PIE2bits.TMR3IE = 0;
    674  0001E6  92A0               	bcf	160,1,c	;volatile
    675  0001E8                     
-   676                           ;main.c: 207:                 PIE1bits.TMR1IE = 0;
+   676                           ;main.c: 210:                 PIE1bits.TMR1IE = 0;
    677  0001E8  909D               	bcf	157,0,c	;volatile
    678  0001EA                     
-   679                           ;main.c: 208:                 INTCONbits.INT0IE = 0;
+   679                           ;main.c: 211:                 INTCONbits.INT0IE = 0;
    680  0001EA  98F2               	bcf	242,4,c	;volatile
    681  0001EC                     
-   682                           ;main.c: 209:                 INTCON3bits.INT1IE = 0;
+   682                           ;main.c: 212:                 INTCON3bits.INT1IE = 0;
    683  0001EC  96F0               	bcf	240,3,c	;volatile
    684  0001EE                     
-   685                           ;main.c: 210:                 INTCON3bits.INT2IE = 0;
+   685                           ;main.c: 213:                 INTCON3bits.INT2IE = 0;
    686  0001EE  98F0               	bcf	240,4,c	;volatile
    687  0001F0                     
-   688                           ;main.c: 211:                 PORTCbits.RC0 = 0;
+   688                           ;main.c: 214:                 PORTCbits.RC0 = 0;
    689  0001F0  9082               	bcf	130,0,c	;volatile
    690  0001F2                     
-   691                           ;main.c: 213:                 if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0
+   691                           ;main.c: 216:                 if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0
       +                          ] == 0x01){
    692  0001F2  5010               	movf	(_CurrentWateringTime+1)^0,w,c
    693  0001F4  A4D8               	btfss	status,2,c
@@ -727,17 +727,17 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    704  00020E  EF0F  F001         	goto	l2316
    705  000212                     u1880:
    706  000212                     
-   707                           ;main.c: 214:                     CCP1CONbits.DC1B0 = 0;
+   707                           ;main.c: 217:                     CCP1CONbits.DC1B0 = 0;
    708  000212  98BD               	bcf	189,4,c	;volatile
    709                           
-   710                           ;main.c: 215:                     CCP1CONbits.DC1B1 = 0;
+   710                           ;main.c: 218:                     CCP1CONbits.DC1B1 = 0;
    711  000214  9ABD               	bcf	189,5,c	;volatile
    712  000216                     
-   713                           ;main.c: 216:                     CCPR1L = 0x19;
+   713                           ;main.c: 219:                     CCPR1L = 0x19;
    714  000216  0E19               	movlw	25
    715  000218  6EBE               	movwf	190,c	;volatile
    716                           
-   717                           ;main.c: 217:                 }else if(CurrentWateringTime[1] == 0x00 && CurrentWatering
+   717                           ;main.c: 220:                 }else if(CurrentWateringTime[1] == 0x00 && CurrentWatering
       +                          Time[0] == 0x02){
    718  00021A  EF3A  F001         	goto	l2330
    719  00021E                     l2316:
@@ -757,17 +757,17 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    733  00023C  EF26  F001         	goto	l2324
    734  000240                     u1900:
    735  000240                     
-   736                           ;main.c: 218:                     CCP1CONbits.DC1B0 = 0;
+   736                           ;main.c: 221:                     CCP1CONbits.DC1B0 = 0;
    737  000240  98BD               	bcf	189,4,c	;volatile
    738                           
-   739                           ;main.c: 219:                     CCP1CONbits.DC1B1 = 1;
+   739                           ;main.c: 222:                     CCP1CONbits.DC1B1 = 1;
    740  000242  8ABD               	bsf	189,5,c	;volatile
    741  000244                     
-   742                           ;main.c: 220:                     CCPR1L = 0x25;
+   742                           ;main.c: 223:                     CCPR1L = 0x25;
    743  000244  0E25               	movlw	37
    744  000246  6EBE               	movwf	190,c	;volatile
    745                           
-   746                           ;main.c: 221:                 }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringT
+   746                           ;main.c: 224:                 }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringT
       +                          ime[0] >= 0x03){
    747  000248  EF3A  F001         	goto	l2330
    748  00024C                     l2324:
@@ -787,27 +787,27 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    762  00026C                     u1920:
    763  00026C                     l191:
    764                           
-   765                           ;main.c: 222:                     CCP1CONbits.DC1B0 = 0;
+   765                           ;main.c: 225:                     CCP1CONbits.DC1B0 = 0;
    766  00026C  98BD               	bcf	189,4,c	;volatile
    767                           
-   768                           ;main.c: 223:                     CCP1CONbits.DC1B1 = 0;
+   768                           ;main.c: 226:                     CCP1CONbits.DC1B1 = 0;
    769  00026E  9ABD               	bcf	189,5,c	;volatile
    770  000270                     
-   771                           ;main.c: 224:                     CCPR1L = 0x32;
+   771                           ;main.c: 227:                     CCPR1L = 0x32;
    772  000270  0E32               	movlw	50
    773  000272  6EBE               	movwf	190,c	;volatile
    774  000274                     l2330:
    775                           
-   776                           ;main.c: 226:                 BlinkDigit(0);
+   776                           ;main.c: 229:                 BlinkDigit(0);
    777  000274  0E00               	movlw	0
    778  000276  ECA4  F007         	call	_BlinkDigit
    779  00027A                     
-   780                           ;main.c: 227:                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
+   780                           ;main.c: 230:                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
    781  00027A  C00F  F024         	movff	_CurrentWateringTime,Display@Minutes
    782  00027E  5010               	movf	(_CurrentWateringTime+1)^0,w,c
    783  000280  EC5F  F005         	call	_Display
    784  000284                     
-   785                           ;main.c: 229:                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWat
+   785                           ;main.c: 232:                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWat
       +                          eringTime[0] == WateringTime[0]){
    786  000284  5005               	movf	(_WateringTime+1)^0,w,c
    787  000286  1810               	xorwf	(_CurrentWateringTime+1)^0,w,c
@@ -826,35 +826,35 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    800  0002A4  EF0D  F000         	goto	l2232
    801  0002A8                     u1940:
    802  0002A8                     
-   803                           ;main.c: 230:                     CCP1CONbits.DC1B0 = 0;
+   803                           ;main.c: 233:                     CCP1CONbits.DC1B0 = 0;
    804  0002A8  98BD               	bcf	189,4,c	;volatile
    805                           
-   806                           ;main.c: 231:                     CCP1CONbits.DC1B1 = 0;
+   806                           ;main.c: 234:                     CCP1CONbits.DC1B1 = 0;
    807  0002AA  9ABD               	bcf	189,5,c	;volatile
    808  0002AC                     
-   809                           ;main.c: 232:                     CCPR1L = 0x00;
+   809                           ;main.c: 235:                     CCPR1L = 0x00;
    810  0002AC  0E00               	movlw	0
    811  0002AE  6EBE               	movwf	190,c	;volatile
    812                           
-   813                           ;main.c: 233:                     CurrentWateringTime[0] = 0x00;
+   813                           ;main.c: 236:                     CurrentWateringTime[0] = 0x00;
    814  0002B0  0E00               	movlw	0
    815  0002B2  6E0F               	movwf	_CurrentWateringTime^0,c
    816                           
-   817                           ;main.c: 234:                     CurrentWateringTime[1] = 0x00;
+   817                           ;main.c: 237:                     CurrentWateringTime[1] = 0x00;
    818  0002B4  0E00               	movlw	0
    819  0002B6  6E10               	movwf	(_CurrentWateringTime+1)^0,c
    820                           
-   821                           ;main.c: 235:                     LastSecond = 0x00;
+   821                           ;main.c: 238:                     LastSecond = 0x00;
    822  0002B8  0E00               	movlw	0
    823  0002BA  6E11               	movwf	_LastSecond^0,c
    824                           
-   825                           ;main.c: 236:                     State = 11;
+   825                           ;main.c: 239:                     State = 11;
    826  0002BC  0E0B               	movlw	11
    827  0002BE  6E19               	movwf	_State^0,c
    828  0002C0  EF0D  F000         	goto	l2232
    829  0002C4                     l2342:
    830                           
-   831                           ;main.c: 241:                 if(UpdateTimeFlag) {
+   831                           ;main.c: 244:                 if(UpdateTimeFlag) {
    832  0002C4  5018               	movf	_UpdateTimeFlag^0,w,c
    833  0002C6  B4D8               	btfsc	status,2,c
    834  0002C8  EF68  F001         	goto	u1951
@@ -863,10 +863,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    837  0002D0  EF97  F001         	goto	l2360
    838  0002D4                     u1950:
    839  0002D4                     
-   840                           ;main.c: 242:                     UpdateCurrentTime();
+   840                           ;main.c: 245:                     UpdateCurrentTime();
    841  0002D4  EC15  F004         	call	_UpdateCurrentTime	;wreg free
    842  0002D8                     
-   843                           ;main.c: 243:                     if(CurrentTime[0] != LastSecond){
+   843                           ;main.c: 246:                     if(CurrentTime[0] != LastSecond){
    844  0002D8  5011               	movf	_LastSecond^0,w,c
    845  0002DA  180A               	xorwf	_CurrentTime^0,w,c
    846  0002DC  B4D8               	btfsc	status,2,c
@@ -876,7 +876,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    850  0002E6  EF95  F001         	goto	l2358
    851  0002EA                     u1960:
    852  0002EA                     
-   853                           ;main.c: 245:                         if(AddBCD(CurrentValveTime[0], 0x01) > 0x59){
+   853                           ;main.c: 248:                         if(AddBCD(CurrentValveTime[0], 0x01) > 0x59){
    854  0002EA  0E01               	movlw	1
    855  0002EC  6E24               	movwf	AddBCD@Number2^0,c
    856  0002EE  500D               	movf	_CurrentValveTime^0,w,c
@@ -890,7 +890,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    864  000302  EF8D  F001         	goto	l2354
    865  000306                     u1970:
    866  000306                     
-   867                           ;main.c: 246:                             CurrentValveTime[1] = AddBCD(CurrentValveTime[
+   867                           ;main.c: 249:                             CurrentValveTime[1] = AddBCD(CurrentValveTime[
       +                          1], 0x01);
    868  000306  0E01               	movlw	1
    869  000308  6E24               	movwf	AddBCD@Number2^0,c
@@ -898,11 +898,11 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    871  00030C  EC26  F008         	call	_AddBCD
    872  000310  6E0E               	movwf	(_CurrentValveTime+1)^0,c
    873  000312                     
-   874                           ;main.c: 247:                             CurrentValveTime[0] = 0x00;
+   874                           ;main.c: 250:                             CurrentValveTime[0] = 0x00;
    875  000312  0E00               	movlw	0
    876  000314  6E0D               	movwf	_CurrentValveTime^0,c
    877                           
-   878                           ;main.c: 248:                         }else CurrentValveTime[0] = AddBCD(CurrentValveTim
+   878                           ;main.c: 251:                         }else CurrentValveTime[0] = AddBCD(CurrentValveTim
       +                          e[0], 0x01);
    879  000316  EF93  F001         	goto	l2356
    880  00031A                     l2354:
@@ -913,27 +913,27 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    885  000324  6E0D               	movwf	_CurrentValveTime^0,c
    886  000326                     l2356:
    887                           
-   888                           ;main.c: 250:                         LastSecond = CurrentTime[0];
+   888                           ;main.c: 253:                         LastSecond = CurrentTime[0];
    889  000326  C00A  F011         	movff	_CurrentTime,_LastSecond
    890  00032A                     l2358:
    891                           
-   892                           ;main.c: 253:                     UpdateTimeFlag = 0;
+   892                           ;main.c: 256:                     UpdateTimeFlag = 0;
    893  00032A  0E00               	movlw	0
    894  00032C  6E18               	movwf	_UpdateTimeFlag^0,c
    895  00032E                     l2360:
    896                           
-   897                           ;main.c: 256:                 PORTCbits.RC0 = 0;
+   897                           ;main.c: 259:                 PORTCbits.RC0 = 0;
    898  00032E  9082               	bcf	130,0,c	;volatile
    899  000330                     
-   900                           ;main.c: 259:                 PORTCbits.RC5 = 1;
+   900                           ;main.c: 262:                 PORTCbits.RC5 = 1;
    901  000330  8A82               	bsf	130,5,c	;volatile
    902  000332                     
-   903                           ;main.c: 261:                 Display(CurrentValveTime[1], CurrentValveTime[0]);
+   903                           ;main.c: 264:                 Display(CurrentValveTime[1], CurrentValveTime[0]);
    904  000332  C00D  F024         	movff	_CurrentValveTime,Display@Minutes
    905  000336  500E               	movf	(_CurrentValveTime+1)^0,w,c
    906  000338  EC5F  F005         	call	_Display
    907  00033C                     
-   908                           ;main.c: 263:                 if(CurrentValveTime[1] == ValveTime[1] && CurrentValveTime
+   908                           ;main.c: 266:                 if(CurrentValveTime[1] == ValveTime[1] && CurrentValveTime
       +                          [0] == ValveTime[0]){
    909  00033C  5002               	movf	(_ValveTime+1)^0,w,c
    910  00033E  180E               	xorwf	(_CurrentValveTime+1)^0,w,c
@@ -952,48 +952,48 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    923  00035C  EF0D  F000         	goto	l2232
    924  000360                     u1990:
    925  000360                     
-   926                           ;main.c: 266:                     PORTCbits.RC5 = 0;
+   926                           ;main.c: 269:                     PORTCbits.RC5 = 0;
    927  000360  9A82               	bcf	130,5,c	;volatile
    928                           
-   929                           ;main.c: 267:                     PIE2bits.TMR3IE = 1;
+   929                           ;main.c: 270:                     PIE2bits.TMR3IE = 1;
    930  000362  82A0               	bsf	160,1,c	;volatile
    931                           
-   932                           ;main.c: 268:                     PIE1bits.TMR1IE = 1;
+   932                           ;main.c: 271:                     PIE1bits.TMR1IE = 1;
    933  000364  809D               	bsf	157,0,c	;volatile
    934                           
-   935                           ;main.c: 269:                     INTCONbits.INT0IE = 1;
+   935                           ;main.c: 272:                     INTCONbits.INT0IE = 1;
    936  000366  88F2               	bsf	242,4,c	;volatile
    937                           
-   938                           ;main.c: 270:                     INTCON3bits.INT1IE = 1;
+   938                           ;main.c: 273:                     INTCON3bits.INT1IE = 1;
    939  000368  86F0               	bsf	240,3,c	;volatile
    940                           
-   941                           ;main.c: 271:                     INTCON3bits.INT2IE = 1;
+   941                           ;main.c: 274:                     INTCON3bits.INT2IE = 1;
    942  00036A  88F0               	bsf	240,4,c	;volatile
    943  00036C                     
-   944                           ;main.c: 273:                     WaterEnable = 0;
+   944                           ;main.c: 276:                     WaterEnable = 0;
    945  00036C  0E00               	movlw	0
    946  00036E  6E17               	movwf	_WaterEnable^0,c
    947                           
-   948                           ;main.c: 274:                     WaterEnableLock = 1;
+   948                           ;main.c: 277:                     WaterEnableLock = 1;
    949  000370  0E01               	movlw	1
    950  000372  6E16               	movwf	_WaterEnableLock^0,c
    951  000374                     
-   952                           ;main.c: 275:                     WakeUp();
+   952                           ;main.c: 278:                     WakeUp();
    953  000374  ECC3  F006         	call	_WakeUp	;wreg free
    954  000378                     
-   955                           ;main.c: 276:                     CurrentValveTime[0] = 0x00;
+   955                           ;main.c: 279:                     CurrentValveTime[0] = 0x00;
    956  000378  0E00               	movlw	0
    957  00037A  6E0D               	movwf	_CurrentValveTime^0,c
    958  00037C                     
-   959                           ;main.c: 277:                     CurrentValveTime[1] = 0x00;
+   959                           ;main.c: 280:                     CurrentValveTime[1] = 0x00;
    960  00037C  0E00               	movlw	0
    961  00037E  6E0E               	movwf	(_CurrentValveTime+1)^0,c
    962  000380                     
-   963                           ;main.c: 278:                     LastSecond = 0x00;
+   963                           ;main.c: 281:                     LastSecond = 0x00;
    964  000380  0E00               	movlw	0
    965  000382  6E11               	movwf	_LastSecond^0,c
    966  000384                     
-   967                           ;main.c: 279:                     State = 3;
+   967                           ;main.c: 282:                     State = 3;
    968  000384  0E03               	movlw	3
    969  000386  6E19               	movwf	_State^0,c
    970  000388  EF0D  F000         	goto	l2232
@@ -1069,7 +1069,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1039                           
   1040 ;; *************** function _WakeUp *****************
   1041 ;; Defined at:
-  1042 ;;		line 658 in file "main.c"
+  1042 ;;		line 661 in file "main.c"
   1043 ;; Parameters:    Size  Location     Type
   1044 ;;		None
   1045 ;; Auto vars:     Size  Location     Type
@@ -1110,10 +1110,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1075  000D86                     _WakeUp:
   1076                           	callstack 25
   1077  000D86                     
-  1078                           ;main.c: 659:     UpdateCurrentTime();
+  1078                           ;main.c: 662:     UpdateCurrentTime();
   1079  000D86  EC15  F004         	call	_UpdateCurrentTime	;wreg free
   1080  000D8A                     
-  1081                           ;main.c: 661:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
+  1081                           ;main.c: 664:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
   1082  000D8A  0E02               	movlw	2
   1083  000D8C  6E24               	movwf	AddBCD@Number2^0,c
   1084  000D8E  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -1127,7 +1127,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1092  000DA2  EF05  F007         	goto	l330
   1093  000DA6                     u1530:
   1094  000DA6                     
-  1095                           ;main.c: 662:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
+  1095                           ;main.c: 665:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
   1096  000DA6  0E01               	movlw	1
   1097  000DA8  6E24               	movwf	AddBCD@Number2^0,c
   1098  000DAA  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -1141,43 +1141,43 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1106  000DBE  EFF1  F006         	goto	l2018
   1107  000DC2                     u1540:
   1108  000DC2                     
-  1109                           ;main.c: 663:             WakeUpTime[2] = 0x00;
+  1109                           ;main.c: 666:             WakeUpTime[2] = 0x00;
   1110  000DC2  0E00               	movlw	0
   1111  000DC4  6E09               	movwf	(_WakeUpTime+2)^0,c
   1112  000DC6                     
-  1113                           ;main.c: 664:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  1113                           ;main.c: 667:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   1114  000DC6  0E02               	movlw	2
   1115  000DC8  6E24               	movwf	AddBCD@Number2^0,c
   1116  000DCA  500B               	movf	(_CurrentTime+1)^0,w,c
   1117  000DCC  EC26  F008         	call	_AddBCD
   1118  000DD0  6E08               	movwf	(_WakeUpTime+1)^0,c
   1119  000DD2                     
-  1120                           ;main.c: 665:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+  1120                           ;main.c: 668:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
   1121  000DD2  0E60               	movlw	96
   1122  000DD4  6E24               	movwf	SubBCD@Number2^0,c
   1123  000DD6  500B               	movf	(_CurrentTime+1)^0,w,c
   1124  000DD8  EC10  F008         	call	_SubBCD
   1125  000DDC  6E08               	movwf	(_WakeUpTime+1)^0,c
   1126                           
-  1127                           ;main.c: 666:         }else{
+  1127                           ;main.c: 669:         }else{
   1128  000DDE  EF0D  F007         	goto	l2022
   1129  000DE2                     l2018:
   1130                           
-  1131                           ;main.c: 667:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
+  1131                           ;main.c: 670:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
   1132  000DE2  0E01               	movlw	1
   1133  000DE4  6E24               	movwf	AddBCD@Number2^0,c
   1134  000DE6  500C               	movf	(_CurrentTime+2)^0,w,c
   1135  000DE8  EC26  F008         	call	_AddBCD
   1136  000DEC  6E09               	movwf	(_WakeUpTime+2)^0,c
   1137                           
-  1138                           ;main.c: 668:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  1138                           ;main.c: 671:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   1139  000DEE  0E02               	movlw	2
   1140  000DF0  6E24               	movwf	AddBCD@Number2^0,c
   1141  000DF2  500B               	movf	(_CurrentTime+1)^0,w,c
   1142  000DF4  EC26  F008         	call	_AddBCD
   1143  000DF8  6E08               	movwf	(_WakeUpTime+1)^0,c
   1144                           
-  1145                           ;main.c: 669:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+  1145                           ;main.c: 672:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
   1146  000DFA  0E60               	movlw	96
   1147  000DFC  6E24               	movwf	SubBCD@Number2^0,c
   1148  000DFE  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -1186,10 +1186,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1151  000E06  EF0D  F007         	goto	l2022
   1152  000E0A                     l330:
   1153                           
-  1154                           ;main.c: 672:         WakeUpTime[2] = CurrentTime[2];
+  1154                           ;main.c: 675:         WakeUpTime[2] = CurrentTime[2];
   1155  000E0A  C00C  F009         	movff	_CurrentTime+2,_WakeUpTime+2
   1156  000E0E                     
-  1157                           ;main.c: 673:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  1157                           ;main.c: 676:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   1158  000E0E  0E02               	movlw	2
   1159  000E10  6E24               	movwf	AddBCD@Number2^0,c
   1160  000E12  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -1197,7 +1197,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1162  000E18  6E08               	movwf	(_WakeUpTime+1)^0,c
   1163  000E1A                     l2022:
   1164                           
-  1165                           ;main.c: 675:     UpdateTimeFlag = 1;
+  1165                           ;main.c: 678:     UpdateTimeFlag = 1;
   1166  000E1A  0E01               	movlw	1
   1167  000E1C  6E18               	movwf	_UpdateTimeFlag^0,c
   1168  000E1E  0012               	return		;funcret
@@ -1206,7 +1206,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1171                           
   1172 ;; *************** function _UpdateCurrentTime *****************
   1173 ;; Defined at:
-  1174 ;;		line 856 in file "main.c"
+  1174 ;;		line 859 in file "main.c"
   1175 ;; Parameters:    Size  Location     Type
   1176 ;;		None
   1177 ;; Auto vars:     Size  Location     Type
@@ -1246,7 +1246,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1206  00082A                     _UpdateCurrentTime:
   1207                           	callstack 25
   1208  00082A                     
-  1209                           ;main.c: 857:     SSPCON2bits.SEN = 1;
+  1209                           ;main.c: 860:     SSPCON2bits.SEN = 1;
   1210  00082A  80C5               	bsf	197,0,c	;volatile
   1211  00082C                     l440:
   1212  00082C  B0C5               	btfsc	4037,0,c	;volatile
@@ -1256,10 +1256,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1216  000836  EF16  F004         	goto	l440
   1217  00083A                     u290:
   1218  00083A                     
-  1219                           ;main.c: 859:     PIR1bits.SSPIF = 0;
+  1219                           ;main.c: 862:     PIR1bits.SSPIF = 0;
   1220  00083A  969E               	bcf	158,3,c	;volatile
   1221  00083C                     
-  1222                           ;main.c: 861:     SSPBUF = 0xD0;
+  1222                           ;main.c: 864:     SSPBUF = 0xD0;
   1223  00083C  0ED0               	movlw	208
   1224  00083E  6EC9               	movwf	201,c	;volatile
   1225  000840                     l443:
@@ -1270,10 +1270,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1230  00084A  EF20  F004         	goto	l443
   1231  00084E                     u300:
   1232  00084E                     
-  1233                           ;main.c: 863:     PIR1bits.SSPIF = 0;
+  1233                           ;main.c: 866:     PIR1bits.SSPIF = 0;
   1234  00084E  969E               	bcf	158,3,c	;volatile
   1235                           
-  1236                           ;main.c: 864:     if (SSPCON2bits.ACKSTAT){
+  1236                           ;main.c: 867:     if (SSPCON2bits.ACKSTAT){
   1237  000850  ACC5               	btfss	197,6,c	;volatile
   1238  000852  EF2D  F004         	goto	u311
   1239  000856  EF2F  F004         	goto	u310
@@ -1281,7 +1281,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1241  00085A  EF39  F004         	goto	l1258
   1242  00085E                     u310:
   1243  00085E                     
-  1244                           ;main.c: 865:         SSPCON2bits.PEN = 1;
+  1244                           ;main.c: 868:         SSPCON2bits.PEN = 1;
   1245  00085E  84C5               	bsf	197,2,c	;volatile
   1246  000860                     l447:
   1247  000860  B4C5               	btfsc	4037,2,c	;volatile
@@ -1293,7 +1293,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1253  00086E  EFB9  F004         	goto	l450
   1254  000872                     l1258:
   1255                           
-  1256                           ;main.c: 870:     SSPBUF = 0;
+  1256                           ;main.c: 873:     SSPBUF = 0;
   1257  000872  0E00               	movlw	0
   1258  000874  6EC9               	movwf	201,c	;volatile
   1259  000876                     l451:
@@ -1304,10 +1304,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1264  000880  EF3B  F004         	goto	l451
   1265  000884                     u330:
   1266  000884                     
-  1267                           ;main.c: 872:     PIR1bits.SSPIF = 0;
+  1267                           ;main.c: 875:     PIR1bits.SSPIF = 0;
   1268  000884  969E               	bcf	158,3,c	;volatile
   1269                           
-  1270                           ;main.c: 873:     if (SSPCON2bits.ACKSTAT){
+  1270                           ;main.c: 876:     if (SSPCON2bits.ACKSTAT){
   1271  000886  ACC5               	btfss	197,6,c	;volatile
   1272  000888  EF48  F004         	goto	u341
   1273  00088C  EF4A  F004         	goto	u340
@@ -1315,7 +1315,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1275  000890  EF54  F004         	goto	l454
   1276  000894                     u340:
   1277  000894                     
-  1278                           ;main.c: 874:         SSPCON2bits.PEN = 1;
+  1278                           ;main.c: 877:         SSPCON2bits.PEN = 1;
   1279  000894  84C5               	bsf	197,2,c	;volatile
   1280  000896                     l455:
   1281  000896  B4C5               	btfsc	4037,2,c	;volatile
@@ -1327,7 +1327,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1287  0008A4  EFB9  F004         	goto	l450
   1288  0008A8                     l454:
   1289                           
-  1290                           ;main.c: 879:     SSPCON2bits.RSEN = 1;
+  1290                           ;main.c: 882:     SSPCON2bits.RSEN = 1;
   1291  0008A8  82C5               	bsf	197,1,c	;volatile
   1292  0008AA                     l458:
   1293  0008AA  B2C5               	btfsc	197,1,c	;volatile
@@ -1337,10 +1337,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1297  0008B4  EF55  F004         	goto	l458
   1298  0008B8                     u360:
   1299  0008B8                     
-  1300                           ;main.c: 881:     PIR1bits.SSPIF = 0;
+  1300                           ;main.c: 884:     PIR1bits.SSPIF = 0;
   1301  0008B8  969E               	bcf	158,3,c	;volatile
   1302  0008BA                     
-  1303                           ;main.c: 883:     SSPBUF = 0xD1;
+  1303                           ;main.c: 886:     SSPBUF = 0xD1;
   1304  0008BA  0ED1               	movlw	209
   1305  0008BC  6EC9               	movwf	201,c	;volatile
   1306  0008BE                     l461:
@@ -1351,10 +1351,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1311  0008C8  EF5F  F004         	goto	l461
   1312  0008CC                     u370:
   1313  0008CC                     
-  1314                           ;main.c: 885:     PIR1bits.SSPIF = 0;
+  1314                           ;main.c: 888:     PIR1bits.SSPIF = 0;
   1315  0008CC  969E               	bcf	158,3,c	;volatile
   1316                           
-  1317                           ;main.c: 886:     if (SSPCON2bits.ACKSTAT){
+  1317                           ;main.c: 889:     if (SSPCON2bits.ACKSTAT){
   1318  0008CE  ACC5               	btfss	197,6,c	;volatile
   1319  0008D0  EF6C  F004         	goto	u381
   1320  0008D4  EF6E  F004         	goto	u380
@@ -1362,7 +1362,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1322  0008D8  EF78  F004         	goto	l464
   1323  0008DC                     u380:
   1324  0008DC                     
-  1325                           ;main.c: 887:         SSPCON2bits.PEN = 1;
+  1325                           ;main.c: 890:         SSPCON2bits.PEN = 1;
   1326  0008DC  84C5               	bsf	197,2,c	;volatile
   1327  0008DE                     l465:
   1328  0008DE  B4C5               	btfsc	4037,2,c	;volatile
@@ -1374,7 +1374,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1334  0008EC  EFB9  F004         	goto	l450
   1335  0008F0                     l464:
   1336                           
-  1337                           ;main.c: 892:     SSPCON2bits.RCEN = 1;
+  1337                           ;main.c: 895:     SSPCON2bits.RCEN = 1;
   1338  0008F0  86C5               	bsf	197,3,c	;volatile
   1339  0008F2                     l468:
   1340  0008F2  A0C7               	btfss	199,0,c	;volatile
@@ -1384,13 +1384,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1344  0008FC  EF79  F004         	goto	l468
   1345  000900                     u400:
   1346  000900                     
-  1347                           ;main.c: 894:     CurrentTime[0] = SSPBUF;
+  1347                           ;main.c: 897:     CurrentTime[0] = SSPBUF;
   1348  000900  CFC9 F00A          	movff	4041,_CurrentTime	;volatile
   1349                           
-  1350                           ;main.c: 896:     SSPCON2bits.ACKDT = 0;
+  1350                           ;main.c: 899:     SSPCON2bits.ACKDT = 0;
   1351  000904  9AC5               	bcf	197,5,c	;volatile
   1352                           
-  1353                           ;main.c: 897:     SSPCON2bits.ACKEN = 1;
+  1353                           ;main.c: 900:     SSPCON2bits.ACKEN = 1;
   1354  000906  88C5               	bsf	197,4,c	;volatile
   1355  000908                     l471:
   1356  000908  B8C5               	btfsc	4037,4,c	;volatile
@@ -1400,7 +1400,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1360  000912  EF84  F004         	goto	l471
   1361  000916                     u410:
   1362  000916                     
-  1363                           ;main.c: 900:     SSPCON2bits.RCEN = 1;
+  1363                           ;main.c: 903:     SSPCON2bits.RCEN = 1;
   1364  000916  86C5               	bsf	197,3,c	;volatile
   1365  000918                     l474:
   1366  000918  A0C7               	btfss	199,0,c	;volatile
@@ -1410,13 +1410,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1370  000922  EF8C  F004         	goto	l474
   1371  000926                     u420:
   1372  000926                     
-  1373                           ;main.c: 902:     CurrentTime[1] = SSPBUF;
+  1373                           ;main.c: 905:     CurrentTime[1] = SSPBUF;
   1374  000926  CFC9 F00B          	movff	4041,_CurrentTime+1	;volatile
   1375                           
-  1376                           ;main.c: 904:     SSPCON2bits.ACKDT = 0;
+  1376                           ;main.c: 907:     SSPCON2bits.ACKDT = 0;
   1377  00092A  9AC5               	bcf	197,5,c	;volatile
   1378                           
-  1379                           ;main.c: 905:     SSPCON2bits.ACKEN = 1;
+  1379                           ;main.c: 908:     SSPCON2bits.ACKEN = 1;
   1380  00092C  88C5               	bsf	197,4,c	;volatile
   1381  00092E                     l477:
   1382  00092E  B8C5               	btfsc	4037,4,c	;volatile
@@ -1426,7 +1426,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1386  000938  EF97  F004         	goto	l477
   1387  00093C                     u430:
   1388  00093C                     
-  1389                           ;main.c: 908:     SSPCON2bits.RCEN = 1;
+  1389                           ;main.c: 911:     SSPCON2bits.RCEN = 1;
   1390  00093C  86C5               	bsf	197,3,c	;volatile
   1391  00093E                     l480:
   1392  00093E  A0C7               	btfss	199,0,c	;volatile
@@ -1436,13 +1436,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1396  000948  EF9F  F004         	goto	l480
   1397  00094C                     u440:
   1398  00094C                     
-  1399                           ;main.c: 910:     CurrentTime[2] = SSPBUF;
+  1399                           ;main.c: 913:     CurrentTime[2] = SSPBUF;
   1400  00094C  CFC9 F00C          	movff	4041,_CurrentTime+2	;volatile
   1401                           
-  1402                           ;main.c: 912:     SSPCON2bits.ACKDT = 1;
+  1402                           ;main.c: 915:     SSPCON2bits.ACKDT = 1;
   1403  000950  8AC5               	bsf	197,5,c	;volatile
   1404                           
-  1405                           ;main.c: 913:     SSPCON2bits.ACKEN = 1;
+  1405                           ;main.c: 916:     SSPCON2bits.ACKEN = 1;
   1406  000952  88C5               	bsf	197,4,c	;volatile
   1407  000954                     l483:
   1408  000954  B8C5               	btfsc	4037,4,c	;volatile
@@ -1452,7 +1452,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1412  00095E  EFAA  F004         	goto	l483
   1413  000962                     u450:
   1414  000962                     
-  1415                           ;main.c: 916:     SSPCON2bits.PEN = 1;
+  1415                           ;main.c: 919:     SSPCON2bits.PEN = 1;
   1416  000962  84C5               	bsf	197,2,c	;volatile
   1417  000964                     l486:
   1418  000964  B4C5               	btfsc	4037,2,c	;volatile
@@ -1468,7 +1468,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1428                           
   1429 ;; *************** function _SubBCD *****************
   1430 ;; Defined at:
-  1431 ;;		line 711 in file "main.c"
+  1431 ;;		line 714 in file "main.c"
   1432 ;; Parameters:    Size  Location     Type
   1433 ;;  Number1         1    wreg     unsigned char 
   1434 ;;  Number2         1    7[COMRAM] unsigned char 
@@ -1513,12 +1513,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1468                           ;SubBCD@Number1 stored from wreg
   1469  001020  6E26               	movwf	SubBCD@Number1^0,c
   1470  001022                     
-  1471                           ;main.c: 712:     char temp = Number1 - Number2;
+  1471                           ;main.c: 715:     char temp = Number1 - Number2;
   1472  001022  5024               	movf	SubBCD@Number2^0,w,c
   1473  001024  5C26               	subwf	SubBCD@Number1^0,w,c
   1474  001026  6E27               	movwf	SubBCD@temp^0,c
   1475                           
-  1476                           ;main.c: 714:     if ((temp & 0x0F) > 9) return temp - 0x06;
+  1476                           ;main.c: 717:     if ((temp & 0x0F) > 9) return temp - 0x06;
   1477  001028  C027  F025         	movff	SubBCD@temp,??_SubBCD
   1478  00102C  0E0F               	movlw	15
   1479  00102E  1625               	andwf	??_SubBCD^0,f,c
@@ -1541,7 +1541,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1496                           
   1497 ;; *************** function _AddBCD *****************
   1498 ;; Defined at:
-  1499 ;;		line 705 in file "main.c"
+  1499 ;;		line 708 in file "main.c"
   1500 ;; Parameters:    Size  Location     Type
   1501 ;;  Number1         1    wreg     unsigned char 
   1502 ;;  Number2         1    7[COMRAM] unsigned char 
@@ -1587,12 +1587,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1537                           ;AddBCD@Number1 stored from wreg
   1538  00104C  6E26               	movwf	AddBCD@Number1^0,c
   1539  00104E                     
-  1540                           ;main.c: 706:     char temp = Number1 + Number2;
+  1540                           ;main.c: 709:     char temp = Number1 + Number2;
   1541  00104E  5026               	movf	AddBCD@Number1^0,w,c
   1542  001050  2424               	addwf	AddBCD@Number2^0,w,c
   1543  001052  6E27               	movwf	AddBCD@temp^0,c
   1544                           
-  1545                           ;main.c: 708:     if ((temp & 0x0F) > 9) return temp + 0x06;
+  1545                           ;main.c: 711:     if ((temp & 0x0F) > 9) return temp + 0x06;
   1546  001054  C027  F025         	movff	AddBCD@temp,??_AddBCD
   1547  001058  0E0F               	movlw	15
   1548  00105A  1625               	andwf	??_AddBCD^0,f,c
@@ -1615,7 +1615,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1565                           
   1566 ;; *************** function _MCUinit *****************
   1567 ;; Defined at:
-  1568 ;;		line 653 in file "main.c"
+  1568 ;;		line 656 in file "main.c"
   1569 ;; Parameters:    Size  Location     Type
   1570 ;;		None
   1571 ;; Auto vars:     Size  Location     Type
@@ -1654,7 +1654,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1599  00118C                     _MCUinit:
   1600                           	callstack 25
   1601  00118C                     
-  1602                           ;main.c: 654:     Display(0x88, 0x88);
+  1602                           ;main.c: 657:     Display(0x88, 0x88);
   1603  00118C  0E88               	movlw	136
   1604  00118E  6E24               	movwf	Display@Minutes^0,c
   1605  001190  0E88               	movlw	136
@@ -1665,7 +1665,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1610                           
   1611 ;; *************** function _Display *****************
   1612 ;; Defined at:
-  1613 ;;		line 717 in file "main.c"
+  1613 ;;		line 720 in file "main.c"
   1614 ;; Parameters:    Size  Location     Type
   1615 ;;  Hours           1    wreg     unsigned char 
   1616 ;;  Minutes         1    7[COMRAM] unsigned char 
@@ -1714,29 +1714,29 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1654                           ;Display@Hours stored from wreg
   1655  000ABE  6E29               	movwf	Display@Hours^0,c
   1656  000AC0                     
-  1657                           ;main.c: 718:     char Upper_Hours = ((Hours & 0xF0) >> 4);
+  1657                           ;main.c: 721:     char Upper_Hours = ((Hours & 0xF0) >> 4);
   1658  000AC0  3829               	swapf	Display@Hours^0,w,c
   1659  000AC2  0B0F               	andlw	15
   1660  000AC4  0B0F               	andlw	15
   1661  000AC6  6E25               	movwf	Display@Upper_Hours^0,c
   1662                           
-  1663                           ;main.c: 719:     char Lower_Hours = Hours & 0x0F;
+  1663                           ;main.c: 722:     char Lower_Hours = Hours & 0x0F;
   1664  000AC8  5029               	movf	Display@Hours^0,w,c
   1665  000ACA  0B0F               	andlw	15
   1666  000ACC  6E26               	movwf	Display@Lower_Hours^0,c
   1667                           
-  1668                           ;main.c: 721:     char Upper_Minutes = ((Minutes & 0xF0) >> 4);
+  1668                           ;main.c: 724:     char Upper_Minutes = ((Minutes & 0xF0) >> 4);
   1669  000ACE  3824               	swapf	Display@Minutes^0,w,c
   1670  000AD0  0B0F               	andlw	15
   1671  000AD2  0B0F               	andlw	15
   1672  000AD4  6E27               	movwf	Display@Upper_Minutes^0,c
   1673                           
-  1674                           ;main.c: 722:     char Lower_Minutes = Minutes & 0x0F;
+  1674                           ;main.c: 725:     char Lower_Minutes = Minutes & 0x0F;
   1675  000AD6  5024               	movf	Display@Minutes^0,w,c
   1676  000AD8  0B0F               	andlw	15
   1677  000ADA  6E28               	movwf	Display@Lower_Minutes^0,c
   1678  000ADC                     
-  1679                           ;main.c: 724:     if(Blink_First_Digit && Blink) {
+  1679                           ;main.c: 727:     if(Blink_First_Digit && Blink) {
   1680  000ADC  501C               	movf	_Blink_First_Digit^0,w,c
   1681  000ADE  B4D8               	btfsc	status,2,c
   1682  000AE0  EF74  F005         	goto	u1321
@@ -1752,38 +1752,38 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1692  000AF8  EF85  F005         	goto	l361
   1693  000AFC                     u1330:
   1694  000AFC                     
-  1695                           ;main.c: 725:         LATA |= 0x00;
+  1695                           ;main.c: 728:         LATA |= 0x00;
   1696  000AFC  5089               	movf	137,w,c	;volatile
   1697                           
-  1698                           ;main.c: 726:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1698                           ;main.c: 729:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1699  000AFE  0EA0               	movlw	160
   1700  000B00                     u2017:
   1701  000B00  D000               	nop2	
   1702  000B02  2EE8               	decfsz	wreg,f,c
   1703  000B04  D7FD               	bra	u2017
   1704                           
-  1705                           ;main.c: 727:     }
+  1705                           ;main.c: 730:     }
   1706  000B06  EF8D  F005         	goto	l1916
   1707  000B0A                     l361:
   1708                           
-  1709                           ;main.c: 729:         LATA = Upper_Hours;
+  1709                           ;main.c: 732:         LATA = Upper_Hours;
   1710  000B0A  C025  FF89         	movff	Display@Upper_Hours,3977	;volatile
   1711  000B0E                     
-  1712                           ;main.c: 730:         LATB |= 0x10;
+  1712                           ;main.c: 733:         LATB |= 0x10;
   1713  000B0E  888A               	bsf	138,4,c	;volatile
   1714  000B10                     
-  1715                           ;main.c: 731:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1715                           ;main.c: 734:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1716  000B10  0EA0               	movlw	160
   1717  000B12                     u2027:
   1718  000B12  D000               	nop2	
   1719  000B14  2EE8               	decfsz	wreg,f,c
   1720  000B16  D7FD               	bra	u2027
   1721  000B18                     
-  1722                           ;main.c: 732:         LATB &= ~(0x10);
+  1722                           ;main.c: 735:         LATB &= ~(0x10);
   1723  000B18  988A               	bcf	138,4,c	;volatile
   1724  000B1A                     l1916:
   1725                           
-  1726                           ;main.c: 735:     if(Blink_First_Digit && Blink) {
+  1726                           ;main.c: 738:     if(Blink_First_Digit && Blink) {
   1727  000B1A  501C               	movf	_Blink_First_Digit^0,w,c
   1728  000B1C  B4D8               	btfsc	status,2,c
   1729  000B1E  EF93  F005         	goto	u1341
@@ -1799,38 +1799,38 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1739  000B36  EFA4  F005         	goto	l363
   1740  000B3A                     u1350:
   1741  000B3A                     
-  1742                           ;main.c: 736:         LATA |= 0x00;
+  1742                           ;main.c: 739:         LATA |= 0x00;
   1743  000B3A  5089               	movf	137,w,c	;volatile
   1744                           
-  1745                           ;main.c: 737:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1745                           ;main.c: 740:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1746  000B3C  0EA0               	movlw	160
   1747  000B3E                     u2037:
   1748  000B3E  D000               	nop2	
   1749  000B40  2EE8               	decfsz	wreg,f,c
   1750  000B42  D7FD               	bra	u2037
   1751                           
-  1752                           ;main.c: 738:     }
+  1752                           ;main.c: 741:     }
   1753  000B44  EFAC  F005         	goto	l1928
   1754  000B48                     l363:
   1755                           
-  1756                           ;main.c: 740:         LATA = Lower_Hours;
+  1756                           ;main.c: 743:         LATA = Lower_Hours;
   1757  000B48  C026  FF89         	movff	Display@Lower_Hours,3977	;volatile
   1758  000B4C                     
-  1759                           ;main.c: 741:         LATB |= 0x20;
+  1759                           ;main.c: 744:         LATB |= 0x20;
   1760  000B4C  8A8A               	bsf	138,5,c	;volatile
   1761  000B4E                     
-  1762                           ;main.c: 742:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1762                           ;main.c: 745:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1763  000B4E  0EA0               	movlw	160
   1764  000B50                     u2047:
   1765  000B50  D000               	nop2	
   1766  000B52  2EE8               	decfsz	wreg,f,c
   1767  000B54  D7FD               	bra	u2047
   1768  000B56                     
-  1769                           ;main.c: 743:         LATB &= ~(0x20);
+  1769                           ;main.c: 746:         LATB &= ~(0x20);
   1770  000B56  9A8A               	bcf	138,5,c	;volatile
   1771  000B58                     l1928:
   1772                           
-  1773                           ;main.c: 746:     if(Blink_Second_Digit && Blink) {
+  1773                           ;main.c: 749:     if(Blink_Second_Digit && Blink) {
   1774  000B58  501B               	movf	_Blink_Second_Digit^0,w,c
   1775  000B5A  B4D8               	btfsc	status,2,c
   1776  000B5C  EFB2  F005         	goto	u1361
@@ -1846,38 +1846,38 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1786  000B74  EFC3  F005         	goto	l365
   1787  000B78                     u1370:
   1788  000B78                     
-  1789                           ;main.c: 747:         LATA |= 0x00;
+  1789                           ;main.c: 750:         LATA |= 0x00;
   1790  000B78  5089               	movf	137,w,c	;volatile
   1791                           
-  1792                           ;main.c: 748:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1792                           ;main.c: 751:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1793  000B7A  0EA0               	movlw	160
   1794  000B7C                     u2057:
   1795  000B7C  D000               	nop2	
   1796  000B7E  2EE8               	decfsz	wreg,f,c
   1797  000B80  D7FD               	bra	u2057
   1798                           
-  1799                           ;main.c: 749:     }
+  1799                           ;main.c: 752:     }
   1800  000B82  EFCB  F005         	goto	l1940
   1801  000B86                     l365:
   1802                           
-  1803                           ;main.c: 751:         LATA = Upper_Minutes;
+  1803                           ;main.c: 754:         LATA = Upper_Minutes;
   1804  000B86  C027  FF89         	movff	Display@Upper_Minutes,3977	;volatile
   1805  000B8A                     
-  1806                           ;main.c: 752:         LATB |= 0x40;
+  1806                           ;main.c: 755:         LATB |= 0x40;
   1807  000B8A  8C8A               	bsf	138,6,c	;volatile
   1808  000B8C                     
-  1809                           ;main.c: 753:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1809                           ;main.c: 756:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1810  000B8C  0EA0               	movlw	160
   1811  000B8E                     u2067:
   1812  000B8E  D000               	nop2	
   1813  000B90  2EE8               	decfsz	wreg,f,c
   1814  000B92  D7FD               	bra	u2067
   1815  000B94                     
-  1816                           ;main.c: 754:         LATB &= ~(0x40);
+  1816                           ;main.c: 757:         LATB &= ~(0x40);
   1817  000B94  9C8A               	bcf	138,6,c	;volatile
   1818  000B96                     l1940:
   1819                           
-  1820                           ;main.c: 757:     if(Blink_Second_Digit && Blink) {
+  1820                           ;main.c: 760:     if(Blink_Second_Digit && Blink) {
   1821  000B96  501B               	movf	_Blink_Second_Digit^0,w,c
   1822  000B98  B4D8               	btfsc	status,2,c
   1823  000B9A  EFD1  F005         	goto	u1381
@@ -1893,34 +1893,34 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1833  000BB2  EFE2  F005         	goto	l367
   1834  000BB6                     u1390:
   1835  000BB6                     
-  1836                           ;main.c: 758:         LATA |= 0x00;
+  1836                           ;main.c: 761:         LATA |= 0x00;
   1837  000BB6  5089               	movf	137,w,c	;volatile
   1838                           
-  1839                           ;main.c: 759:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1839                           ;main.c: 762:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1840  000BB8  0EA0               	movlw	160
   1841  000BBA                     u2077:
   1842  000BBA  D000               	nop2	
   1843  000BBC  2EE8               	decfsz	wreg,f,c
   1844  000BBE  D7FD               	bra	u2077
   1845                           
-  1846                           ;main.c: 760:     }else {
+  1846                           ;main.c: 763:     }else {
   1847  000BC0  EFEA  F005         	goto	l369
   1848  000BC4                     l367:
   1849                           
-  1850                           ;main.c: 761:         LATA = Lower_Minutes;
+  1850                           ;main.c: 764:         LATA = Lower_Minutes;
   1851  000BC4  C028  FF89         	movff	Display@Lower_Minutes,3977	;volatile
   1852  000BC8                     
-  1853                           ;main.c: 762:         LATB |= 0x80;
+  1853                           ;main.c: 765:         LATB |= 0x80;
   1854  000BC8  8E8A               	bsf	138,7,c	;volatile
   1855  000BCA                     
-  1856                           ;main.c: 763:         _delay((unsigned long)((800)*(4000000/4000000.0)));
+  1856                           ;main.c: 766:         _delay((unsigned long)((800)*(4000000/4000000.0)));
   1857  000BCA  0EA0               	movlw	160
   1858  000BCC                     u2087:
   1859  000BCC  D000               	nop2	
   1860  000BCE  2EE8               	decfsz	wreg,f,c
   1861  000BD0  D7FD               	bra	u2087
   1862  000BD2                     
-  1863                           ;main.c: 764:         LATB &= ~(0x80);
+  1863                           ;main.c: 767:         LATB &= ~(0x80);
   1864  000BD2  9E8A               	bcf	138,7,c	;volatile
   1865  000BD4                     l369:
   1866  000BD4  0012               	return		;funcret
@@ -1929,7 +1929,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1869                           
   1870 ;; *************** function _MCUconfig *****************
   1871 ;; Defined at:
-  1872 ;;		line 390 in file "main.c"
+  1872 ;;		line 393 in file "main.c"
   1873 ;; Parameters:    Size  Location     Type
   1874 ;;		None
   1875 ;; Auto vars:     Size  Location     Type
@@ -1972,23 +1972,23 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1907  00114E                     _MCUconfig:
   1908                           	callstack 25
   1909  00114E                     
-  1910                           ;main.c: 391:     OSCCON |= 0xE2;
+  1910                           ;main.c: 394:     OSCCON |= 0xE2;
   1911  00114E  0EE2               	movlw	226
   1912  001150  12D3               	iorwf	211,f,c	;volatile
   1913  001152                     
-  1914                           ;main.c: 393:     GPIOconfig();
+  1914                           ;main.c: 396:     GPIOconfig();
   1915  001152  EC89  F008         	call	_GPIOconfig	;wreg free
   1916  001156                     
-  1917                           ;main.c: 396:     I2Cconfig();
+  1917                           ;main.c: 399:     I2Cconfig();
   1918  001156  ECD2  F008         	call	_I2Cconfig	;wreg free
   1919  00115A                     
-  1920                           ;main.c: 398:     TIMERconfig();
+  1920                           ;main.c: 401:     TIMERconfig();
   1921  00115A  ECBF  F008         	call	_TIMERconfig	;wreg free
   1922  00115E                     
-  1923                           ;main.c: 400:     INTconfig();
+  1923                           ;main.c: 403:     INTconfig();
   1924  00115E  ECB4  F008         	call	_INTconfig	;wreg free
   1925  001162                     
-  1926                           ;main.c: 402:     PWMconfig();
+  1926                           ;main.c: 405:     PWMconfig();
   1927  001162  EC79  F008         	call	_PWMconfig	;wreg free
   1928  001166  0012               	return		;funcret
   1929  001168                     __end_of_MCUconfig:
@@ -1996,7 +1996,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1931                           
   1932 ;; *************** function _TIMERconfig *****************
   1933 ;; Defined at:
-  1934 ;;		line 330 in file "main.c"
+  1934 ;;		line 333 in file "main.c"
   1935 ;; Parameters:    Size  Location     Type
   1936 ;;		None
   1937 ;; Auto vars:     Size  Location     Type
@@ -2035,15 +2035,15 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1965  00117E                     _TIMERconfig:
   1966                           	callstack 25
   1967  00117E                     
-  1968                           ;main.c: 331:     T0CON = 0x83;
+  1968                           ;main.c: 334:     T0CON = 0x83;
   1969  00117E  0E83               	movlw	131
   1970  001180  6ED5               	movwf	213,c	;volatile
   1971                           
-  1972                           ;main.c: 336:     T1CON = 0xB1;
+  1972                           ;main.c: 339:     T1CON = 0xB1;
   1973  001182  0EB1               	movlw	177
   1974  001184  6ECD               	movwf	205,c	;volatile
   1975                           
-  1976                           ;main.c: 340:     T3CON = 0x91;
+  1976                           ;main.c: 343:     T3CON = 0x91;
   1977  001186  0E91               	movlw	145
   1978  001188  6EB1               	movwf	177,c	;volatile
   1979  00118A  0012               	return		;funcret
@@ -2052,7 +2052,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1982                           
   1983 ;; *************** function _PWMconfig *****************
   1984 ;; Defined at:
-  1985 ;;		line 362 in file "main.c"
+  1985 ;;		line 365 in file "main.c"
   1986 ;; Parameters:    Size  Location     Type
   1987 ;;		None
   1988 ;; Auto vars:     Size  Location     Type
@@ -2091,36 +2091,36 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2016  0010F2                     _PWMconfig:
   2017                           	callstack 25
   2018  0010F2                     
-  2019                           ;main.c: 364:     PR2 = 49;
+  2019                           ;main.c: 367:     PR2 = 49;
   2020  0010F2  0E31               	movlw	49
   2021  0010F4  6ECB               	movwf	203,c	;volatile
   2022                           
-  2023                           ;main.c: 370:     CCP1CON = 0x00;
+  2023                           ;main.c: 373:     CCP1CON = 0x00;
   2024  0010F6  0E00               	movlw	0
   2025  0010F8  6EBD               	movwf	189,c	;volatile
   2026                           
-  2027                           ;main.c: 371:     CCPR1L = 0x19;
+  2027                           ;main.c: 374:     CCPR1L = 0x19;
   2028  0010FA  0E19               	movlw	25
   2029  0010FC  6EBE               	movwf	190,c	;volatile
   2030  0010FE                     
-  2031                           ;main.c: 376:     TRISCbits.RC2 = 0;
+  2031                           ;main.c: 379:     TRISCbits.RC2 = 0;
   2032  0010FE  9494               	bcf	148,2,c	;volatile
   2033                           
-  2034                           ;main.c: 379:     T2CON = 0x01;
+  2034                           ;main.c: 382:     T2CON = 0x01;
   2035  001100  0E01               	movlw	1
   2036  001102  6ECA               	movwf	202,c	;volatile
   2037  001104                     
-  2038                           ;main.c: 381:     T2CONbits.TMR2ON = 1;
+  2038                           ;main.c: 384:     T2CONbits.TMR2ON = 1;
   2039  001104  84CA               	bsf	202,2,c	;volatile
   2040                           
-  2041                           ;main.c: 384:     CCP1CON = 0x0C;
+  2041                           ;main.c: 387:     CCP1CON = 0x0C;
   2042  001106  0E0C               	movlw	12
   2043  001108  6EBD               	movwf	189,c	;volatile
   2044  00110A                     
-  2045                           ;main.c: 386:     _delay((unsigned long)((1)*(4000000/4000000.0)));
+  2045                           ;main.c: 389:     _delay((unsigned long)((1)*(4000000/4000000.0)));
   2046  00110A  F000               	nop	
   2047                           
-  2048                           ;main.c: 388:     CCPR1L = 0x00;
+  2048                           ;main.c: 391:     CCPR1L = 0x00;
   2049  00110C  0E00               	movlw	0
   2050  00110E  6EBE               	movwf	190,c	;volatile
   2051  001110  0012               	return		;funcret
@@ -2129,7 +2129,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2054                           
   2055 ;; *************** function _INTconfig *****************
   2056 ;; Defined at:
-  2057 ;;		line 344 in file "main.c"
+  2057 ;;		line 347 in file "main.c"
   2058 ;; Parameters:    Size  Location     Type
   2059 ;;		None
   2060 ;; Auto vars:     Size  Location     Type
@@ -2168,23 +2168,23 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2088  001168                     _INTconfig:
   2089                           	callstack 25
   2090  001168                     
-  2091                           ;main.c: 345:     INTCON = 0xF0;
+  2091                           ;main.c: 348:     INTCON = 0xF0;
   2092  001168  0EF0               	movlw	240
   2093  00116A  6EF2               	movwf	242,c	;volatile
   2094                           
-  2095                           ;main.c: 352:     PIE2 = 0x02;
+  2095                           ;main.c: 355:     PIE2 = 0x02;
   2096  00116C  0E02               	movlw	2
   2097  00116E  6EA0               	movwf	160,c	;volatile
   2098                           
-  2099                           ;main.c: 355:     PIE1 = 0x01;
+  2099                           ;main.c: 358:     PIE1 = 0x01;
   2100  001170  0E01               	movlw	1
   2101  001172  6E9D               	movwf	157,c	;volatile
   2102  001174                     
-  2103                           ;main.c: 357:     INTCON2 &= ~(0xF0);
+  2103                           ;main.c: 360:     INTCON2 &= ~(0xF0);
   2104  001174  0E0F               	movlw	15
   2105  001176  16F1               	andwf	241,f,c	;volatile
   2106  001178                     
-  2107                           ;main.c: 359:     INTCON3 = 0x18;
+  2107                           ;main.c: 362:     INTCON3 = 0x18;
   2108  001178  0E18               	movlw	24
   2109  00117A  6EF0               	movwf	240,c	;volatile
   2110  00117C  0012               	return		;funcret
@@ -2193,7 +2193,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2113                           
   2114 ;; *************** function _I2Cconfig *****************
   2115 ;; Defined at:
-  2116 ;;		line 324 in file "main.c"
+  2116 ;;		line 327 in file "main.c"
   2117 ;; Parameters:    Size  Location     Type
   2118 ;;		None
   2119 ;; Auto vars:     Size  Location     Type
@@ -2232,11 +2232,11 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2147  0011A4                     _I2Cconfig:
   2148                           	callstack 25
   2149  0011A4                     
-  2150                           ;main.c: 326:     SSPADD = 9;
+  2150                           ;main.c: 329:     SSPADD = 9;
   2151  0011A4  0E09               	movlw	9
   2152  0011A6  6EC8               	movwf	200,c	;volatile
   2153                           
-  2154                           ;main.c: 328:     SSPCON1 = 0x28;
+  2154                           ;main.c: 331:     SSPCON1 = 0x28;
   2155  0011A8  0E28               	movlw	40
   2156  0011AA  6EC6               	movwf	198,c	;volatile
   2157  0011AC  0012               	return		;funcret
@@ -2245,7 +2245,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2160                           
   2161 ;; *************** function _GPIOconfig *****************
   2162 ;; Defined at:
-  2163 ;;		line 305 in file "main.c"
+  2163 ;;		line 308 in file "main.c"
   2164 ;; Parameters:    Size  Location     Type
   2165 ;;		None
   2166 ;; Auto vars:     Size  Location     Type
@@ -2284,38 +2284,38 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2194  001112                     _GPIOconfig:
   2195                           	callstack 25
   2196  001112                     
-  2197                           ;main.c: 307:     TRISC = 0;
+  2197                           ;main.c: 310:     TRISC = 0;
   2198  001112  0E00               	movlw	0
   2199  001114  6E94               	movwf	148,c	;volatile
   2200  001116                     
-  2201                           ;main.c: 309:     TRISC |= 0x18;
+  2201                           ;main.c: 312:     TRISC |= 0x18;
   2202  001116  0E18               	movlw	24
   2203  001118  1294               	iorwf	148,f,c	;volatile
   2204  00111A                     
-  2205                           ;main.c: 311:     TRISA = 0;
+  2205                           ;main.c: 314:     TRISA = 0;
   2206  00111A  0E00               	movlw	0
   2207  00111C  6E92               	movwf	146,c	;volatile
   2208  00111E                     
-  2209                           ;main.c: 313:     TRISB = 0x07;
+  2209                           ;main.c: 316:     TRISB = 0x07;
   2210  00111E  0E07               	movlw	7
   2211  001120  6E93               	movwf	147,c	;volatile
   2212  001122                     
-  2213                           ;main.c: 315:     TRISCbits.RC0 = 0;
+  2213                           ;main.c: 318:     TRISCbits.RC0 = 0;
   2214  001122  9094               	bcf	148,0,c	;volatile
   2215  001124                     
-  2216                           ;main.c: 316:     PORTCbits.RC0 = 1;
+  2216                           ;main.c: 319:     PORTCbits.RC0 = 1;
   2217  001124  8082               	bsf	130,0,c	;volatile
   2218  001126                     
-  2219                           ;main.c: 318:     TRISCbits.RC2 = 0;
+  2219                           ;main.c: 321:     TRISCbits.RC2 = 0;
   2220  001126  9494               	bcf	148,2,c	;volatile
   2221  001128                     
-  2222                           ;main.c: 319:     PORTCbits.RC2 = 1;
+  2222                           ;main.c: 322:     PORTCbits.RC2 = 1;
   2223  001128  8482               	bsf	130,2,c	;volatile
   2224  00112A                     
-  2225                           ;main.c: 321:     TRISCbits.RC5 = 0;
+  2225                           ;main.c: 324:     TRISCbits.RC5 = 0;
   2226  00112A  9A94               	bcf	148,5,c	;volatile
   2227  00112C                     
-  2228                           ;main.c: 322:     PORTCbits.RC5 = 0;
+  2228                           ;main.c: 325:     PORTCbits.RC5 = 0;
   2229  00112C  9A82               	bcf	130,5,c	;volatile
   2230  00112E  0012               	return		;funcret
   2231  001130                     __end_of_GPIOconfig:
@@ -2323,7 +2323,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2233                           
   2234 ;; *************** function _BlinkDigit *****************
   2235 ;; Defined at:
-  2236 ;;		line 677 in file "main.c"
+  2236 ;;		line 680 in file "main.c"
   2237 ;; Parameters:    Size  Location     Type
   2238 ;;  index           1    wreg     unsigned char 
   2239 ;; Auto vars:     Size  Location     Type
@@ -2366,43 +2366,43 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2271                           ;BlinkDigit@index stored from wreg
   2272  000F48  6E26               	movwf	BlinkDigit@index^0,c
   2273  000F4A                     
-  2274                           ;main.c: 678:     switch(index){
+  2274                           ;main.c: 681:     switch(index){
   2275  000F4A  EFB9  F007         	goto	l1388
   2276  000F4E                     l1380:
   2277                           
-  2278                           ;main.c: 680:             Blink_First_Digit = 0;
+  2278                           ;main.c: 683:             Blink_First_Digit = 0;
   2279  000F4E  0E00               	movlw	0
   2280  000F50  6E1C               	movwf	_Blink_First_Digit^0,c
   2281                           
-  2282                           ;main.c: 681:             Blink_Second_Digit = 0;
+  2282                           ;main.c: 684:             Blink_Second_Digit = 0;
   2283  000F52  0E00               	movlw	0
   2284  000F54  6E1B               	movwf	_Blink_Second_Digit^0,c
   2285                           
-  2286                           ;main.c: 682:         break;
+  2286                           ;main.c: 685:         break;
   2287  000F56  EFD2  F007         	goto	l342
   2288  000F5A                     l1382:
   2289                           
-  2290                           ;main.c: 685:             Blink_First_Digit = 0;
+  2290                           ;main.c: 688:             Blink_First_Digit = 0;
   2291  000F5A  0E00               	movlw	0
   2292  000F5C  6E1C               	movwf	_Blink_First_Digit^0,c
   2293                           
-  2294                           ;main.c: 686:             Blink_Second_Digit = 1;
+  2294                           ;main.c: 689:             Blink_Second_Digit = 1;
   2295  000F5E  0E01               	movlw	1
   2296  000F60  6E1B               	movwf	_Blink_Second_Digit^0,c
   2297                           
-  2298                           ;main.c: 687:         break;
+  2298                           ;main.c: 690:         break;
   2299  000F62  EFD2  F007         	goto	l342
   2300  000F66                     l1384:
   2301                           
-  2302                           ;main.c: 690:             Blink_First_Digit = 1;
+  2302                           ;main.c: 693:             Blink_First_Digit = 1;
   2303  000F66  0E01               	movlw	1
   2304  000F68  6E1C               	movwf	_Blink_First_Digit^0,c
   2305                           
-  2306                           ;main.c: 691:             Blink_Second_Digit = 0;
+  2306                           ;main.c: 694:             Blink_Second_Digit = 0;
   2307  000F6A  0E00               	movlw	0
   2308  000F6C  6E1B               	movwf	_Blink_Second_Digit^0,c
   2309                           
-  2310                           ;main.c: 692:         break;
+  2310                           ;main.c: 695:         break;
   2311  000F6E  EFD2  F007         	goto	l342
   2312  000F72                     l1388:
   2313  000F72  5026               	movf	BlinkDigit@index^0,w,c
@@ -2448,7 +2448,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2352                           
   2353 ;; *************** function _my_isr_routine *****************
   2354 ;; Defined at:
-  2355 ;;		line 293 in file "main.c"
+  2355 ;;		line 296 in file "main.c"
   2356 ;; Parameters:    Size  Location     Type
   2357 ;;		None
   2358 ;; Auto vars:     Size  Location     Type
@@ -2503,22 +2503,22 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2402                           	callstack 25
   2403  001130  0006               	pop		; remove dummy address from shadow register refresh
   2404  001132                     
-  2405                           ;main.c: 295:     TMR0interruption();
+  2405                           ;main.c: 298:     TMR0interruption();
   2406  001132  EC5D  F007         	call	_TMR0interruption	;wreg free
   2407  001136                     
-  2408                           ;main.c: 296:     TMR1interruption();
+  2408                           ;main.c: 299:     TMR1interruption();
   2409  001136  EC68  F008         	call	_TMR1interruption	;wreg free
   2410  00113A                     
-  2411                           ;main.c: 297:     TMR3interruption();
+  2411                           ;main.c: 300:     TMR3interruption();
   2412  00113A  ECD3  F007         	call	_TMR3interruption	;wreg free
   2413  00113E                     
-  2414                           ;main.c: 300:     INT0interruption();
+  2414                           ;main.c: 303:     INT0interruption();
   2415  00113E  ECEB  F005         	call	_INT0interruption	;wreg free
   2416  001142                     
-  2417                           ;main.c: 301:     INT1interruption();
+  2417                           ;main.c: 304:     INT1interruption();
   2418  001142  EC07  F002         	call	_INT1interruption	;wreg free
   2419  001146                     
-  2420                           ;main.c: 302:     INT2interruption();
+  2420                           ;main.c: 305:     INT2interruption();
   2421  001146  EC12  F003         	call	_INT2interruption	;wreg free
   2422  00114A  922F               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
   2423  00114C  0011               	retfie		f
@@ -2527,7 +2527,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2426                           
   2427 ;; *************** function _TMR3interruption *****************
   2428 ;; Defined at:
-  2429 ;;		line 437 in file "main.c"
+  2429 ;;		line 440 in file "main.c"
   2430 ;; Parameters:    Size  Location     Type
   2431 ;;		None
   2432 ;; Auto vars:     Size  Location     Type
@@ -2565,7 +2565,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2459  000FA6                     _TMR3interruption:
   2460                           	callstack 27
   2461  000FA6                     
-  2462                           ;main.c: 439:     if(PIE2bits.TMR3IE == 1 && PIR2bits.TMR3IF == 1){
+  2462                           ;main.c: 442:     if(PIE2bits.TMR3IE == 1 && PIR2bits.TMR3IF == 1){
   2463  000FA6  A2A0               	btfss	160,1,c	;volatile
   2464  000FA8  EFD8  F007         	goto	i2u68_41
   2465  000FAC  EFDA  F007         	goto	i2u68_40
@@ -2579,7 +2579,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2473  000FBE  EFF3  F007         	goto	i2l244
   2474  000FC2                     i2u69_40:
   2475  000FC2                     
-  2476                           ;main.c: 441:         if(BuzzerFlag){
+  2476                           ;main.c: 444:         if(BuzzerFlag){
   2477  000FC2  5012               	movf	_BuzzerFlag^0,w,c
   2478  000FC4  B4D8               	btfsc	status,2,c
   2479  000FC6  EFE7  F007         	goto	i2u70_41
@@ -2588,29 +2588,29 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2482  000FCE  EFEF  F007         	goto	i2l242
   2483  000FD2                     i2u70_40:
   2484  000FD2                     
-  2485                           ;main.c: 442:             PORTCbits.RC0 = 0;
+  2485                           ;main.c: 445:             PORTCbits.RC0 = 0;
   2486  000FD2  9082               	bcf	130,0,c	;volatile
   2487                           
-  2488                           ;main.c: 443:             PIE2bits.TMR3IE = 0;
+  2488                           ;main.c: 446:             PIE2bits.TMR3IE = 0;
   2489  000FD4  92A0               	bcf	160,1,c	;volatile
   2490  000FD6                     
-  2491                           ;main.c: 444:             BuzzerFlag = 0;
+  2491                           ;main.c: 447:             BuzzerFlag = 0;
   2492  000FD6  0E00               	movlw	0
   2493  000FD8  6E12               	movwf	_BuzzerFlag^0,c
   2494                           
-  2495                           ;main.c: 445:         }else{
+  2495                           ;main.c: 448:         }else{
   2496  000FDA  EFF2  F007         	goto	i2l1458
   2497  000FDE                     i2l242:
   2498                           
-  2499                           ;main.c: 446:             PORTCbits.RC0 = 1;
+  2499                           ;main.c: 449:             PORTCbits.RC0 = 1;
   2500  000FDE  8082               	bsf	130,0,c	;volatile
   2501  000FE0                     
-  2502                           ;main.c: 447:             BuzzerFlag = 1;
+  2502                           ;main.c: 450:             BuzzerFlag = 1;
   2503  000FE0  0E01               	movlw	1
   2504  000FE2  6E12               	movwf	_BuzzerFlag^0,c
   2505  000FE4                     i2l1458:
   2506                           
-  2507                           ;main.c: 451:         PIR2bits.TMR3IF = 0;
+  2507                           ;main.c: 454:         PIR2bits.TMR3IF = 0;
   2508  000FE4  92A1               	bcf	161,1,c	;volatile
   2509  000FE6                     i2l244:
   2510  000FE6  0012               	return		;funcret
@@ -2619,7 +2619,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2513                           
   2514 ;; *************** function _TMR1interruption *****************
   2515 ;; Defined at:
-  2516 ;;		line 428 in file "main.c"
+  2516 ;;		line 431 in file "main.c"
   2517 ;; Parameters:    Size  Location     Type
   2518 ;;		None
   2519 ;; Auto vars:     Size  Location     Type
@@ -2657,7 +2657,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2546  0010D0                     _TMR1interruption:
   2547                           	callstack 27
   2548  0010D0                     
-  2549                           ;main.c: 430:     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
+  2549                           ;main.c: 433:     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
   2550  0010D0  A09D               	btfss	157,0,c	;volatile
   2551  0010D2  EF6D  F008         	goto	i2u66_41
   2552  0010D6  EF6F  F008         	goto	i2u66_40
@@ -2671,10 +2671,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2560  0010E8  EF78  F008         	goto	i2l238
   2561  0010EC                     i2u67_40:
   2562  0010EC                     
-  2563                           ;main.c: 432:         Blink = ~Blink;
+  2563                           ;main.c: 435:         Blink = ~Blink;
   2564  0010EC  1E1A               	comf	_Blink^0,f,c
   2565  0010EE                     
-  2566                           ;main.c: 434:         PIR1bits.TMR1IF = 0;
+  2566                           ;main.c: 437:         PIR1bits.TMR1IF = 0;
   2567  0010EE  909E               	bcf	158,0,c	;volatile
   2568  0010F0                     i2l238:
   2569  0010F0  0012               	return		;funcret
@@ -2683,7 +2683,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2572                           
   2573 ;; *************** function _TMR0interruption *****************
   2574 ;; Defined at:
-  2575 ;;		line 404 in file "main.c"
+  2575 ;;		line 407 in file "main.c"
   2576 ;; Parameters:    Size  Location     Type
   2577 ;;		None
   2578 ;; Auto vars:     Size  Location     Type
@@ -2722,7 +2722,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2606  000EBA                     _TMR0interruption:
   2607                           	callstack 26
   2608  000EBA                     
-  2609                           ;main.c: 406:     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
+  2609                           ;main.c: 409:     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
   2610  000EBA  AAF2               	btfss	242,5,c	;volatile
   2611  000EBC  EF62  F007         	goto	i2u62_41
   2612  000EC0  EF64  F007         	goto	i2u62_40
@@ -2738,10 +2738,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2622  000ED6  EF91  F007         	goto	i2l1432
   2623  000EDA                     i2l1418:
   2624                           
-  2625                           ;main.c: 410:                 UpdateCurrentTime();
+  2625                           ;main.c: 413:                 UpdateCurrentTime();
   2626  000EDA  ECBA  F004         	call	i2_UpdateCurrentTime	;wreg free
   2627  000EDE                     
-  2628                           ;main.c: 412:                 if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == Ta
+  2628                           ;main.c: 415:                 if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == Ta
       +                          rgetTime[1]) {
   2629  000EDE  502E               	movf	(_TargetTime+2)^0,w,c
   2630  000EE0  180C               	xorwf	(_CurrentTime+2)^0,w,c
@@ -2760,33 +2760,33 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2643  000EFE  EF87  F007         	goto	i2l1426
   2644  000F02                     i2u65_40:
   2645  000F02                     
-  2646                           ;main.c: 413:                     WaterEnable = 1;
+  2646                           ;main.c: 416:                     WaterEnable = 1;
   2647  000F02  0E01               	movlw	1
   2648  000F04  6E17               	movwf	_WaterEnable^0,c
   2649                           
-  2650                           ;main.c: 415:                     State = 3;
+  2650                           ;main.c: 418:                     State = 3;
   2651  000F06  0E03               	movlw	3
   2652  000F08  6E19               	movwf	_State^0,c
   2653                           
-  2654                           ;main.c: 416:                 }else{
+  2654                           ;main.c: 419:                 }else{
   2655  000F0A  EFA2  F007         	goto	i2l232
   2656  000F0E                     i2l1426:
   2657                           
-  2658                           ;main.c: 417:                     WaterEnable = 0;
+  2658                           ;main.c: 420:                     WaterEnable = 0;
   2659  000F0E  0E00               	movlw	0
   2660  000F10  6E17               	movwf	_WaterEnable^0,c
   2661                           
-  2662                           ;main.c: 418:                     WaterEnableLock = 0;
+  2662                           ;main.c: 421:                     WaterEnableLock = 0;
   2663  000F12  0E00               	movlw	0
   2664  000F14  6E16               	movwf	_WaterEnableLock^0,c
   2665  000F16  EFA2  F007         	goto	i2l232
   2666  000F1A                     i2l1428:
   2667                           
-  2668                           ;main.c: 422:                 UpdateTimeFlag = 1;
+  2668                           ;main.c: 425:                 UpdateTimeFlag = 1;
   2669  000F1A  0E01               	movlw	1
   2670  000F1C  6E18               	movwf	_UpdateTimeFlag^0,c
   2671                           
-  2672                           ;main.c: 423:                 break;
+  2672                           ;main.c: 426:                 break;
   2673  000F1E  EFA2  F007         	goto	i2l232
   2674  000F22                     i2l1432:
   2675  000F22  5019               	movf	_State^0,w,c
@@ -2821,7 +2821,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2703  000F40  EF8D  F007         	goto	i2l1428
   2704  000F44                     i2l232:
   2705                           
-  2706                           ;main.c: 425:         INTCONbits.TMR0IF = 0;
+  2706                           ;main.c: 428:         INTCONbits.TMR0IF = 0;
   2707  000F44  94F2               	bcf	242,2,c	;volatile
   2708  000F46                     i2l234:
   2709  000F46  0012               	return		;funcret
@@ -2830,7 +2830,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2712                           
   2713 ;; *************** function _INT2interruption *****************
   2714 ;; Defined at:
-  2715 ;;		line 583 in file "main.c"
+  2715 ;;		line 586 in file "main.c"
   2716 ;; Parameters:    Size  Location     Type
   2717 ;;		None
   2718 ;; Auto vars:     Size  Location     Type
@@ -2872,7 +2872,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2749  000624                     _INT2interruption:
   2750                           	callstack 25
   2751  000624                     
-  2752                           ;main.c: 585:     if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
+  2752                           ;main.c: 588:     if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
   2753  000624  A8F0               	btfss	240,4,c	;volatile
   2754  000626  EF17  F003         	goto	i2u167_41
   2755  00062A  EF19  F003         	goto	i2u167_40
@@ -2886,14 +2886,14 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2763  00063C  EF14  F004         	goto	i2l324
   2764  000640                     i2u168_40:
   2765  000640                     
-  2766                           ;main.c: 587:         Buzz();
+  2766                           ;main.c: 590:         Buzz();
   2767  000640  ECCC  F008         	call	_Buzz	;wreg free
   2768                           
-  2769                           ;main.c: 590:         switch(State){
+  2769                           ;main.c: 593:         switch(State){
   2770  000644  EFDE  F003         	goto	i2l2224
   2771  000648                     i2l2162:
   2772                           
-  2773                           ;main.c: 593:                 if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;
+  2773                           ;main.c: 596:                 if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;
   2774  000648  500B               	movf	(_CurrentTime+1)^0,w,c
   2775  00064A  A4D8               	btfss	status,2,c
   2776  00064C  EF2A  F003         	goto	i2u169_41
@@ -2912,22 +2912,22 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2789  00066A  6E0B               	movwf	(_CurrentTime+1)^0,c
   2790  00066C                     i2l2168:
   2791                           
-  2792                           ;main.c: 596:                 ChangeTime(0x00, 0x00);
+  2792                           ;main.c: 599:                 ChangeTime(0x00, 0x00);
   2793  00066C  0E00               	movlw	0
   2794  00066E  6E1D               	movwf	ChangeTime@Time^0,c
   2795  000670  0E00               	movlw	0
   2796  000672  EC70  F006         	call	_ChangeTime
   2797  000676                     
-  2798                           ;main.c: 597:                 ChangeTime(0x01, CurrentTime[1]);
+  2798                           ;main.c: 600:                 ChangeTime(0x01, CurrentTime[1]);
   2799  000676  C00B  F01D         	movff	_CurrentTime+1,ChangeTime@Time
   2800  00067A  0E01               	movlw	1
   2801  00067C  EC70  F006         	call	_ChangeTime
   2802                           
-  2803                           ;main.c: 598:                 break;
+  2803                           ;main.c: 601:                 break;
   2804  000680  EF13  F004         	goto	i2l300
   2805  000684                     i2l2172:
   2806                           
-  2807                           ;main.c: 600:                 if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;
+  2807                           ;main.c: 603:                 if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;
   2808  000684  500C               	movf	(_CurrentTime+2)^0,w,c
   2809  000686  A4D8               	btfss	status,2,c
   2810  000688  EF48  F003         	goto	i2u170_41
@@ -2946,33 +2946,33 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2823  0006A6  6E0C               	movwf	(_CurrentTime+2)^0,c
   2824  0006A8                     i2l2178:
   2825                           
-  2826                           ;main.c: 603:                 ChangeTime(0x00, 0x00);
+  2826                           ;main.c: 606:                 ChangeTime(0x00, 0x00);
   2827  0006A8  0E00               	movlw	0
   2828  0006AA  6E1D               	movwf	ChangeTime@Time^0,c
   2829  0006AC  0E00               	movlw	0
   2830  0006AE  EC70  F006         	call	_ChangeTime
   2831  0006B2                     
-  2832                           ;main.c: 604:                 ChangeTime(0x02, CurrentTime[2]);
+  2832                           ;main.c: 607:                 ChangeTime(0x02, CurrentTime[2]);
   2833  0006B2  C00C  F01D         	movff	_CurrentTime+2,ChangeTime@Time
   2834  0006B6  0E02               	movlw	2
   2835  0006B8  EC70  F006         	call	_ChangeTime
   2836                           
-  2837                           ;main.c: 605:                 break;
+  2837                           ;main.c: 608:                 break;
   2838  0006BC  EF13  F004         	goto	i2l300
   2839  0006C0                     i2l2182:
   2840                           
-  2841                           ;main.c: 609:                 WakeUp();
+  2841                           ;main.c: 612:                 WakeUp();
   2842  0006C0  EC10  F007         	call	i2_WakeUp	;wreg free
   2843  0006C4                     
-  2844                           ;main.c: 611:                 State = 3;
+  2844                           ;main.c: 614:                 State = 3;
   2845  0006C4  0E03               	movlw	3
   2846  0006C6  6E19               	movwf	_State^0,c
   2847                           
-  2848                           ;main.c: 613:                 break;
+  2848                           ;main.c: 616:                 break;
   2849  0006C8  EF13  F004         	goto	i2l300
   2850  0006CC                     i2l2186:
   2851                           
-  2852                           ;main.c: 620:                 if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;
+  2852                           ;main.c: 623:                 if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;
   2853  0006CC  502D               	movf	(_TargetTime+1)^0,w,c
   2854  0006CE  A4D8               	btfss	status,2,c
   2855  0006D0  EF6C  F003         	goto	i2u171_41
@@ -2992,7 +2992,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2869  0006F0  EF13  F004         	goto	i2l300
   2870  0006F4                     i2l2192:
   2871                           
-  2872                           ;main.c: 625:                 if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;
+  2872                           ;main.c: 628:                 if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;
   2873  0006F4  502E               	movf	(_TargetTime+2)^0,w,c
   2874  0006F6  A4D8               	btfss	status,2,c
   2875  0006F8  EF80  F003         	goto	i2u172_41
@@ -3012,7 +3012,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2889  000718  EF13  F004         	goto	i2l300
   2890  00071C                     i2l2198:
   2891                           
-  2892                           ;main.c: 629:                 if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;
+  2892                           ;main.c: 632:                 if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;
   2893  00071C  5004               	movf	_WateringTime^0,w,c
   2894  00071E  A4D8               	btfss	status,2,c
   2895  000720  EF94  F003         	goto	i2u173_41
@@ -3032,7 +3032,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2909  000740  EF13  F004         	goto	i2l300
   2910  000744                     i2l2204:
   2911                           
-  2912                           ;main.c: 634:                 if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;
+  2912                           ;main.c: 637:                 if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;
   2913  000744  5005               	movf	(_WateringTime+1)^0,w,c
   2914  000746  A4D8               	btfss	status,2,c
   2915  000748  EFA8  F003         	goto	i2u174_41
@@ -3052,7 +3052,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2929  000768  EF13  F004         	goto	i2l300
   2930  00076C                     i2l2210:
   2931                           
-  2932                           ;main.c: 639:                 if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;
+  2932                           ;main.c: 642:                 if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;
   2933  00076C  5001               	movf	_ValveTime^0,w,c
   2934  00076E  A4D8               	btfss	status,2,c
   2935  000770  EFBC  F003         	goto	i2u175_41
@@ -3072,7 +3072,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2949  000790  EF13  F004         	goto	i2l300
   2950  000794                     i2l2216:
   2951                           
-  2952                           ;main.c: 644:                 if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;
+  2952                           ;main.c: 647:                 if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;
   2953  000794  5002               	movf	(_ValveTime+1)^0,w,c
   2954  000796  A4D8               	btfss	status,2,c
   2955  000798  EFD0  F003         	goto	i2u176_41
@@ -3150,7 +3150,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3026  000822  EF13  F004         	goto	i2l300
   3027  000826                     i2l300:
   3028                           
-  3029                           ;main.c: 649:         INTCON3bits.INT2IF = 0;
+  3029                           ;main.c: 652:         INTCON3bits.INT2IF = 0;
   3030  000826  92F0               	bcf	240,1,c	;volatile
   3031  000828                     i2l324:
   3032  000828  0012               	return		;funcret
@@ -3159,7 +3159,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3035                           
   3036 ;; *************** function _INT1interruption *****************
   3037 ;; Defined at:
-  3038 ;;		line 521 in file "main.c"
+  3038 ;;		line 524 in file "main.c"
   3039 ;; Parameters:    Size  Location     Type
   3040 ;;		None
   3041 ;; Auto vars:     Size  Location     Type
@@ -3201,7 +3201,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3072  00040E                     _INT1interruption:
   3073                           	callstack 25
   3074  00040E                     
-  3075                           ;main.c: 523:     if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
+  3075                           ;main.c: 526:     if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
   3076  00040E  A6F0               	btfss	240,3,c	;volatile
   3077  000410  EF0C  F002         	goto	i2u157_41
   3078  000414  EF0E  F002         	goto	i2u157_40
@@ -3215,14 +3215,14 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3086  000426  EF11  F003         	goto	i2l292
   3087  00042A                     i2u158_40:
   3088  00042A                     
-  3089                           ;main.c: 525:         Buzz();
+  3089                           ;main.c: 528:         Buzz();
   3090  00042A  ECCC  F008         	call	_Buzz	;wreg free
   3091                           
-  3092                           ;main.c: 528:         switch(State){
+  3092                           ;main.c: 531:         switch(State){
   3093  00042E  EFDB  F002         	goto	i2l2150
   3094  000432                     i2l2088:
   3095                           
-  3096                           ;main.c: 530:                 if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;
+  3096                           ;main.c: 533:                 if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;
   3097  000432  0E59               	movlw	89
   3098  000434  180B               	xorwf	(_CurrentTime+1)^0,w,c
   3099  000436  A4D8               	btfss	status,2,c
@@ -3242,22 +3242,22 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3113  000456  6E0B               	movwf	(_CurrentTime+1)^0,c
   3114  000458                     i2l2094:
   3115                           
-  3116                           ;main.c: 533:                 ChangeTime(0x00, 0x00);
+  3116                           ;main.c: 536:                 ChangeTime(0x00, 0x00);
   3117  000458  0E00               	movlw	0
   3118  00045A  6E1D               	movwf	ChangeTime@Time^0,c
   3119  00045C  0E00               	movlw	0
   3120  00045E  EC70  F006         	call	_ChangeTime
   3121  000462                     
-  3122                           ;main.c: 534:                 ChangeTime(0x01, CurrentTime[1]);
+  3122                           ;main.c: 537:                 ChangeTime(0x01, CurrentTime[1]);
   3123  000462  C00B  F01D         	movff	_CurrentTime+1,ChangeTime@Time
   3124  000466  0E01               	movlw	1
   3125  000468  EC70  F006         	call	_ChangeTime
   3126                           
-  3127                           ;main.c: 535:                 break;
+  3127                           ;main.c: 538:                 break;
   3128  00046C  EF10  F003         	goto	i2l268
   3129  000470                     i2l2098:
   3130                           
-  3131                           ;main.c: 537:                 if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;
+  3131                           ;main.c: 540:                 if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;
   3132  000470  0E23               	movlw	35
   3133  000472  180C               	xorwf	(_CurrentTime+2)^0,w,c
   3134  000474  A4D8               	btfss	status,2,c
@@ -3277,33 +3277,33 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3148  000494  6E0C               	movwf	(_CurrentTime+2)^0,c
   3149  000496                     i2l2104:
   3150                           
-  3151                           ;main.c: 540:                 ChangeTime(0x00, 0x00);
+  3151                           ;main.c: 543:                 ChangeTime(0x00, 0x00);
   3152  000496  0E00               	movlw	0
   3153  000498  6E1D               	movwf	ChangeTime@Time^0,c
   3154  00049A  0E00               	movlw	0
   3155  00049C  EC70  F006         	call	_ChangeTime
   3156  0004A0                     
-  3157                           ;main.c: 541:                 ChangeTime(0x02, CurrentTime[2]);
+  3157                           ;main.c: 544:                 ChangeTime(0x02, CurrentTime[2]);
   3158  0004A0  C00C  F01D         	movff	_CurrentTime+2,ChangeTime@Time
   3159  0004A4  0E02               	movlw	2
   3160  0004A6  EC70  F006         	call	_ChangeTime
   3161                           
-  3162                           ;main.c: 542:                 break;
+  3162                           ;main.c: 545:                 break;
   3163  0004AA  EF10  F003         	goto	i2l268
   3164  0004AE                     i2l2108:
   3165                           
-  3166                           ;main.c: 545:                 WakeUp();
+  3166                           ;main.c: 548:                 WakeUp();
   3167  0004AE  EC10  F007         	call	i2_WakeUp	;wreg free
   3168  0004B2                     
-  3169                           ;main.c: 546:                 State = 3;
+  3169                           ;main.c: 549:                 State = 3;
   3170  0004B2  0E03               	movlw	3
   3171  0004B4  6E19               	movwf	_State^0,c
   3172                           
-  3173                           ;main.c: 547:                 break;
+  3173                           ;main.c: 550:                 break;
   3174  0004B6  EF10  F003         	goto	i2l268
   3175  0004BA                     i2l2112:
   3176                           
-  3177                           ;main.c: 554:                 if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;
+  3177                           ;main.c: 557:                 if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;
   3178  0004BA  0E59               	movlw	89
   3179  0004BC  182D               	xorwf	(_TargetTime+1)^0,w,c
   3180  0004BE  A4D8               	btfss	status,2,c
@@ -3324,7 +3324,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3195  0004E0  EF10  F003         	goto	i2l268
   3196  0004E4                     i2l2118:
   3197                           
-  3198                           ;main.c: 559:                 if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;
+  3198                           ;main.c: 562:                 if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;
   3199  0004E4  0E23               	movlw	35
   3200  0004E6  182E               	xorwf	(_TargetTime+2)^0,w,c
   3201  0004E8  A4D8               	btfss	status,2,c
@@ -3345,7 +3345,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3216  00050A  EF10  F003         	goto	i2l268
   3217  00050E                     i2l2124:
   3218                           
-  3219                           ;main.c: 563:                 if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;
+  3219                           ;main.c: 566:                 if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;
   3220  00050E  0E59               	movlw	89
   3221  000510  1804               	xorwf	_WateringTime^0,w,c
   3222  000512  A4D8               	btfss	status,2,c
@@ -3366,7 +3366,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3237  000534  EF10  F003         	goto	i2l268
   3238  000538                     i2l2130:
   3239                           
-  3240                           ;main.c: 567:                 if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;
+  3240                           ;main.c: 570:                 if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;
   3241  000538  0E59               	movlw	89
   3242  00053A  1805               	xorwf	(_WateringTime+1)^0,w,c
   3243  00053C  A4D8               	btfss	status,2,c
@@ -3387,7 +3387,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3258  00055E  EF10  F003         	goto	i2l268
   3259  000562                     i2l2136:
   3260                           
-  3261                           ;main.c: 571:                 if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;
+  3261                           ;main.c: 574:                 if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;
   3262  000562  0E59               	movlw	89
   3263  000564  1801               	xorwf	_ValveTime^0,w,c
   3264  000566  A4D8               	btfss	status,2,c
@@ -3408,7 +3408,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3279  000588  EF10  F003         	goto	i2l268
   3280  00058C                     i2l2142:
   3281                           
-  3282                           ;main.c: 575:                 if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;
+  3282                           ;main.c: 578:                 if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;
   3283  00058C  0E59               	movlw	89
   3284  00058E  1802               	xorwf	(_ValveTime+1)^0,w,c
   3285  000590  A4D8               	btfss	status,2,c
@@ -3487,7 +3487,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3357  00061C  EF10  F003         	goto	i2l268
   3358  000620                     i2l268:
   3359                           
-  3360                           ;main.c: 580:         INTCON3bits.INT1IF = 0;
+  3360                           ;main.c: 583:         INTCON3bits.INT1IF = 0;
   3361  000620  90F0               	bcf	240,0,c	;volatile
   3362  000622                     i2l292:
   3363  000622  0012               	return		;funcret
@@ -3496,7 +3496,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3366                           
   3367 ;; *************** function _ChangeTime *****************
   3368 ;; Defined at:
-  3369 ;;		line 772 in file "main.c"
+  3369 ;;		line 775 in file "main.c"
   3370 ;; Parameters:    Size  Location     Type
   3371 ;;  Address         1    wreg     unsigned char 
   3372 ;;  Time            1    0[COMRAM] unsigned char 
@@ -3540,7 +3540,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3405                           ;ChangeTime@Address stored from wreg
   3406  000CE0  6E1E               	movwf	ChangeTime@Address^0,c
   3407  000CE2                     
-  3408                           ;main.c: 774:     SSPCON2bits.SEN = 1;
+  3408                           ;main.c: 777:     SSPCON2bits.SEN = 1;
   3409  000CE2  80C5               	bsf	197,0,c	;volatile
   3410  000CE4                     i2l375:
   3411  000CE4  B0C5               	btfsc	4037,0,c	;volatile
@@ -3550,10 +3550,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3415  000CEE  EF72  F006         	goto	i2l375
   3416  000CF2                     i2u141_40:
   3417  000CF2                     
-  3418                           ;main.c: 776:     PIR1bits.SSPIF = 0;
+  3418                           ;main.c: 779:     PIR1bits.SSPIF = 0;
   3419  000CF2  969E               	bcf	158,3,c	;volatile
   3420  000CF4                     
-  3421                           ;main.c: 778:     SSPBUF = 0xD0;
+  3421                           ;main.c: 781:     SSPBUF = 0xD0;
   3422  000CF4  0ED0               	movlw	208
   3423  000CF6  6EC9               	movwf	201,c	;volatile
   3424  000CF8                     i2l378:
@@ -3564,10 +3564,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3429  000D02  EF7C  F006         	goto	i2l378
   3430  000D06                     i2u142_40:
   3431  000D06                     
-  3432                           ;main.c: 780:     PIR1bits.SSPIF = 0;
+  3432                           ;main.c: 783:     PIR1bits.SSPIF = 0;
   3433  000D06  969E               	bcf	158,3,c	;volatile
   3434                           
-  3435                           ;main.c: 781:     if (SSPCON2bits.ACKSTAT){
+  3435                           ;main.c: 784:     if (SSPCON2bits.ACKSTAT){
   3436  000D08  ACC5               	btfss	197,6,c	;volatile
   3437  000D0A  EF89  F006         	goto	i2u143_41
   3438  000D0E  EF8B  F006         	goto	i2u143_40
@@ -3575,7 +3575,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3440  000D12  EF95  F006         	goto	i2l1970
   3441  000D16                     i2u143_40:
   3442  000D16                     
-  3443                           ;main.c: 782:         SSPCON2bits.PEN = 1;
+  3443                           ;main.c: 785:         SSPCON2bits.PEN = 1;
   3444  000D16  84C5               	bsf	197,2,c	;volatile
   3445  000D18                     i2l382:
   3446  000D18  B4C5               	btfsc	4037,2,c	;volatile
@@ -3587,7 +3587,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3452  000D26  EFC2  F006         	goto	i2l385
   3453  000D2A                     i2l1970:
   3454                           
-  3455                           ;main.c: 787:     SSPBUF = Address;
+  3455                           ;main.c: 790:     SSPBUF = Address;
   3456  000D2A  C01E  FFC9         	movff	ChangeTime@Address,4041	;volatile
   3457  000D2E                     i2l386:
   3458  000D2E  A69E               	btfss	3998,3,c	;volatile
@@ -3597,10 +3597,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3462  000D38  EF97  F006         	goto	i2l386
   3463  000D3C                     i2u145_40:
   3464  000D3C                     
-  3465                           ;main.c: 789:     PIR1bits.SSPIF = 0;
+  3465                           ;main.c: 792:     PIR1bits.SSPIF = 0;
   3466  000D3C  969E               	bcf	158,3,c	;volatile
   3467                           
-  3468                           ;main.c: 790:     if (SSPCON2bits.ACKSTAT){
+  3468                           ;main.c: 793:     if (SSPCON2bits.ACKSTAT){
   3469  000D3E  ACC5               	btfss	197,6,c	;volatile
   3470  000D40  EFA4  F006         	goto	i2u146_41
   3471  000D44  EFA6  F006         	goto	i2u146_40
@@ -3608,7 +3608,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3473  000D48  EFB0  F006         	goto	i2l389
   3474  000D4C                     i2u146_40:
   3475  000D4C                     
-  3476                           ;main.c: 791:         SSPCON2bits.PEN = 1;
+  3476                           ;main.c: 794:         SSPCON2bits.PEN = 1;
   3477  000D4C  84C5               	bsf	197,2,c	;volatile
   3478  000D4E                     i2l390:
   3479  000D4E  B4C5               	btfsc	4037,2,c	;volatile
@@ -3620,7 +3620,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3485  000D5C  EFC2  F006         	goto	i2l385
   3486  000D60                     i2l389:
   3487                           
-  3488                           ;main.c: 796:     SSPBUF = Time;
+  3488                           ;main.c: 799:     SSPBUF = Time;
   3489  000D60  C01D  FFC9         	movff	ChangeTime@Time,4041	;volatile
   3490  000D64                     i2l393:
   3491  000D64  A69E               	btfss	3998,3,c	;volatile
@@ -3630,10 +3630,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3495  000D6E  EFB2  F006         	goto	i2l393
   3496  000D72                     i2u148_40:
   3497  000D72                     
-  3498                           ;main.c: 798:     PIR1bits.SSPIF = 0;
+  3498                           ;main.c: 801:     PIR1bits.SSPIF = 0;
   3499  000D72  969E               	bcf	158,3,c	;volatile
   3500                           
-  3501                           ;main.c: 801:     SSPCON2bits.PEN = 1;
+  3501                           ;main.c: 804:     SSPCON2bits.PEN = 1;
   3502  000D74  84C5               	bsf	197,2,c	;volatile
   3503  000D76                     i2l396:
   3504  000D76  B4C5               	btfsc	4037,2,c	;volatile
@@ -3649,7 +3649,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3514                           
   3515 ;; *************** function _INT0interruption *****************
   3516 ;; Defined at:
-  3517 ;;		line 454 in file "main.c"
+  3517 ;;		line 457 in file "main.c"
   3518 ;; Parameters:    Size  Location     Type
   3519 ;;		None
   3520 ;; Auto vars:     Size  Location     Type
@@ -3691,7 +3691,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3551  000BD6                     _INT0interruption:
   3552                           	callstack 25
   3553  000BD6                     
-  3554                           ;main.c: 456:     if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
+  3554                           ;main.c: 459:     if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
   3555  000BD6  A8F2               	btfss	242,4,c	;volatile
   3556  000BD8  EFF0  F005         	goto	i2u155_41
   3557  000BDC  EFF2  F005         	goto	i2u155_40
@@ -3705,117 +3705,117 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3565  000BEE  EF6F  F006         	goto	i2l260
   3566  000BF2                     i2u156_40:
   3567  000BF2                     
-  3568                           ;main.c: 458:         Buzz();
+  3568                           ;main.c: 461:         Buzz();
   3569  000BF2  ECCC  F008         	call	_Buzz	;wreg free
   3570                           
-  3571                           ;main.c: 460:         switch(State){
+  3571                           ;main.c: 463:         switch(State){
   3572  000BF6  EF39  F006         	goto	i2l2076
   3573  000BFA                     i2l2030:
   3574                           
-  3575                           ;main.c: 464:                 State = 1;
+  3575                           ;main.c: 467:                 State = 1;
   3576  000BFA  0E01               	movlw	1
   3577  000BFC  6E19               	movwf	_State^0,c
   3578  000BFE                     
-  3579                           ;main.c: 465:                 TMR1enable();
+  3579                           ;main.c: 468:                 TMR1enable();
   3580  000BFE  ECD7  F008         	call	_TMR1enable	;wreg free
   3581                           
-  3582                           ;main.c: 466:                 break;
+  3582                           ;main.c: 469:                 break;
   3583  000C02  EF6E  F006         	goto	i2l250
   3584  000C06                     i2l2034:
   3585                           
-  3586                           ;main.c: 469:                 State = 3;
+  3586                           ;main.c: 472:                 State = 3;
   3587  000C06  0E03               	movlw	3
   3588  000C08  6E19               	movwf	_State^0,c
   3589  000C0A                     
-  3590                           ;main.c: 470:                 WakeUp();
+  3590                           ;main.c: 473:                 WakeUp();
   3591  000C0A  EC10  F007         	call	i2_WakeUp	;wreg free
   3592  000C0E                     
-  3593                           ;main.c: 471:                 TMR0enable();
+  3593                           ;main.c: 474:                 TMR0enable();
   3594  000C0E  ECDA  F008         	call	_TMR0enable	;wreg free
   3595                           
-  3596                           ;main.c: 472:                 break;
+  3596                           ;main.c: 475:                 break;
   3597  000C12  EF6E  F006         	goto	i2l250
   3598  000C16                     i2l2040:
   3599                           
-  3600                           ;main.c: 476:                 WakeUp();
+  3600                           ;main.c: 479:                 WakeUp();
   3601  000C16  EC10  F007         	call	i2_WakeUp	;wreg free
   3602  000C1A                     
-  3603                           ;main.c: 477:                 State = 3;
+  3603                           ;main.c: 480:                 State = 3;
   3604  000C1A  0E03               	movlw	3
   3605  000C1C  6E19               	movwf	_State^0,c
   3606                           
-  3607                           ;main.c: 479:                 break;
+  3607                           ;main.c: 482:                 break;
   3608  000C1E  EF6E  F006         	goto	i2l250
   3609  000C22                     i2l2044:
   3610                           
-  3611                           ;main.c: 482:                 TMR1enable();
+  3611                           ;main.c: 485:                 TMR1enable();
   3612  000C22  ECD7  F008         	call	_TMR1enable	;wreg free
   3613  000C26                     
-  3614                           ;main.c: 483:                 State = 4;
+  3614                           ;main.c: 486:                 State = 4;
   3615  000C26  0E04               	movlw	4
   3616  000C28  6E19               	movwf	_State^0,c
   3617                           
-  3618                           ;main.c: 484:                 break;
+  3618                           ;main.c: 487:                 break;
   3619  000C2A  EF6E  F006         	goto	i2l250
   3620  000C2E                     i2l2048:
   3621                           
-  3622                           ;main.c: 487:                 TMR1enable();
+  3622                           ;main.c: 490:                 TMR1enable();
   3623  000C2E  ECD7  F008         	call	_TMR1enable	;wreg free
   3624  000C32                     
-  3625                           ;main.c: 488:                 State = 5;
+  3625                           ;main.c: 491:                 State = 5;
   3626  000C32  0E05               	movlw	5
   3627  000C34  6E19               	movwf	_State^0,c
   3628                           
-  3629                           ;main.c: 489:                 break;
+  3629                           ;main.c: 492:                 break;
   3630  000C36  EF6E  F006         	goto	i2l250
   3631  000C3A                     i2l2052:
   3632                           
-  3633                           ;main.c: 492:                 TMR1enable();
+  3633                           ;main.c: 495:                 TMR1enable();
   3634  000C3A  ECD7  F008         	call	_TMR1enable	;wreg free
   3635  000C3E                     
-  3636                           ;main.c: 493:                 State = 6;
+  3636                           ;main.c: 496:                 State = 6;
   3637  000C3E  0E06               	movlw	6
   3638  000C40  6E19               	movwf	_State^0,c
   3639                           
-  3640                           ;main.c: 494:                 break;
+  3640                           ;main.c: 497:                 break;
   3641  000C42  EF6E  F006         	goto	i2l250
   3642  000C46                     i2l2056:
   3643                           
-  3644                           ;main.c: 497:                 TMR1enable();
+  3644                           ;main.c: 500:                 TMR1enable();
   3645  000C46  ECD7  F008         	call	_TMR1enable	;wreg free
   3646  000C4A                     
-  3647                           ;main.c: 498:                 State = 7;
+  3647                           ;main.c: 501:                 State = 7;
   3648  000C4A  0E07               	movlw	7
   3649  000C4C  6E19               	movwf	_State^0,c
   3650                           
-  3651                           ;main.c: 499:                 break;
+  3651                           ;main.c: 502:                 break;
   3652  000C4E  EF6E  F006         	goto	i2l250
   3653  000C52                     i2l2060:
   3654                           
-  3655                           ;main.c: 502:                 TMR1enable();
+  3655                           ;main.c: 505:                 TMR1enable();
   3656  000C52  ECD7  F008         	call	_TMR1enable	;wreg free
   3657  000C56                     
-  3658                           ;main.c: 503:                 State = 8;
+  3658                           ;main.c: 506:                 State = 8;
   3659  000C56  0E08               	movlw	8
   3660  000C58  6E19               	movwf	_State^0,c
   3661                           
-  3662                           ;main.c: 504:                 break;
+  3662                           ;main.c: 507:                 break;
   3663  000C5A  EF6E  F006         	goto	i2l250
   3664  000C5E                     i2l2064:
   3665                           
-  3666                           ;main.c: 507:                 TMR1enable();
+  3666                           ;main.c: 510:                 TMR1enable();
   3667  000C5E  ECD7  F008         	call	_TMR1enable	;wreg free
   3668  000C62                     
-  3669                           ;main.c: 508:                 State = 9;
+  3669                           ;main.c: 511:                 State = 9;
   3670  000C62  0E09               	movlw	9
   3671  000C64  6E19               	movwf	_State^0,c
   3672                           
-  3673                           ;main.c: 509:                 break;
+  3673                           ;main.c: 512:                 break;
   3674  000C66  EF6E  F006         	goto	i2l250
   3675  000C6A                     i2l2068:
   3676                           
-  3677                           ;main.c: 512:                 TMR1enable();
-  3678  000C6A  ECD7  F008         	call	_TMR1enable	;wreg free
+  3677                           ;main.c: 515:                 TMR0enable();
+  3678  000C6A  ECDA  F008         	call	_TMR0enable	;wreg free
   3679  000C6E  EF0B  F006         	goto	i2l2040
   3680  000C72                     i2l2076:
   3681  000C72  5019               	movf	_State^0,w,c
@@ -3877,7 +3877,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3736  000CD8  EF6E  F006         	goto	i2l250
   3737  000CDC                     i2l250:
   3738                           
-  3739                           ;main.c: 518:         INTCONbits.INT0F = 0;
+  3739                           ;main.c: 521:         INTCONbits.INT0F = 0;
   3740  000CDC  92F2               	bcf	242,1,c	;volatile
   3741  000CDE                     i2l260:
   3742  000CDE  0012               	return		;funcret
@@ -3886,7 +3886,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3745                           
   3746 ;; *************** function i2_WakeUp *****************
   3747 ;; Defined at:
-  3748 ;;		line 658 in file "main.c"
+  3748 ;;		line 661 in file "main.c"
   3749 ;; Parameters:    Size  Location     Type
   3750 ;;		None
   3751 ;; Auto vars:     Size  Location     Type
@@ -3929,10 +3929,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3783  000E20                     i2_WakeUp:
   3784                           	callstack 25
   3785  000E20                     
-  3786                           ;main.c: 659:     UpdateCurrentTime();
+  3786                           ;main.c: 662:     UpdateCurrentTime();
   3787  000E20  ECBA  F004         	call	i2_UpdateCurrentTime	;wreg free
   3788  000E24                     
-  3789                           ;main.c: 661:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
+  3789                           ;main.c: 664:     if (AddBCD(CurrentTime[1], 0x02) > 0x59) {
   3790  000E24  0E02               	movlw	2
   3791  000E26  6E1D               	movwf	i2AddBCD@Number2^0,c
   3792  000E28  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -3946,7 +3946,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3800  000E3C  EF52  F007         	goto	i2l330
   3801  000E40                     i2u151_40:
   3802  000E40                     
-  3803                           ;main.c: 662:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
+  3803                           ;main.c: 665:         if(AddBCD(CurrentTime[1], 0x01) > 0x23){
   3804  000E40  0E01               	movlw	1
   3805  000E42  6E1D               	movwf	i2AddBCD@Number2^0,c
   3806  000E44  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -3960,43 +3960,43 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3814  000E58  EF3E  F007         	goto	i2l1998
   3815  000E5C                     i2u152_40:
   3816  000E5C                     
-  3817                           ;main.c: 663:             WakeUpTime[2] = 0x00;
+  3817                           ;main.c: 666:             WakeUpTime[2] = 0x00;
   3818  000E5C  0E00               	movlw	0
   3819  000E5E  6E09               	movwf	(_WakeUpTime+2)^0,c
   3820  000E60                     
-  3821                           ;main.c: 664:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  3821                           ;main.c: 667:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   3822  000E60  0E02               	movlw	2
   3823  000E62  6E1D               	movwf	i2AddBCD@Number2^0,c
   3824  000E64  500B               	movf	(_CurrentTime+1)^0,w,c
   3825  000E66  EC52  F008         	call	i2_AddBCD
   3826  000E6A  6E08               	movwf	(_WakeUpTime+1)^0,c
   3827  000E6C                     
-  3828                           ;main.c: 665:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+  3828                           ;main.c: 668:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
   3829  000E6C  0E60               	movlw	96
   3830  000E6E  6E1D               	movwf	i2SubBCD@Number2^0,c
   3831  000E70  500B               	movf	(_CurrentTime+1)^0,w,c
   3832  000E72  EC3C  F008         	call	i2_SubBCD
   3833  000E76  6E08               	movwf	(_WakeUpTime+1)^0,c
   3834                           
-  3835                           ;main.c: 666:         }else{
+  3835                           ;main.c: 669:         }else{
   3836  000E78  EF5A  F007         	goto	i2l2002
   3837  000E7C                     i2l1998:
   3838                           
-  3839                           ;main.c: 667:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
+  3839                           ;main.c: 670:             WakeUpTime[2] = AddBCD(CurrentTime[2], 0x01);
   3840  000E7C  0E01               	movlw	1
   3841  000E7E  6E1D               	movwf	i2AddBCD@Number2^0,c
   3842  000E80  500C               	movf	(_CurrentTime+2)^0,w,c
   3843  000E82  EC52  F008         	call	i2_AddBCD
   3844  000E86  6E09               	movwf	(_WakeUpTime+2)^0,c
   3845                           
-  3846                           ;main.c: 668:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  3846                           ;main.c: 671:             WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   3847  000E88  0E02               	movlw	2
   3848  000E8A  6E1D               	movwf	i2AddBCD@Number2^0,c
   3849  000E8C  500B               	movf	(_CurrentTime+1)^0,w,c
   3850  000E8E  EC52  F008         	call	i2_AddBCD
   3851  000E92  6E08               	movwf	(_WakeUpTime+1)^0,c
   3852                           
-  3853                           ;main.c: 669:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
+  3853                           ;main.c: 672:             WakeUpTime[1] = SubBCD(CurrentTime[1], 0x60);
   3854  000E94  0E60               	movlw	96
   3855  000E96  6E1D               	movwf	i2SubBCD@Number2^0,c
   3856  000E98  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -4005,10 +4005,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3859  000EA0  EF5A  F007         	goto	i2l2002
   3860  000EA4                     i2l330:
   3861                           
-  3862                           ;main.c: 672:         WakeUpTime[2] = CurrentTime[2];
+  3862                           ;main.c: 675:         WakeUpTime[2] = CurrentTime[2];
   3863  000EA4  C00C  F009         	movff	_CurrentTime+2,_WakeUpTime+2
   3864  000EA8                     
-  3865                           ;main.c: 673:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
+  3865                           ;main.c: 676:         WakeUpTime[1] = AddBCD(CurrentTime[1], 0x02);
   3866  000EA8  0E02               	movlw	2
   3867  000EAA  6E1D               	movwf	i2AddBCD@Number2^0,c
   3868  000EAC  500B               	movf	(_CurrentTime+1)^0,w,c
@@ -4016,7 +4016,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3870  000EB2  6E08               	movwf	(_WakeUpTime+1)^0,c
   3871  000EB4                     i2l2002:
   3872                           
-  3873                           ;main.c: 675:     UpdateTimeFlag = 1;
+  3873                           ;main.c: 678:     UpdateTimeFlag = 1;
   3874  000EB4  0E01               	movlw	1
   3875  000EB6  6E18               	movwf	_UpdateTimeFlag^0,c
   3876  000EB8  0012               	return		;funcret
@@ -4025,7 +4025,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3879                           
   3880 ;; *************** function i2_UpdateCurrentTime *****************
   3881 ;; Defined at:
-  3882 ;;		line 856 in file "main.c"
+  3882 ;;		line 859 in file "main.c"
   3883 ;; Parameters:    Size  Location     Type
   3884 ;;		None
   3885 ;; Auto vars:     Size  Location     Type
@@ -4064,7 +4064,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3913  000974                     i2_UpdateCurrentTime:
   3914                           	callstack 26
   3915  000974                     
-  3916                           ;main.c: 857:     SSPCON2bits.SEN = 1;
+  3916                           ;main.c: 860:     SSPCON2bits.SEN = 1;
   3917  000974  80C5               	bsf	197,0,c	;volatile
   3918  000976                     i2l440:
   3919  000976  B0C5               	btfsc	4037,0,c	;volatile
@@ -4074,10 +4074,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3923  000980  EFBB  F004         	goto	i2l440
   3924  000984                     i2u3_40:
   3925  000984                     
-  3926                           ;main.c: 859:     PIR1bits.SSPIF = 0;
+  3926                           ;main.c: 862:     PIR1bits.SSPIF = 0;
   3927  000984  969E               	bcf	158,3,c	;volatile
   3928  000986                     
-  3929                           ;main.c: 861:     SSPBUF = 0xD0;
+  3929                           ;main.c: 864:     SSPBUF = 0xD0;
   3930  000986  0ED0               	movlw	208
   3931  000988  6EC9               	movwf	201,c	;volatile
   3932  00098A                     i2l443:
@@ -4088,10 +4088,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3937  000994  EFC5  F004         	goto	i2l443
   3938  000998                     i2u4_40:
   3939  000998                     
-  3940                           ;main.c: 863:     PIR1bits.SSPIF = 0;
+  3940                           ;main.c: 866:     PIR1bits.SSPIF = 0;
   3941  000998  969E               	bcf	158,3,c	;volatile
   3942                           
-  3943                           ;main.c: 864:     if (SSPCON2bits.ACKSTAT){
+  3943                           ;main.c: 867:     if (SSPCON2bits.ACKSTAT){
   3944  00099A  ACC5               	btfss	197,6,c	;volatile
   3945  00099C  EFD2  F004         	goto	i2u5_41
   3946  0009A0  EFD4  F004         	goto	i2u5_40
@@ -4099,7 +4099,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3948  0009A4  EFDE  F004         	goto	i2l1194
   3949  0009A8                     i2u5_40:
   3950  0009A8                     
-  3951                           ;main.c: 865:         SSPCON2bits.PEN = 1;
+  3951                           ;main.c: 868:         SSPCON2bits.PEN = 1;
   3952  0009A8  84C5               	bsf	197,2,c	;volatile
   3953  0009AA                     i2l447:
   3954  0009AA  B4C5               	btfsc	4037,2,c	;volatile
@@ -4111,7 +4111,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3960  0009B8  EF5E  F005         	goto	i2l450
   3961  0009BC                     i2l1194:
   3962                           
-  3963                           ;main.c: 870:     SSPBUF = 0;
+  3963                           ;main.c: 873:     SSPBUF = 0;
   3964  0009BC  0E00               	movlw	0
   3965  0009BE  6EC9               	movwf	201,c	;volatile
   3966  0009C0                     i2l451:
@@ -4122,10 +4122,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3971  0009CA  EFE0  F004         	goto	i2l451
   3972  0009CE                     i2u7_40:
   3973  0009CE                     
-  3974                           ;main.c: 872:     PIR1bits.SSPIF = 0;
+  3974                           ;main.c: 875:     PIR1bits.SSPIF = 0;
   3975  0009CE  969E               	bcf	158,3,c	;volatile
   3976                           
-  3977                           ;main.c: 873:     if (SSPCON2bits.ACKSTAT){
+  3977                           ;main.c: 876:     if (SSPCON2bits.ACKSTAT){
   3978  0009D0  ACC5               	btfss	197,6,c	;volatile
   3979  0009D2  EFED  F004         	goto	i2u8_41
   3980  0009D6  EFEF  F004         	goto	i2u8_40
@@ -4133,7 +4133,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3982  0009DA  EFF9  F004         	goto	i2l454
   3983  0009DE                     i2u8_40:
   3984  0009DE                     
-  3985                           ;main.c: 874:         SSPCON2bits.PEN = 1;
+  3985                           ;main.c: 877:         SSPCON2bits.PEN = 1;
   3986  0009DE  84C5               	bsf	197,2,c	;volatile
   3987  0009E0                     i2l455:
   3988  0009E0  B4C5               	btfsc	4037,2,c	;volatile
@@ -4145,7 +4145,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3994  0009EE  EF5E  F005         	goto	i2l450
   3995  0009F2                     i2l454:
   3996                           
-  3997                           ;main.c: 879:     SSPCON2bits.RSEN = 1;
+  3997                           ;main.c: 882:     SSPCON2bits.RSEN = 1;
   3998  0009F2  82C5               	bsf	197,1,c	;volatile
   3999  0009F4                     i2l458:
   4000  0009F4  B2C5               	btfsc	197,1,c	;volatile
@@ -4155,10 +4155,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4004  0009FE  EFFA  F004         	goto	i2l458
   4005  000A02                     i2u10_40:
   4006  000A02                     
-  4007                           ;main.c: 881:     PIR1bits.SSPIF = 0;
+  4007                           ;main.c: 884:     PIR1bits.SSPIF = 0;
   4008  000A02  969E               	bcf	158,3,c	;volatile
   4009  000A04                     
-  4010                           ;main.c: 883:     SSPBUF = 0xD1;
+  4010                           ;main.c: 886:     SSPBUF = 0xD1;
   4011  000A04  0ED1               	movlw	209
   4012  000A06  6EC9               	movwf	201,c	;volatile
   4013  000A08                     i2l461:
@@ -4169,10 +4169,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4018  000A12  EF04  F005         	goto	i2l461
   4019  000A16                     i2u11_40:
   4020  000A16                     
-  4021                           ;main.c: 885:     PIR1bits.SSPIF = 0;
+  4021                           ;main.c: 888:     PIR1bits.SSPIF = 0;
   4022  000A16  969E               	bcf	158,3,c	;volatile
   4023                           
-  4024                           ;main.c: 886:     if (SSPCON2bits.ACKSTAT){
+  4024                           ;main.c: 889:     if (SSPCON2bits.ACKSTAT){
   4025  000A18  ACC5               	btfss	197,6,c	;volatile
   4026  000A1A  EF11  F005         	goto	i2u12_41
   4027  000A1E  EF13  F005         	goto	i2u12_40
@@ -4180,7 +4180,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4029  000A22  EF1D  F005         	goto	i2l464
   4030  000A26                     i2u12_40:
   4031  000A26                     
-  4032                           ;main.c: 887:         SSPCON2bits.PEN = 1;
+  4032                           ;main.c: 890:         SSPCON2bits.PEN = 1;
   4033  000A26  84C5               	bsf	197,2,c	;volatile
   4034  000A28                     i2l465:
   4035  000A28  B4C5               	btfsc	4037,2,c	;volatile
@@ -4192,7 +4192,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4041  000A36  EF5E  F005         	goto	i2l450
   4042  000A3A                     i2l464:
   4043                           
-  4044                           ;main.c: 892:     SSPCON2bits.RCEN = 1;
+  4044                           ;main.c: 895:     SSPCON2bits.RCEN = 1;
   4045  000A3A  86C5               	bsf	197,3,c	;volatile
   4046  000A3C                     i2l468:
   4047  000A3C  A0C7               	btfss	199,0,c	;volatile
@@ -4202,13 +4202,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4051  000A46  EF1E  F005         	goto	i2l468
   4052  000A4A                     i2u14_40:
   4053  000A4A                     
-  4054                           ;main.c: 894:     CurrentTime[0] = SSPBUF;
+  4054                           ;main.c: 897:     CurrentTime[0] = SSPBUF;
   4055  000A4A  CFC9 F00A          	movff	4041,_CurrentTime	;volatile
   4056                           
-  4057                           ;main.c: 896:     SSPCON2bits.ACKDT = 0;
+  4057                           ;main.c: 899:     SSPCON2bits.ACKDT = 0;
   4058  000A4E  9AC5               	bcf	197,5,c	;volatile
   4059                           
-  4060                           ;main.c: 897:     SSPCON2bits.ACKEN = 1;
+  4060                           ;main.c: 900:     SSPCON2bits.ACKEN = 1;
   4061  000A50  88C5               	bsf	197,4,c	;volatile
   4062  000A52                     i2l471:
   4063  000A52  B8C5               	btfsc	4037,4,c	;volatile
@@ -4218,7 +4218,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4067  000A5C  EF29  F005         	goto	i2l471
   4068  000A60                     i2u15_40:
   4069  000A60                     
-  4070                           ;main.c: 900:     SSPCON2bits.RCEN = 1;
+  4070                           ;main.c: 903:     SSPCON2bits.RCEN = 1;
   4071  000A60  86C5               	bsf	197,3,c	;volatile
   4072  000A62                     i2l474:
   4073  000A62  A0C7               	btfss	199,0,c	;volatile
@@ -4228,13 +4228,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4077  000A6C  EF31  F005         	goto	i2l474
   4078  000A70                     i2u16_40:
   4079  000A70                     
-  4080                           ;main.c: 902:     CurrentTime[1] = SSPBUF;
+  4080                           ;main.c: 905:     CurrentTime[1] = SSPBUF;
   4081  000A70  CFC9 F00B          	movff	4041,_CurrentTime+1	;volatile
   4082                           
-  4083                           ;main.c: 904:     SSPCON2bits.ACKDT = 0;
+  4083                           ;main.c: 907:     SSPCON2bits.ACKDT = 0;
   4084  000A74  9AC5               	bcf	197,5,c	;volatile
   4085                           
-  4086                           ;main.c: 905:     SSPCON2bits.ACKEN = 1;
+  4086                           ;main.c: 908:     SSPCON2bits.ACKEN = 1;
   4087  000A76  88C5               	bsf	197,4,c	;volatile
   4088  000A78                     i2l477:
   4089  000A78  B8C5               	btfsc	4037,4,c	;volatile
@@ -4244,7 +4244,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4093  000A82  EF3C  F005         	goto	i2l477
   4094  000A86                     i2u17_40:
   4095  000A86                     
-  4096                           ;main.c: 908:     SSPCON2bits.RCEN = 1;
+  4096                           ;main.c: 911:     SSPCON2bits.RCEN = 1;
   4097  000A86  86C5               	bsf	197,3,c	;volatile
   4098  000A88                     i2l480:
   4099  000A88  A0C7               	btfss	199,0,c	;volatile
@@ -4254,13 +4254,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4103  000A92  EF44  F005         	goto	i2l480
   4104  000A96                     i2u18_40:
   4105  000A96                     
-  4106                           ;main.c: 910:     CurrentTime[2] = SSPBUF;
+  4106                           ;main.c: 913:     CurrentTime[2] = SSPBUF;
   4107  000A96  CFC9 F00C          	movff	4041,_CurrentTime+2	;volatile
   4108                           
-  4109                           ;main.c: 912:     SSPCON2bits.ACKDT = 1;
+  4109                           ;main.c: 915:     SSPCON2bits.ACKDT = 1;
   4110  000A9A  8AC5               	bsf	197,5,c	;volatile
   4111                           
-  4112                           ;main.c: 913:     SSPCON2bits.ACKEN = 1;
+  4112                           ;main.c: 916:     SSPCON2bits.ACKEN = 1;
   4113  000A9C  88C5               	bsf	197,4,c	;volatile
   4114  000A9E                     i2l483:
   4115  000A9E  B8C5               	btfsc	4037,4,c	;volatile
@@ -4270,7 +4270,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4119  000AA8  EF4F  F005         	goto	i2l483
   4120  000AAC                     i2u19_40:
   4121  000AAC                     
-  4122                           ;main.c: 916:     SSPCON2bits.PEN = 1;
+  4122                           ;main.c: 919:     SSPCON2bits.PEN = 1;
   4123  000AAC  84C5               	bsf	197,2,c	;volatile
   4124  000AAE                     i2l486:
   4125  000AAE  B4C5               	btfsc	4037,2,c	;volatile
@@ -4286,7 +4286,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4135                           
   4136 ;; *************** function i2_SubBCD *****************
   4137 ;; Defined at:
-  4138 ;;		line 711 in file "main.c"
+  4138 ;;		line 714 in file "main.c"
   4139 ;; Parameters:    Size  Location     Type
   4140 ;;  Number1         1    wreg     unsigned char 
   4141 ;;  Number2         1    0[COMRAM] unsigned char 
@@ -4331,12 +4331,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4175                           ;i2SubBCD@Number1 stored from wreg
   4176  001078  6E1F               	movwf	i2SubBCD@Number1^0,c
   4177  00107A                     
-  4178                           ;main.c: 712:     char temp = Number1 - Number2;
+  4178                           ;main.c: 715:     char temp = Number1 - Number2;
   4179  00107A  501D               	movf	i2SubBCD@Number2^0,w,c
   4180  00107C  5C1F               	subwf	i2SubBCD@Number1^0,w,c
   4181  00107E  6E20               	movwf	i2SubBCD@temp^0,c
   4182                           
-  4183                           ;main.c: 714:     if ((temp & 0x0F) > 9) return temp - 0x06;
+  4183                           ;main.c: 717:     if ((temp & 0x0F) > 9) return temp - 0x06;
   4184  001080  C020  F01E         	movff	i2SubBCD@temp,??i2_SubBCD
   4185  001084  0E0F               	movlw	15
   4186  001086  161E               	andwf	??i2_SubBCD^0,f,c
@@ -4359,7 +4359,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4203                           
   4204 ;; *************** function i2_AddBCD *****************
   4205 ;; Defined at:
-  4206 ;;		line 705 in file "main.c"
+  4206 ;;		line 708 in file "main.c"
   4207 ;; Parameters:    Size  Location     Type
   4208 ;;  Number1         1    wreg     unsigned char 
   4209 ;;  Number2         1    0[COMRAM] unsigned char 
@@ -4404,12 +4404,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4243                           ;i2AddBCD@Number1 stored from wreg
   4244  0010A4  6E1F               	movwf	i2AddBCD@Number1^0,c
   4245  0010A6                     
-  4246                           ;main.c: 706:     char temp = Number1 + Number2;
+  4246                           ;main.c: 709:     char temp = Number1 + Number2;
   4247  0010A6  501F               	movf	i2AddBCD@Number1^0,w,c
   4248  0010A8  241D               	addwf	i2AddBCD@Number2^0,w,c
   4249  0010AA  6E20               	movwf	i2AddBCD@temp^0,c
   4250                           
-  4251                           ;main.c: 708:     if ((temp & 0x0F) > 9) return temp + 0x06;
+  4251                           ;main.c: 711:     if ((temp & 0x0F) > 9) return temp + 0x06;
   4252  0010AC  C020  F01E         	movff	i2AddBCD@temp,??i2_AddBCD
   4253  0010B0  0E0F               	movlw	15
   4254  0010B2  161E               	andwf	??i2_AddBCD^0,f,c
@@ -4432,7 +4432,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4271                           
   4272 ;; *************** function _TMR1enable *****************
   4273 ;; Defined at:
-  4274 ;;		line 696 in file "main.c"
+  4274 ;;		line 699 in file "main.c"
   4275 ;; Parameters:    Size  Location     Type
   4276 ;;		None
   4277 ;; Auto vars:     Size  Location     Type
@@ -4470,10 +4470,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4304  0011AE                     _TMR1enable:
   4305                           	callstack 26
   4306  0011AE                     
-  4307                           ;main.c: 697:     T0CONbits.TMR0ON = 0;
+  4307                           ;main.c: 700:     T0CONbits.TMR0ON = 0;
   4308  0011AE  9ED5               	bcf	213,7,c	;volatile
   4309                           
-  4310                           ;main.c: 698:     T1CONbits.TMR1ON = 1;
+  4310                           ;main.c: 701:     T1CONbits.TMR1ON = 1;
   4311  0011B0  80CD               	bsf	205,0,c	;volatile
   4312  0011B2  0012               	return		;funcret
   4313  0011B4                     __end_of_TMR1enable:
@@ -4481,7 +4481,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4315                           
   4316 ;; *************** function _TMR0enable *****************
   4317 ;; Defined at:
-  4318 ;;		line 700 in file "main.c"
+  4318 ;;		line 703 in file "main.c"
   4319 ;; Parameters:    Size  Location     Type
   4320 ;;		None
   4321 ;; Auto vars:     Size  Location     Type
@@ -4519,10 +4519,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4348  0011B4                     _TMR0enable:
   4349                           	callstack 26
   4350  0011B4                     
-  4351                           ;main.c: 701:     T0CONbits.TMR0ON = 1;
+  4351                           ;main.c: 704:     T0CONbits.TMR0ON = 1;
   4352  0011B4  8ED5               	bsf	213,7,c	;volatile
   4353                           
-  4354                           ;main.c: 702:     T1CONbits.TMR1ON = 0;
+  4354                           ;main.c: 705:     T1CONbits.TMR1ON = 0;
   4355  0011B6  90CD               	bcf	205,0,c	;volatile
   4356  0011B8  0012               	return		;funcret
   4357  0011BA                     __end_of_TMR0enable:
@@ -4530,7 +4530,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4359                           
   4360 ;; *************** function _Buzz *****************
   4361 ;; Defined at:
-  4362 ;;		line 767 in file "main.c"
+  4362 ;;		line 770 in file "main.c"
   4363 ;; Parameters:    Size  Location     Type
   4364 ;;		None
   4365 ;; Auto vars:     Size  Location     Type
@@ -4570,10 +4570,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4394  001198                     _Buzz:
   4395                           	callstack 26
   4396  001198                     
-  4397                           ;main.c: 769:     PIE2bits.TMR3IE = 1;
+  4397                           ;main.c: 772:     PIE2bits.TMR3IE = 1;
   4398  001198  82A0               	bsf	160,1,c	;volatile
   4399  00119A                     
-  4400                           ;main.c: 770:     TMR3 = 0;
+  4400                           ;main.c: 773:     TMR3 = 0;
   4401  00119A  0E00               	movlw	0
   4402  00119C  6EB3               	movwf	179,c	;volatile
   4403  00119E  0E00               	movlw	0
@@ -5197,7 +5197,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Sat Jul 24 17:42:53 2021
+Symbol Table                                                                                   Sat Jul 24 17:56:15 2021
 
             _TMR1interruption 10D0                   _SSPSTATbits 000FC7            __size_of_I2Cconfig 000A  
                          l212 11AC                           l221 1110                           l215 118A  
