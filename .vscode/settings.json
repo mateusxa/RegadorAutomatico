@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "xc8.h": "c",
+        "stdio.h": "c"
+    }
+}
