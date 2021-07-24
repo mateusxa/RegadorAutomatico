@@ -4433,6 +4433,7 @@ void main(void) {
                     INTCONbits.INT0IE = 1;
                     INTCON3bits.INT1IE = 1;
                     INTCON3bits.INT2IE = 1;
+
                     WaterEnable = 0;
                     WaterEnableLock = 1;
                     WakeUp();

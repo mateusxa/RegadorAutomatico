@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Regador_automatico_I2C.X
+PROJECTNAME=Firmware
 
 # Active Configuration
 DEFAULTCONF=default

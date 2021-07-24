@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Regador_automatico_I2C.X.production.hex">
+  <executable name="dist/default/production\Firmware.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65536</length>
