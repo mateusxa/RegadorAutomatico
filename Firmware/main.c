@@ -68,6 +68,9 @@ void MCUinit(void);
 void TMR0interruption (void);
 void TMR1interruption (void);
 void TMR3interruption (void);
+void INT0interruption (void);
+void INT1interruption (void);
+void INT2interruption (void);
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -286,217 +289,15 @@ void main(void) {
 }
 
 void __interrupt () my_isr_routine (void) {
-    
-    
+    // TIMERS INTERRUPTIONS
     TMR0interruption();
     TMR1interruption();
     TMR3interruption();
-    
-    
-    
-    
-    //////////// EXTERNAL INT 0 ////////////////////////
-    if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
-        
-        Buzz();                         // Buzzing
-        //__delay_ms(BUTTON_DELAY);
-        switch(State){
-            
-            
-            case SETTING_CURRENT_MINUTES:
-                
-                State = SETTING_CURRENT_HOURS;
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                
-                break;
-            
-            case SETTING_CURRENT_HOURS:
-                State = MAIN_LOOP_HANDLER;
-                WakeUp();
-                T0CONbits.TMR0ON = 1;    // Disable Timer 0
-                T1CONbits.TMR1ON = 0;    // Enable Timer 1
-                break;
-            
-            case IDLE_MODE:
-                
-                WakeUp();
-                State = MAIN_LOOP_HANDLER;
-                
-                break;
-                
-            case MAIN_LOOP_HANDLER:                     // colocar nome dos estados
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_TARGET_MINUTES;
-                break;
-                
-            case SETTING_TARGET_MINUTES:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_TARGET_HOURS;
-                break;
-            case SETTING_TARGET_HOURS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_WATERING_SECONDS;
-                break;
-            case SETTING_WATERING_SECONDS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_WATERING_MINUTES;
-                break;
-            case SETTING_WATERING_MINUTES:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_VALVE_SECONDS;
-                break;
-            case SETTING_VALVE_SECONDS:
-                T0CONbits.TMR0ON = 0;    // Disable Timer 0
-                T1CONbits.TMR1ON = 1;    // Enable Timer 1
-                State = SETTING_VALVE_MINUTES;
-                break;
-            case SETTING_VALVE_MINUTES:
-                T0CONbits.TMR0ON = 1;    // Enable Timer 0
-                T1CONbits.TMR1ON = 0;    // Disable Timer 1
-                WakeUp();
-                State = MAIN_LOOP_HANDLER;
-                break;
-        }
-        
-        INTCONbits.INT0F = 0;
-    }
-    
-    //////////// EXTERNAL INT 1 ////////////////////////
-    if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
-        
-        Buzz();                         // Buzzing
-        //__delay_ms(BUTTON_DELAY);
-        
-        switch(State){
-            case SETTING_CURRENT_MINUTES:
-                if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;       // Reset Minutes
-                else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);           // Increment Minutes
-                
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
-                break;
-            case SETTING_CURRENT_HOURS:
-                if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;           // Reset Hours
-                else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);               // Increment Hours
-                
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
-                break;
-                
-            case IDLE_MODE:
-                WakeUp();
-                State = MAIN_LOOP_HANDLER;
-                break;
-                
-            case MAIN_LOOP_HANDLER:
-                //Beep
-                break;
-                
-            case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
-                if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;       // Reset Minutes
-                else TargetTime[1] = AddBCD(TargetTime[1], 0x01);           // Increment Minutes
-                break;
-                
-            case SETTING_TARGET_HOURS:                                                     // Hours Mode
-                if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;           // Reset Hours
-                else TargetTime[2] = AddBCD(TargetTime[2], 0x01);               // Increment Hours
-                break;
-            case SETTING_WATERING_SECONDS:
-                if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;       // Reset Minutes
-                else WateringTime[0] = AddBCD(WateringTime[0], 0x01);           // Increment Minutes
-                break;
-            case SETTING_WATERING_MINUTES:
-                if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;           // Reset Hours
-                else WateringTime[1] = AddBCD(WateringTime[1], 0x01);               // Increment Hours
-                break;
-            case SETTING_VALVE_SECONDS:
-                if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;       // Reset Minutes
-                else ValveTime[0] = AddBCD(ValveTime[0], 0x01);           // Increment Minutes
-                break;
-            case SETTING_VALVE_MINUTES:
-                if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;           // Reset Hours
-                else ValveTime[1] = AddBCD(ValveTime[1], 0x01);               // Increment Hours
-                break;
-        }
-        
-        INTCON3bits.INT1IF = 0;
-    }
-    
-    //////////// EXTERNAL INT 2 ////////////////////////
-    if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
-        
-        Buzz();                         // Buzzing
-        //__delay_ms(BUTTON_DELAY);
-        
-        switch(State){
-            
-            case SETTING_CURRENT_MINUTES:
-                if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;       // Reset Minutes
-                else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);           // Increment Minutes
-                
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
-                break;
-            case SETTING_CURRENT_HOURS:
-                if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;           // Reset Hours
-                else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);               // Increment Hours
-                
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
-                break;
-            
-            case IDLE_MODE:
-                
-                WakeUp();
 
-                State = MAIN_LOOP_HANDLER;
-                
-                break;
-                
-            case MAIN_LOOP_HANDLER:
-                //Beep
-                break;
-
-            case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
-                if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;       // Reset Minutes
-                else TargetTime[1] = SubBCD(TargetTime[1], 0x01);           // Decrement Minutes
-                break;
-                
-            case SETTING_TARGET_HOURS:                                                     // Hours Mode
-                if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;           // Reset Hours
-                else TargetTime[2] = SubBCD(TargetTime[2], 0x01);               // Decrement Hours
-                break;
-            case SETTING_WATERING_SECONDS:                                                     // Minutes Mode
-                if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;       // Reset Minutes
-                else WateringTime[0] = SubBCD(WateringTime[0], 0x01);           // Decrement Minutes
-                break;
-                
-            case SETTING_WATERING_MINUTES:                                                     // Hours Mode
-                if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;           // Reset Hours
-                else WateringTime[1] = SubBCD(WateringTime[1], 0x01);               // Decrement Hours
-                break;
-                
-            case SETTING_VALVE_SECONDS:                                                     // Minutes Mode
-                if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;       // Reset Minutes
-                else ValveTime[0] = SubBCD(ValveTime[0], 0x01);           // Decrement Minutes
-                break;
-                
-            case SETTING_VALVE_MINUTES:                                                     // Hours Mode
-                if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;           // Reset Hours
-                else ValveTime[1] = SubBCD(ValveTime[1], 0x01);               // Decrement Hours
-                break;
-        }
-        
-        INTCON3bits.INT2IF = 0;
-    }
-
-
+    // EXTERNAL INTERRUPTIONS
+    INT0interruption();
+    INT1interruption();
+    INT2interruption();
 }
 
 void GPIOconfig(void){
@@ -648,6 +449,211 @@ void TMR3interruption (void){
         PIR2bits.TMR3IF = 0;
     }
 }
+void INT0interruption (void){
+    //////////// EXTERNAL INT 0 ////////////////////////
+    if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
+        
+        Buzz();                         // Buzzing
+        //__delay_ms(BUTTON_DELAY);
+        switch(State){
+            
+            
+            case SETTING_CURRENT_MINUTES:
+                
+                State = SETTING_CURRENT_HOURS;
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                
+                break;
+            
+            case SETTING_CURRENT_HOURS:
+                State = MAIN_LOOP_HANDLER;
+                WakeUp();
+                T0CONbits.TMR0ON = 1;    // Disable Timer 0
+                T1CONbits.TMR1ON = 0;    // Enable Timer 1
+                break;
+            
+            case IDLE_MODE:
+                
+                WakeUp();
+                State = MAIN_LOOP_HANDLER;
+                
+                break;
+                
+            case MAIN_LOOP_HANDLER:                     // colocar nome dos estados
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_TARGET_MINUTES;
+                break;
+                
+            case SETTING_TARGET_MINUTES:
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_TARGET_HOURS;
+                break;
+            case SETTING_TARGET_HOURS:
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_WATERING_SECONDS;
+                break;
+            case SETTING_WATERING_SECONDS:
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_WATERING_MINUTES;
+                break;
+            case SETTING_WATERING_MINUTES:
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_VALVE_SECONDS;
+                break;
+            case SETTING_VALVE_SECONDS:
+                T0CONbits.TMR0ON = 0;    // Disable Timer 0
+                T1CONbits.TMR1ON = 1;    // Enable Timer 1
+                State = SETTING_VALVE_MINUTES;
+                break;
+            case SETTING_VALVE_MINUTES:
+                T0CONbits.TMR0ON = 1;    // Enable Timer 0
+                T1CONbits.TMR1ON = 0;    // Disable Timer 1
+                WakeUp();
+                State = MAIN_LOOP_HANDLER;
+                break;
+        }
+        
+        INTCONbits.INT0F = 0;
+    }
+}
+void INT1interruption (void){
+    //////////// EXTERNAL INT 1 ////////////////////////
+    if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
+        
+        Buzz();                         // Buzzing
+        //__delay_ms(BUTTON_DELAY);
+        
+        switch(State){
+            case SETTING_CURRENT_MINUTES:
+                if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;       // Reset Minutes
+                else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);           // Increment Minutes
+                
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x01, CurrentTime[1]);
+                break;
+            case SETTING_CURRENT_HOURS:
+                if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;           // Reset Hours
+                else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);               // Increment Hours
+                
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x02, CurrentTime[2]);
+                break;
+                
+            case IDLE_MODE:
+                WakeUp();
+                State = MAIN_LOOP_HANDLER;
+                break;
+                
+            case MAIN_LOOP_HANDLER:
+                //Beep
+                break;
+                
+            case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
+                if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;       // Reset Minutes
+                else TargetTime[1] = AddBCD(TargetTime[1], 0x01);           // Increment Minutes
+                break;
+                
+            case SETTING_TARGET_HOURS:                                                     // Hours Mode
+                if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;           // Reset Hours
+                else TargetTime[2] = AddBCD(TargetTime[2], 0x01);               // Increment Hours
+                break;
+            case SETTING_WATERING_SECONDS:
+                if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;       // Reset Minutes
+                else WateringTime[0] = AddBCD(WateringTime[0], 0x01);           // Increment Minutes
+                break;
+            case SETTING_WATERING_MINUTES:
+                if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;           // Reset Hours
+                else WateringTime[1] = AddBCD(WateringTime[1], 0x01);               // Increment Hours
+                break;
+            case SETTING_VALVE_SECONDS:
+                if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;       // Reset Minutes
+                else ValveTime[0] = AddBCD(ValveTime[0], 0x01);           // Increment Minutes
+                break;
+            case SETTING_VALVE_MINUTES:
+                if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;           // Reset Hours
+                else ValveTime[1] = AddBCD(ValveTime[1], 0x01);               // Increment Hours
+                break;
+        }
+        
+        INTCON3bits.INT1IF = 0;
+    }
+}
+void INT2interruption (void){
+    //////////// EXTERNAL INT 2 ////////////////////////
+    if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
+        
+        Buzz();                         // Buzzing
+        //__delay_ms(BUTTON_DELAY);
+        
+        switch(State){
+            
+            case SETTING_CURRENT_MINUTES:
+                if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;       // Reset Minutes
+                else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);           // Increment Minutes
+                
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x01, CurrentTime[1]);
+                break;
+            case SETTING_CURRENT_HOURS:
+                if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;           // Reset Hours
+                else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);               // Increment Hours
+                
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x02, CurrentTime[2]);
+                break;
+            
+            case IDLE_MODE:
+                
+                WakeUp();
+
+                State = MAIN_LOOP_HANDLER;
+                
+                break;
+                
+            case MAIN_LOOP_HANDLER:
+                //Beep
+                break;
+
+            case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
+                if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;       // Reset Minutes
+                else TargetTime[1] = SubBCD(TargetTime[1], 0x01);           // Decrement Minutes
+                break;
+                
+            case SETTING_TARGET_HOURS:                                                     // Hours Mode
+                if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;           // Reset Hours
+                else TargetTime[2] = SubBCD(TargetTime[2], 0x01);               // Decrement Hours
+                break;
+            case SETTING_WATERING_SECONDS:                                                     // Minutes Mode
+                if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;       // Reset Minutes
+                else WateringTime[0] = SubBCD(WateringTime[0], 0x01);           // Decrement Minutes
+                break;
+                
+            case SETTING_WATERING_MINUTES:                                                     // Hours Mode
+                if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;           // Reset Hours
+                else WateringTime[1] = SubBCD(WateringTime[1], 0x01);               // Decrement Hours
+                break;
+                
+            case SETTING_VALVE_SECONDS:                                                     // Minutes Mode
+                if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;       // Reset Minutes
+                else ValveTime[0] = SubBCD(ValveTime[0], 0x01);           // Decrement Minutes
+                break;
+                
+            case SETTING_VALVE_MINUTES:                                                     // Hours Mode
+                if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;           // Reset Hours
+                else ValveTime[1] = SubBCD(ValveTime[1], 0x01);               // Decrement Hours
+                break;
+        }
+        
+        INTCON3bits.INT2IF = 0;
+    }
+}
+
 
 void MCUinit(void){
     Display(0x88, 0x88);

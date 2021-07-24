@@ -4237,6 +4237,9 @@ void MCUinit(void);
 void TMR0interruption (void);
 void TMR1interruption (void);
 void TMR3interruption (void);
+void INT0interruption (void);
+void INT1interruption (void);
+void INT2interruption (void);
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -4456,216 +4459,14 @@ void main(void) {
 
 void __attribute__((picinterrupt(("")))) my_isr_routine (void) {
 
-
     TMR0interruption();
     TMR1interruption();
     TMR3interruption();
 
 
-
-
-
-    if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
-
-        Buzz();
-
-        switch(State){
-
-
-            case 0:
-
-                State = 1;
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-
-                break;
-
-            case 1:
-                State = 3;
-                WakeUp();
-                T0CONbits.TMR0ON = 1;
-                T1CONbits.TMR1ON = 0;
-                break;
-
-            case 2:
-
-                WakeUp();
-                State = 3;
-
-                break;
-
-            case 3:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 4;
-                break;
-
-            case 4:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 5;
-                break;
-            case 5:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 6;
-                break;
-            case 6:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 7;
-                break;
-            case 7:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 8;
-                break;
-            case 8:
-                T0CONbits.TMR0ON = 0;
-                T1CONbits.TMR1ON = 1;
-                State = 9;
-                break;
-            case 9:
-                T0CONbits.TMR0ON = 1;
-                T1CONbits.TMR1ON = 0;
-                WakeUp();
-                State = 3;
-                break;
-        }
-
-        INTCONbits.INT0F = 0;
-    }
-
-
-    if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
-
-        Buzz();
-
-
-        switch(State){
-            case 0:
-                if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;
-                else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);
-
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
-                break;
-            case 1:
-                if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;
-                else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);
-
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
-                break;
-
-            case 2:
-                WakeUp();
-                State = 3;
-                break;
-
-            case 3:
-
-                break;
-
-            case 4:
-                if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;
-                else TargetTime[1] = AddBCD(TargetTime[1], 0x01);
-                break;
-
-            case 5:
-                if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;
-                else TargetTime[2] = AddBCD(TargetTime[2], 0x01);
-                break;
-            case 6:
-                if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;
-                else WateringTime[0] = AddBCD(WateringTime[0], 0x01);
-                break;
-            case 7:
-                if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;
-                else WateringTime[1] = AddBCD(WateringTime[1], 0x01);
-                break;
-            case 8:
-                if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;
-                else ValveTime[0] = AddBCD(ValveTime[0], 0x01);
-                break;
-            case 9:
-                if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;
-                else ValveTime[1] = AddBCD(ValveTime[1], 0x01);
-                break;
-        }
-
-        INTCON3bits.INT1IF = 0;
-    }
-
-
-    if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
-
-        Buzz();
-
-
-        switch(State){
-
-            case 0:
-                if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;
-                else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);
-
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x01, CurrentTime[1]);
-                break;
-            case 1:
-                if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;
-                else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);
-
-                ChangeTime(0x00, 0x00);
-                ChangeTime(0x02, CurrentTime[2]);
-                break;
-
-            case 2:
-
-                WakeUp();
-
-                State = 3;
-
-                break;
-
-            case 3:
-
-                break;
-
-            case 4:
-                if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;
-                else TargetTime[1] = SubBCD(TargetTime[1], 0x01);
-                break;
-
-            case 5:
-                if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;
-                else TargetTime[2] = SubBCD(TargetTime[2], 0x01);
-                break;
-            case 6:
-                if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;
-                else WateringTime[0] = SubBCD(WateringTime[0], 0x01);
-                break;
-
-            case 7:
-                if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;
-                else WateringTime[1] = SubBCD(WateringTime[1], 0x01);
-                break;
-
-            case 8:
-                if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;
-                else ValveTime[0] = SubBCD(ValveTime[0], 0x01);
-                break;
-
-            case 9:
-                if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;
-                else ValveTime[1] = SubBCD(ValveTime[1], 0x01);
-                break;
-        }
-
-        INTCON3bits.INT2IF = 0;
-    }
-
-
+    INT0interruption();
+    INT1interruption();
+    INT2interruption();
 }
 
 void GPIOconfig(void){
@@ -4817,6 +4618,211 @@ void TMR3interruption (void){
         PIR2bits.TMR3IF = 0;
     }
 }
+void INT0interruption (void){
+
+    if(INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1){
+
+        Buzz();
+
+        switch(State){
+
+
+            case 0:
+
+                State = 1;
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+
+                break;
+
+            case 1:
+                State = 3;
+                WakeUp();
+                T0CONbits.TMR0ON = 1;
+                T1CONbits.TMR1ON = 0;
+                break;
+
+            case 2:
+
+                WakeUp();
+                State = 3;
+
+                break;
+
+            case 3:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 4;
+                break;
+
+            case 4:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 5;
+                break;
+            case 5:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 6;
+                break;
+            case 6:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 7;
+                break;
+            case 7:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 8;
+                break;
+            case 8:
+                T0CONbits.TMR0ON = 0;
+                T1CONbits.TMR1ON = 1;
+                State = 9;
+                break;
+            case 9:
+                T0CONbits.TMR0ON = 1;
+                T1CONbits.TMR1ON = 0;
+                WakeUp();
+                State = 3;
+                break;
+        }
+
+        INTCONbits.INT0F = 0;
+    }
+}
+void INT1interruption (void){
+
+    if(INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1){
+
+        Buzz();
+
+
+        switch(State){
+            case 0:
+                if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;
+                else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);
+
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x01, CurrentTime[1]);
+                break;
+            case 1:
+                if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;
+                else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);
+
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x02, CurrentTime[2]);
+                break;
+
+            case 2:
+                WakeUp();
+                State = 3;
+                break;
+
+            case 3:
+
+                break;
+
+            case 4:
+                if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;
+                else TargetTime[1] = AddBCD(TargetTime[1], 0x01);
+                break;
+
+            case 5:
+                if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;
+                else TargetTime[2] = AddBCD(TargetTime[2], 0x01);
+                break;
+            case 6:
+                if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;
+                else WateringTime[0] = AddBCD(WateringTime[0], 0x01);
+                break;
+            case 7:
+                if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;
+                else WateringTime[1] = AddBCD(WateringTime[1], 0x01);
+                break;
+            case 8:
+                if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;
+                else ValveTime[0] = AddBCD(ValveTime[0], 0x01);
+                break;
+            case 9:
+                if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;
+                else ValveTime[1] = AddBCD(ValveTime[1], 0x01);
+                break;
+        }
+
+        INTCON3bits.INT1IF = 0;
+    }
+}
+void INT2interruption (void){
+
+    if(INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1){
+
+        Buzz();
+
+
+        switch(State){
+
+            case 0:
+                if(CurrentTime[1] == 0x00) CurrentTime[1] = 0x59;
+                else CurrentTime[1] = SubBCD(CurrentTime[1], 0x01);
+
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x01, CurrentTime[1]);
+                break;
+            case 1:
+                if(CurrentTime[2] == 0x00) CurrentTime[2] = 0x23;
+                else CurrentTime[2] = SubBCD(CurrentTime[2], 0x01);
+
+                ChangeTime(0x00, 0x00);
+                ChangeTime(0x02, CurrentTime[2]);
+                break;
+
+            case 2:
+
+                WakeUp();
+
+                State = 3;
+
+                break;
+
+            case 3:
+
+                break;
+
+            case 4:
+                if(TargetTime[1] == 0x00) TargetTime[1] = 0x59;
+                else TargetTime[1] = SubBCD(TargetTime[1], 0x01);
+                break;
+
+            case 5:
+                if(TargetTime[2] == 0x00) TargetTime[2] = 0x23;
+                else TargetTime[2] = SubBCD(TargetTime[2], 0x01);
+                break;
+            case 6:
+                if(WateringTime[0] == 0x00) WateringTime[0] = 0x59;
+                else WateringTime[0] = SubBCD(WateringTime[0], 0x01);
+                break;
+
+            case 7:
+                if(WateringTime[1] == 0x00) WateringTime[1] = 0x59;
+                else WateringTime[1] = SubBCD(WateringTime[1], 0x01);
+                break;
+
+            case 8:
+                if(ValveTime[0] == 0x00) ValveTime[0] = 0x59;
+                else ValveTime[0] = SubBCD(ValveTime[0], 0x01);
+                break;
+
+            case 9:
+                if(ValveTime[1] == 0x00) ValveTime[1] = 0x59;
+                else ValveTime[1] = SubBCD(ValveTime[1], 0x01);
+                break;
+        }
+
+        INTCON3bits.INT2IF = 0;
+    }
+}
+
 
 void MCUinit(void){
     Display(0x88, 0x88);
