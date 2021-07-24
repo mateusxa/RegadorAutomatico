@@ -57,7 +57,10 @@ void WakeUp(void);
 void UpdateCurrentTime(void);
 void Buzz(void);
 void BlinkDigit(char index);
-void StartPWM(void);
+void TMR0enable(void);
+void TMR1enable(void);
+void IncrementTime(char *Time);
+void IncrementTimeHour(char *Time);
 
 void Display(char Hours, char Minutes);
 
@@ -74,8 +77,7 @@ void TMR3interruption (void);
 void INT0interruption (void);
 void INT1interruption (void);
 void INT2interruption (void);
-void TMR0enable(void);
-void TMR1enable(void);
+
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -530,16 +532,13 @@ void INT1interruption (void){
         
         switch(State){
             case SETTING_CURRENT_MINUTES:
-                if(CurrentTime[1] == 0x59) CurrentTime[1] = 0x00;       // Reset Minutes
-                else CurrentTime[1] = AddBCD(CurrentTime[1], 0x01);           // Increment Minutes
-                
+                IncrementTime(&CurrentTime[1]);
                 ChangeTime(DS1307_SECONDS, 0x00);
                 ChangeTime(DS1307_MINUTES, CurrentTime[1]);
                 break;
-            case SETTING_CURRENT_HOURS:
-                if(CurrentTime[2] == 0x23) CurrentTime[2] = 0x00;           // Reset Hours
-                else CurrentTime[2] = AddBCD(CurrentTime[2], 0x01);               // Increment Hours
                 
+            case SETTING_CURRENT_HOURS:
+                IncrementTimeHour(&CurrentTime[2]);
                 ChangeTime(DS1307_SECONDS, 0x00);
                 ChangeTime(DS1307_HOURS, CurrentTime[2]);
                 break;
@@ -554,29 +553,27 @@ void INT1interruption (void){
                 break;
                 
             case SETTING_TARGET_MINUTES:                                                     // Minutes Mode
-                if(TargetTime[1] == 0x59) TargetTime[1] = 0x00;       // Reset Minutes
-                else TargetTime[1] = AddBCD(TargetTime[1], 0x01);           // Increment Minutes
+                IncrementTime(&TargetTime[1]);
                 break;
                 
             case SETTING_TARGET_HOURS:                                                     // Hours Mode
-                if(TargetTime[2] == 0x23) TargetTime[2] = 0x00;           // Reset Hours
-                else TargetTime[2] = AddBCD(TargetTime[2], 0x01);               // Increment Hours
+                IncrementTimeHour(&TargetTime[2]);
                 break;
+
             case SETTING_WATERING_SECONDS:
-                if(WateringTime[0] == 0x59) WateringTime[0] = 0x00;       // Reset Minutes
-                else WateringTime[0] = AddBCD(WateringTime[0], 0x01);           // Increment Minutes
+                IncrementTime(&WateringTime[0]);
                 break;
+
             case SETTING_WATERING_MINUTES:
-                if(WateringTime[1] == 0x59) WateringTime[1] = 0x00;           // Reset Hours
-                else WateringTime[1] = AddBCD(WateringTime[1], 0x01);               // Increment Hours
+                IncrementTime(&WateringTime[1]);
                 break;
+
             case SETTING_VALVE_SECONDS:
-                if(ValveTime[0] == 0x59) ValveTime[0] = 0x00;       // Reset Minutes
-                else ValveTime[0] = AddBCD(ValveTime[0], 0x01);           // Increment Minutes
+                IncrementTime(&ValveTime[0]);
                 break;
+
             case SETTING_VALVE_MINUTES:
-                if(ValveTime[1] == 0x59) ValveTime[1] = 0x00;           // Reset Hours
-                else ValveTime[1] = AddBCD(ValveTime[1], 0x01);               // Increment Hours
+                IncrementTime(&ValveTime[1]);
                 break;
         }
         
@@ -703,6 +700,15 @@ void TMR1enable(void){
 void TMR0enable(void){
     T0CONbits.TMR0ON = 1;    // Disable Timer 0
     T1CONbits.TMR1ON = 0;    // Enable Timer 1
+}
+
+void IncrementTime(char *Time){
+    if(*Time == 0x59) *Time = 0x00;       // Reset Minutes
+    else *Time = AddBCD(*Time, 0x01);           // Increment Minutes
+}
+void IncrementTimeHour(char *Time){
+    if(*Time == 0x23) *Time = 0x00;       // Reset Minutes
+    else *Time = AddBCD(*Time, 0x01);           // Increment Minutes
 }
 
 char AddBCD(char Number1, char Number2){
