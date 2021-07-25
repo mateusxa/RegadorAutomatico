@@ -4214,7 +4214,7 @@ typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdint.h" 2 3
 # 15 "main.c" 2
-# 52 "main.c"
+# 53 "main.c"
 void ChangeTime(uint8_t Address, uint8_t Time);
 uint8_t ReadTime(uint8_t Address);
 char AddBCD(char Number1, char Number2);
@@ -4286,27 +4286,27 @@ void main(void) {
         _delay((unsigned long)((1)*(4000000/4000.0)));
 
         switch(State){
+
             case 0:
-
-                Display(CurrentTime[2], CurrentTime[1]);
-                BlinkDigit(1);
-
+                Display(0x88, 0x88);
+                Buzz();
                 break;
 
             case 1:
-
                 Display(CurrentTime[2], CurrentTime[1]);
-                BlinkDigit(2);
-
+                BlinkDigit(1);
                 break;
 
             case 2:
-
-                __asm(" sleep");
-
+                Display(CurrentTime[2], CurrentTime[1]);
+                BlinkDigit(2);
                 break;
 
             case 3:
+                __asm(" sleep");
+                break;
+
+            case 4:
 
                 if(UpdateTimeFlag){
 
@@ -4326,42 +4326,42 @@ void main(void) {
 
                 BlinkDigit(0);
 
-                if(WaterEnable == 1 && WaterEnableLock == 0) State = 10;
-                else if(WakeUpTime[2] == CurrentTime[2] && WakeUpTime[1] == CurrentTime[1]) State = 2;
+                if(WaterEnable == 1 && WaterEnableLock == 0) State = 11;
+                else if(WakeUpTime[2] == CurrentTime[2] && WakeUpTime[1] == CurrentTime[1]) State = 3;
 
-                break;
-
-            case 4:
-                Display(TargetTime[2], TargetTime[1]);
-                BlinkDigit(1);
                 break;
 
             case 5:
                 Display(TargetTime[2], TargetTime[1]);
-                BlinkDigit(2);
+                BlinkDigit(1);
                 break;
 
             case 6:
-                Display(WateringTime[1], WateringTime[0]);
-                BlinkDigit(1);
+                Display(TargetTime[2], TargetTime[1]);
+                BlinkDigit(2);
                 break;
 
             case 7:
                 Display(WateringTime[1], WateringTime[0]);
-                BlinkDigit(2);
+                BlinkDigit(1);
                 break;
 
             case 8:
-                Display(ValveTime[1], ValveTime[0]);
-                BlinkDigit(1);
+                Display(WateringTime[1], WateringTime[0]);
+                BlinkDigit(2);
                 break;
 
             case 9:
                 Display(ValveTime[1], ValveTime[0]);
-                BlinkDigit(2);
+                BlinkDigit(1);
                 break;
 
             case 10:
+                Display(ValveTime[1], ValveTime[0]);
+                BlinkDigit(2);
+                break;
+
+            case 11:
                 if(UpdateTimeFlag) {
                     UpdateCurrentTime();
                     if(CurrentTime[0] != LastSecond){
@@ -4406,11 +4406,11 @@ void main(void) {
                     CurrentWateringTime[0] = 0x00;
                     CurrentWateringTime[1] = 0x00;
                     LastSecond = 0x00;
-                    State = 11;
+                    State = 12;
                 }
 
                 break;
-            case 11:
+            case 12:
                 if(UpdateTimeFlag) {
                     UpdateCurrentTime();
                     if(CurrentTime[0] != LastSecond){
@@ -4449,7 +4449,7 @@ void main(void) {
                     CurrentValveTime[0] = 0x00;
                     CurrentValveTime[1] = 0x00;
                     LastSecond = 0x00;
-                    State = 3;
+                    State = 4;
                 }
 
                 break;
@@ -4574,18 +4574,20 @@ void MCUconfig(void) {
 
     PWMconfig();
 }
+
+
 void TMR0interruption (void){
 
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
 
         switch(State){
-            case 2:
+            case 3:
                 UpdateCurrentTime();
 
                 if(CurrentTime[2] == TargetTime[2] && CurrentTime[1] == TargetTime[1]) {
                     WaterEnable = 1;
 
-                    State = 3;
+                    State = 4;
                 }else{
                     WaterEnable = 0;
                     WaterEnableLock = 0;
@@ -4601,8 +4603,16 @@ void TMR0interruption (void){
 void TMR1interruption (void){
 
     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
+        switch(State){
+            case 0:
+                State = 1;
+                break;
 
-        Blink = ~Blink;
+            default:
+                Blink = ~Blink;
+                break;
+        }
+
 
         PIR1bits.TMR1IF = 0;
     }
@@ -4633,27 +4643,22 @@ void INT0interruption (void){
         switch(State){
 
 
-            case 0:
-                State = 1;
+            case 1:
+                State = 2;
                 TMR1enable();
                 break;
 
-            case 1:
-                State = 3;
+            case 2:
+                State = 4;
                 WakeUp();
                 TMR0enable();
                 break;
 
-            case 2:
+            case 3:
 
                 WakeUp();
-                State = 3;
-
-                break;
-
-            case 3:
-                TMR1enable();
                 State = 4;
+
                 break;
 
             case 4:
@@ -4682,9 +4687,14 @@ void INT0interruption (void){
                 break;
 
             case 9:
+                TMR1enable();
+                State = 10;
+                break;
+
+            case 10:
                 TMR0enable();
                 WakeUp();
-                State = 3;
+                State = 4;
                 break;
         }
 
@@ -4699,48 +4709,48 @@ void INT1interruption (void){
 
 
         switch(State){
-            case 0:
+            case 1:
                 IncrementTime(&CurrentTime[1]);
                 ChangeTime(0x00, 0x00);
                 ChangeTime(0x01, CurrentTime[1]);
                 break;
 
-            case 1:
+            case 2:
                 IncrementTimeHour(&CurrentTime[2]);
                 ChangeTime(0x00, 0x00);
                 ChangeTime(0x02, CurrentTime[2]);
                 break;
 
-            case 2:
-                WakeUp();
-                State = 3;
-                break;
-
             case 3:
-
+                WakeUp();
+                State = 4;
                 break;
 
             case 4:
-                IncrementTime(&TargetTime[1]);
+
                 break;
 
             case 5:
-                IncrementTimeHour(&TargetTime[2]);
+                IncrementTime(&TargetTime[1]);
                 break;
 
             case 6:
-                IncrementTime(&WateringTime[0]);
+                IncrementTimeHour(&TargetTime[2]);
                 break;
 
             case 7:
-                IncrementTime(&WateringTime[1]);
+                IncrementTime(&WateringTime[0]);
                 break;
 
             case 8:
-                IncrementTime(&ValveTime[0]);
+                IncrementTime(&WateringTime[1]);
                 break;
 
             case 9:
+                IncrementTime(&ValveTime[0]);
+                break;
+
+            case 10:
                 IncrementTime(&ValveTime[1]);
                 break;
         }
@@ -4757,51 +4767,51 @@ void INT2interruption (void){
 
         switch(State){
 
-            case 0:
+            case 1:
                 DecrementTime(&CurrentTime[1]);
                 ChangeTime(0x00, 0x00);
                 ChangeTime(0x01, CurrentTime[1]);
                 break;
 
-            case 1:
+            case 2:
                 DecrementTimeHour(&CurrentTime[2]);
                 ChangeTime(0x00, 0x00);
                 ChangeTime(0x02, CurrentTime[2]);
                 break;
 
-            case 2:
+            case 3:
 
                 WakeUp();
 
-                State = 3;
-
-                break;
-
-            case 3:
+                State = 4;
 
                 break;
 
             case 4:
-                DecrementTime(&TargetTime[1]);
+
                 break;
 
             case 5:
-                DecrementTimeHour(&TargetTime[2]);
+                DecrementTime(&TargetTime[1]);
                 break;
 
             case 6:
-                DecrementTime(&WateringTime[0]);
+                DecrementTimeHour(&TargetTime[2]);
                 break;
 
             case 7:
-                DecrementTime(&WateringTime[1]);
+                DecrementTime(&WateringTime[0]);
                 break;
 
             case 8:
-                DecrementTime(&ValveTime[0]);
+                DecrementTime(&WateringTime[1]);
                 break;
 
             case 9:
+                DecrementTime(&ValveTime[0]);
+                break;
+
+            case 10:
                 DecrementTime(&ValveTime[1]);
                 break;
         }
@@ -4811,7 +4821,7 @@ void INT2interruption (void){
 }
 
 void MCUinit(void){
-    Display(0x88, 0x88);
+    _delay((unsigned long)((10)*(4000000/4000.0)));
 
 }
 
@@ -4861,7 +4871,6 @@ void TMR0enable(void){
     T0CONbits.TMR0ON = 1;
     T1CONbits.TMR1ON = 0;
 }
-
 void IncrementTime(char *Time){
     if(*Time == 0x59) *Time = 0x00;
     else *Time = AddBCD(*Time, 0x01);

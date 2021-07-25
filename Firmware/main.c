@@ -36,18 +36,19 @@
 #define DS1307_HOURS                        0x02
 
 // MODES
-#define SETTING_CURRENT_MINUTES             0
-#define SETTING_CURRENT_HOURS               1
-#define IDLE_MODE                           2
-#define MAIN_LOOP_HANDLER                   3
-#define SETTING_TARGET_MINUTES              4
-#define SETTING_TARGET_HOURS                5
-#define SETTING_WATERING_SECONDS            6
-#define SETTING_WATERING_MINUTES            7
-#define SETTING_VALVE_SECONDS               8
-#define SETTING_VALVE_MINUTES               9
-#define WATERING_MODE                       10
-#define VALVE_MODE                          11
+#define CHECKING_MODE                       0
+#define SETTING_CURRENT_MINUTES             1
+#define SETTING_CURRENT_HOURS               2
+#define IDLE_MODE                           3
+#define MAIN_LOOP_HANDLER                   4
+#define SETTING_TARGET_MINUTES              5
+#define SETTING_TARGET_HOURS                6
+#define SETTING_WATERING_SECONDS            7
+#define SETTING_WATERING_MINUTES            8
+#define SETTING_VALVE_SECONDS               9
+#define SETTING_VALVE_MINUTES               10
+#define WATERING_MODE                       11
+#define VALVE_MODE                          12
 
 void ChangeTime(uint8_t Address, uint8_t Time);
 uint8_t ReadTime(uint8_t Address);
@@ -120,24 +121,24 @@ void main(void) {
         __delay_ms(1);                                     // Time to not overflow
         
         switch(State){
+
+            case CHECKING_MODE:
+                Display(0x88, 0x88);
+                Buzz();
+                break;
+
             case SETTING_CURRENT_MINUTES:                                         // Setting Hours mode
-                
                 Display(CurrentTime[2], CurrentTime[1]);    // Display Current time
                 BlinkDigit(1);
-                
                 break;
             
             case SETTING_CURRENT_HOURS:                                         // Setting Minutes mode
-                
                 Display(CurrentTime[2], CurrentTime[1]);    // Display Minutes
                 BlinkDigit(2);
-                
                 break;
                 
             case IDLE_MODE:                                         // Sleep mode
-                
                 Sleep();
-                
                 break;
                 
             case MAIN_LOOP_HANDLER:                                         // main loop mode
@@ -308,7 +309,7 @@ void __interrupt () my_isr_routine (void) {
     INT1interruption();
     INT2interruption();
 }
-
+// --------------- CONFIGURATIONS
 void GPIOconfig(void){
 
     TRISC = 0;
@@ -408,6 +409,8 @@ void MCUconfig(void) {
     
     PWMconfig();
 }
+
+// ------------INTERRUPTIONS
 void TMR0interruption (void){
     //////////// TIMER 0 INTERRUPT /////////////////
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
@@ -435,8 +438,16 @@ void TMR0interruption (void){
 void TMR1interruption (void){
     //////////// TIMER 1 INTERRUPT /////////////////
     if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1){
+        switch(State){
+            case CHECKING_MODE:
+                State = SETTING_CURRENT_MINUTES;
+                break;
+
+            default:
+                Blink = ~Blink;
+                break;
+        }
         
-        Blink = ~Blink;
         
         PIR1bits.TMR1IF = 0;
     }
@@ -645,7 +656,7 @@ void INT2interruption (void){
 }
 
 void MCUinit(void){
-    Display(0x88, 0x88);
+    __delay_ms(10);
     
 }
 
@@ -695,7 +706,6 @@ void TMR0enable(void){
     T0CONbits.TMR0ON = 1;    // Disable Timer 0
     T1CONbits.TMR1ON = 0;    // Enable Timer 1
 }
-
 void IncrementTime(char *Time){
     if(*Time == 0x59) *Time = 0x00;       // Reset Minutes
     else *Time = AddBCD(*Time, 0x01);           // Increment Minutes
