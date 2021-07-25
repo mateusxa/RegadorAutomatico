@@ -4232,6 +4232,7 @@ void DecrementTimeHour(char *Time);
 void AnalogWrite(char value);
 void SoftStarterInit(void);
 void SoftStarterTurnOff(void);
+void SetInterrupts(char value);
 
 void Display(char Hours, char Minutes);
 
@@ -4374,17 +4375,11 @@ void main(void) {
                             CurrentWateringTime[1] = AddBCD(CurrentWateringTime[1], 0x01);
                             CurrentWateringTime[0] = 0x00;
                         }else CurrentWateringTime[0] = AddBCD(CurrentWateringTime[0], 0x01);
-
                         LastSecond = CurrentTime[0];
                     }
-
                     UpdateTimeFlag = 0;
                 }
-                PIE2bits.TMR3IE = 0;
-                PIE1bits.TMR1IE = 0;
-                INTCONbits.INT0IE = 0;
-                INTCON3bits.INT1IE = 0;
-                INTCON3bits.INT2IE = 0;
+                SetInterrupts(0);
                 PORTCbits.RC0 = 0;
 
                 SoftStarterInit();
@@ -4404,15 +4399,12 @@ void main(void) {
                 if(UpdateTimeFlag) {
                     UpdateCurrentTime();
                     if(CurrentTime[0] != LastSecond){
-
                         if(AddBCD(CurrentValveTime[0], 0x01) > 0x59){
                             CurrentValveTime[1] = AddBCD(CurrentValveTime[1], 0x01);
                             CurrentValveTime[0] = 0x00;
                         }else CurrentValveTime[0] = AddBCD(CurrentValveTime[0], 0x01);
-
                         LastSecond = CurrentTime[0];
                     }
-
                     UpdateTimeFlag = 0;
                 }
 
@@ -4425,13 +4417,8 @@ void main(void) {
 
                 if(CurrentValveTime[1] == ValveTime[1] && CurrentValveTime[0] == ValveTime[0]){
 
-
                     PORTCbits.RC5 = 0;
-                    PIE2bits.TMR3IE = 1;
-                    PIE1bits.TMR1IE = 1;
-                    INTCONbits.INT0IE = 1;
-                    INTCON3bits.INT1IE = 1;
-                    INTCON3bits.INT2IE = 1;
+                    SetInterrupts(1);
 
                     WaterEnable = 0;
                     WaterEnableLock = 1;
@@ -4439,6 +4426,7 @@ void main(void) {
                     CurrentValveTime[0] = 0x00;
                     CurrentValveTime[1] = 0x00;
                     LastSecond = 0x00;
+
                     State = 4;
                 }
 
@@ -4901,6 +4889,13 @@ void SoftStarterInit(void){
 void SoftStarterTurnOff(void){
     AnalogWrite(0);
     SoftStarterFlag = 1;
+}
+void SetInterrupts(char value){
+    PIE2bits.TMR3IE = value;
+    PIE1bits.TMR1IE = value;
+    INTCONbits.INT0IE = value;
+    INTCON3bits.INT1IE = value;
+    INTCON3bits.INT2IE = value;
 }
 
 char AddBCD(char Number1, char Number2){
