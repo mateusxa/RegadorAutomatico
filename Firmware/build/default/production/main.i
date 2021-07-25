@@ -4230,6 +4230,8 @@ void IncrementTimeHour(char *Time);
 void DecrementTime(char *Time);
 void DecrementTimeHour(char *Time);
 void AnalogWrite(char value);
+void SoftStarterInit(void);
+void SoftStarterTurnOff(void);
 
 void Display(char Hours, char Minutes);
 
@@ -4268,6 +4270,8 @@ char ValveEnable = 0;
 char ValveEnableLock = 0;
 char ValveTime[3] = {0,0,0};
 char CurrentValveTime[2] = {0,0};
+
+char SoftStarterFlag = 1;
 
 char UpdateTimePrescale = 0;
 
@@ -4383,18 +4387,12 @@ void main(void) {
                 INTCON3bits.INT2IE = 0;
                 PORTCbits.RC0 = 0;
 
-                if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x01){
-                    AnalogWrite(100);
-                }else if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x02){
-                    AnalogWrite(150);
-                }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringTime[0] >= 0x03){
-                    AnalogWrite(200);
-                }
+                SoftStarterInit();
                 BlinkDigit(0);
                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
 
                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWateringTime[0] == WateringTime[0]){
-                    AnalogWrite(0);
+                    SoftStarterTurnOff();
                     CurrentWateringTime[0] = 0x00;
                     CurrentWateringTime[1] = 0x00;
                     LastSecond = 0x00;
@@ -4883,6 +4881,26 @@ void AnalogWrite(char value){
     CCP1CONbits.DC1B0 = value & 0x01;
     CCP1CONbits.DC1B1 = ((value & 0x02) >> 1);
     CCPR1L = (value >> 2);
+}
+void SoftStarterInit(void){
+    if(SoftStarterFlag){
+        AnalogWrite(4);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        AnalogWrite(40);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        AnalogWrite(80);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        AnalogWrite(120);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        AnalogWrite(160);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        AnalogWrite(200);
+        SoftStarterFlag = 0;
+    }
+}
+void SoftStarterTurnOff(void){
+    AnalogWrite(0);
+    SoftStarterFlag = 1;
 }
 
 char AddBCD(char Number1, char Number2){
