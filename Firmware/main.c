@@ -62,6 +62,9 @@ void TMR0enable(void);
 void TMR1enable(void);
 void IncrementTime(char *Time);
 void IncrementTimeHour(char *Time);
+void DecrementTime(char *Time);
+void DecrementTimeHour(char *Time);
+void AnalogWrite(char value);
 
 void Display(char Hours, char Minutes);
 
@@ -78,9 +81,6 @@ void TMR3interruption (void);
 void INT0interruption (void);
 void INT1interruption (void);
 void INT2interruption (void);
-void DecrementTime(char *Time);
-void DecrementTimeHour(char *Time);
-
 
 char CurrentTime[3];
 char TargetTime[3] = {0x00, 0x00, 0x12};
@@ -219,25 +219,17 @@ void main(void) {
                 BuzzerPORT.BuzzerPIN = 0;
                 
                 if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x01){
-                    CCP1CONbits.DC1B0 = 0;                              // 0.5 duty cycle
-                    CCP1CONbits.DC1B1 = 0;
-                    CCPR1L = 0x19;
+                    AnalogWrite(100);
                 }else if(CurrentWateringTime[1] == 0x00 && CurrentWateringTime[0] == 0x02){
-                    CCP1CONbits.DC1B0 = 0;                              // 0.75 duty cycle
-                    CCP1CONbits.DC1B1 = 1;
-                    CCPR1L = 0x25;
+                    AnalogWrite(150);
                 }else if(CurrentWateringTime[1] > 0x00 || CurrentWateringTime[0] >= 0x03){
-                    CCP1CONbits.DC1B0 = 0;                              // 1 duty cycle
-                    CCP1CONbits.DC1B1 = 0;
-                    CCPR1L = 0x32;
+                    AnalogWrite(200);
                 }
                 BlinkDigit(0);
                 Display(CurrentWateringTime[1], CurrentWateringTime[0]);
                 
                 if(CurrentWateringTime[1] == WateringTime[1] && CurrentWateringTime[0] == WateringTime[0]){
-                    CCP1CONbits.DC1B0 = 0;
-                    CCP1CONbits.DC1B1 = 0;
-                    CCPR1L = 0x00;                                     
+                    AnalogWrite(0);                                   
                     CurrentWateringTime[0] = 0x00;
                     CurrentWateringTime[1] = 0x00;
                     LastSecond = 0x00;
@@ -378,7 +370,7 @@ void PWMconfig(void){
     CCP1CON = 0x00;         // CCPR1L:CCP1CON<5:4> = 100;    -   Period of 0.1 ms (Half of PWM Period)
     CCPR1L = 0x19;          // CCPR1L:CCP1CON<5:4> = 0x64; 0X19
                             // PWM Duty Cycle = (CCPR1L:CCP1CON<5:4>)*TOSC*TMR2_PRESCALE
-                            // 0.1*10^-3 = CCPR1L:CCP1CON<5:4>*(1/4*10^-6)*4
+                            // 0.1*10^-3 = CCPR1L:CCP1CON<5:4>*(1/4*10^6)*4
     
     // 3 - Make the CCPx pin an output by clearing the appropriate TRIS bit.
     TRISCbits.RC2 = 0;
@@ -714,7 +706,6 @@ void IncrementTimeHour(char *Time){
     if(*Time == 0x23) *Time = 0x00;       // Reset Minutes
     else *Time = AddBCD(*Time, 0x01);           // Increment Minutes
 }
-
 void DecrementTime(char *Time){
     if(*Time == 0x00) *Time = 0x59;       // Reset Minutes
     else *Time = SubBCD(*Time, 0x01);           // Decrement Minutes
@@ -722,6 +713,11 @@ void DecrementTime(char *Time){
 void DecrementTimeHour(char *Time){
     if(*Time == 0x00) *Time = 0x23;           // Reset Hours
     else *Time = SubBCD(*Time, 0x01);               // Decrement Hours
+}
+void AnalogWrite(char value){
+    CCP1CONbits.DC1B0 = value & 0x01;
+    CCP1CONbits.DC1B1 = ((value & 0x02) >> 1);
+    CCPR1L = (value >> 2);
 }
 
 char AddBCD(char Number1, char Number2){
